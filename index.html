@@ -172,12 +172,12 @@
         </a>
       </div>
       <nav class="hidden xl:flex items-center gap-space-xs font-label-lg text-label-lg" data-active-classes="bg-primary-container text-on-primary font-label-lg rounded-full px-space-md py-space-xs">
-        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" data-path="men" href="#">Men</a>
-        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" data-path="women" href="#">Women</a>
-        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" data-path="juniors" href="#">Juniors</a>
-        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" data-path="athleisure" href="#">Athleisure</a>
-        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" data-path="thermals" href="#">Thermals</a>
-        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" data-path="150th-special" href="#">Featured Collection</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" data-path="men" href="men.html">Men</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" data-path="women" href="women.html">Women</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" data-path="accessories" href="accessories.html">Accessories</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" data-path="athleisure" href="men.html">Athleisure</a>
+        <a class="px-3 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" data-path="thermals" href="women.html">Thermals</a>
+        <a class="px-3 py-1.5 bg-primary text-on-primary font-bold rounded-full" data-path="150th-special" href="index.html">Featured Collection</a>
       </nav>
       <div class="flex-1 max-w-md hidden md:block mx-space-sm">
         <div class="relative flex items-center w-full">
@@ -644,18 +644,18 @@
       <section class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop my-space-xl">
         <div class="relative w-full rounded-lg overflow-hidden bg-primary-container text-on-primary shadow-md">
           <div class="relative aspect-[21/9] sm:aspect-[24/9] md:aspect-[3/1] w-full">
-            <img alt="1876 - 2026 Well Icon 150th Anniversary — Crafting Comfort Heritage" class="w-full h-full object-cover mix-blend-luminosity opacity-90" src="https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=1600&q=80"/>
+            <img alt="2026 Well Icon Crafting Comfort Heritage" class="w-full h-full object-cover mix-blend-luminosity opacity-90" src="https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=1600&q=80"/>
             <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/75 to-transparent flex items-center p-space-lg md:p-space-xl">
               <div class="max-w-xl space-y-3">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-canvas/15 text-tertiary-fixed font-label-xs text-label-xs font-bold tracking-widest uppercase">
                   <span class="material-symbols-outlined text-[14px]">military_tech</span>
-                  1876 — 2026 Milestone
+                  2026 Milestone
                 </div>
                 <h2 class="font-headline-lg text-headline-lg md:text-display-hero font-extrabold tracking-tight text-on-primary">
-                  150 YEARS OF CRAFTING COMFORT
+                  1 YEARS OF CRAFTING COMFORT
                 </h2>
                 <p class="font-body-md text-body-md text-surface-container-low max-w-md">
-                  From the original Y-Front invention in 1934 to NASA Apollo spacesuits, explore a century and a half of revolutionary textile engineering.
+                  Curating Comfort Every Minute Every Moment.
                 </p>
                 <div class="pt-2">
                   <a class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-surface-canvas text-primary font-label-md text-label-md font-bold hover:bg-surface-subtle transition-all active:scale-95" href="#">
@@ -1062,6 +1062,58 @@
     </div>
   </footer>
 
+  <!-- HIGH-DEFINITION ZOOM VIEW MODAL -->
+  <div id="zoom-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div id="zoom-modal-backdrop" class="fixed inset-0 bg-primary/70 backdrop-blur-md"></div>
+    <div class="relative bg-surface-canvas rounded-2xl shadow-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row z-10 modal-pop-in">
+      <button id="close-zoom-modal-btn" aria-label="Close Zoom View" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-surface-canvas/80 backdrop-blur flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-colors shadow-md">
+        <span class="material-symbols-outlined text-[24px]">close</span>
+      </button>
+
+      <!-- Interactive Lens Image View -->
+      <div class="w-full md:w-1/2 aspect-[3/4] bg-surface-subtle overflow-hidden relative group">
+        <img id="zoom-modal-img" src="" alt="Zoomed Product View" class="w-full h-full object-cover transition-transform duration-300" />
+        <div class="absolute bottom-3 left-3 bg-primary/80 backdrop-blur text-on-primary font-label-xs text-label-xs px-3 py-1 rounded-full flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">search</span> Hover mouse to magnify detail
+        </div>
+      </div>
+
+      <!-- Product Details & Actions -->
+      <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-between overflow-y-auto bg-surface-canvas">
+        <div class="space-y-4">
+          <span id="zoom-modal-tag" class="px-3 py-1 rounded-full bg-badge-fresh text-on-primary font-label-xs text-label-xs font-bold uppercase tracking-wider inline-block">Featured Item</span>
+          <h2 id="zoom-modal-title" class="font-headline-md text-headline-md font-bold text-primary">Well Icon Apparel</h2>
+          <div class="flex items-center gap-3">
+            <span id="zoom-modal-price" class="font-display-hero text-headline-lg font-bold text-primary">₹699.00</span>
+            <span class="px-2.5 py-0.5 rounded bg-surface-subtle text-secondary font-label-xs text-label-xs font-bold">Inclusive of all taxes</span>
+          </div>
+          <p id="zoom-modal-desc" class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Super combed pure cotton fabric crafted for maximum breathability, skin soft texture, and flexible contour.
+          </p>
+
+          <!-- Size Selector -->
+          <div class="pt-2">
+            <label class="font-label-md text-label-md font-bold text-primary block mb-2">Select Size:</label>
+            <div class="flex items-center gap-2">
+              <button class="w-10 h-10 rounded-full border border-border-hairline font-label-md font-bold text-on-surface-variant hover:border-primary hover:text-primary transition-all">S</button>
+              <button class="w-10 h-10 rounded-full border-2 border-primary bg-primary text-on-primary font-label-md font-bold">M</button>
+              <button class="w-10 h-10 rounded-full border border-border-hairline font-label-md font-bold text-on-surface-variant hover:border-primary hover:text-primary transition-all">L</button>
+              <button class="w-10 h-10 rounded-full border border-border-hairline font-label-md font-bold text-on-surface-variant hover:border-primary hover:text-primary transition-all">XL</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-6 space-y-3">
+          <button id="zoom-modal-add-bag" class="w-full py-3.5 rounded-full bg-primary text-on-primary font-label-lg font-bold hover:bg-primary-container transition-all active:scale-95 shadow-md flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+            ADD TO BAG
+          </button>
+          <p class="font-label-xs text-label-xs text-center text-secondary">Free Express Delivery &amp; Hassle-Free 15-Day Exchange</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- SHOPPING CART SLIDE-OVER DRAWER -->
   <div id="cart-drawer" class="fixed inset-0 z-50 hidden">
     <div id="cart-backdrop" class="fixed inset-0 bg-primary/40 backdrop-blur-xs opacity-0 drawer-backdrop"></div>
@@ -1123,12 +1175,10 @@
             </button>
           </div>
           <nav class="flex flex-col gap-3 font-label-lg text-label-lg">
-            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="#">Men</a>
-            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="#">Women</a>
-            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="#">Juniors</a>
-            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="#">Athleisure</a>
-            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="#">Thermals</a>
-            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold text-badge-fresh" href="#">150th Heritage Capsule</a>
+            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="men.html">Men</a>
+            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="women.html">Women</a>
+            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="accessories.html">Accessories</a>
+            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold text-badge-fresh" href="index.html">Featured Collection</a>
           </nav>
         </div>
         <div class="pt-6 border-t border-border-hairline space-y-3">

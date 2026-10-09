@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  let wishlist = new Set(['FE41']); // Pre-favorited item
+  let wishlist = new Set(['FE41']);
 
   // Elements
   const cartBadge = document.querySelector('a[aria-label="Shopping Bag"] span:last-child');
@@ -43,6 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileSearchOverlay = document.getElementById('mobile-search-overlay');
   const mobileSearchBtn = document.querySelector('button[aria-label="Search Mobile"]');
   const closeMobileSearchBtn = document.getElementById('close-mobile-search-btn');
+
+  // Zoom Modal Elements
+  const zoomModal = document.getElementById('zoom-modal');
+  const zoomModalBackdrop = document.getElementById('zoom-modal-backdrop');
+  const zoomModalCloseBtn = document.getElementById('close-zoom-modal-btn');
+  const zoomImg = document.getElementById('zoom-modal-img');
+  const zoomTitle = document.getElementById('zoom-modal-title');
+  const zoomTag = document.getElementById('zoom-modal-tag');
+  const zoomPrice = document.getElementById('zoom-modal-price');
+  const zoomDesc = document.getElementById('zoom-modal-desc');
+  const zoomAddBagBtn = document.getElementById('zoom-modal-add-bag');
+
+  let currentZoomProduct = null;
 
   // ==========================================
   // 2. TOAST NOTIFICATION SYSTEM
@@ -124,9 +137,9 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `).join('');
 
-    // Attach quantity & remove events
+    // Quantity & remove handlers
     cartItemsContainer.querySelectorAll('.qty-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener('click', () => {
         const index = parseInt(btn.getAttribute('data-index'));
         const action = btn.getAttribute('data-action');
         if (action === 'inc') {
@@ -170,7 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
 
-  // Open Cart Triggers
   document.querySelectorAll('a[aria-label="Shopping Bag"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -181,28 +193,133 @@ document.addEventListener('DOMContentLoaded', () => {
   if (closeCartBtn) closeCartBtn.addEventListener('click', closeCartDrawer);
   if (cartBackdrop) cartBackdrop.addEventListener('click', closeCartDrawer);
 
+  // ==========================================
+  // 4. ZOOM VIEW MODAL HANDLER
+  // ==========================================
+  function openZoomModal(productData) {
+    if (!zoomModal) return;
+    currentZoomProduct = productData;
+
+    if (zoomImg) zoomImg.src = productData.image;
+    if (zoomTitle) zoomTitle.textContent = productData.name;
+    if (zoomTag) zoomTag.textContent = productData.tag || 'Well Icon Collection';
+    if (zoomPrice) zoomPrice.textContent = `₹${productData.price.toFixed(2)}`;
+    if (zoomDesc) zoomDesc.textContent = productData.desc || 'Super combed pure cotton fabric crafted for maximum breathability and flexible stretch contour.';
+
+    zoomModal.classList.remove('hidden');
+    showToast(`Zoom View: ${productData.name}`, 'zoom_in');
+  }
+
+  function closeZoomModal() {
+    if (!zoomModal) return;
+    zoomModal.classList.add('hidden');
+    if (zoomImg) zoomImg.style.transform = 'scale(1)';
+  }
+
+  if (zoomModalCloseBtn) zoomModalCloseBtn.addEventListener('click', closeZoomModal);
+  if (zoomModalBackdrop) zoomModalBackdrop.addEventListener('click', closeZoomModal);
+
+  // Interactive Zoom Lens effect inside Modal
+  if (zoomImg) {
+    const container = zoomImg.parentElement;
+    if (container) {
+      container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        zoomImg.style.transformOrigin = `${x}% ${y}%`;
+        zoomImg.style.transform = 'scale(2)';
+      });
+
+      container.addEventListener('mouseleave', () => {
+        zoomImg.style.transform = 'scale(1)';
+        zoomImg.style.transformOrigin = 'center center';
+      });
+    }
+  }
+
+  if (zoomAddBagBtn) {
+    zoomAddBagBtn.addEventListener('click', () => {
+      if (!currentZoomProduct) return;
+      const existing = cart.find(i => i.name === currentZoomProduct.name);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({
+          id: currentZoomProduct.id,
+          name: currentZoomProduct.name,
+          price: currentZoomProduct.price,
+          image: currentZoomProduct.image,
+          color: 'Selected Sando',
+          qty: 1
+        });
+      }
+      updateCartUI();
+      closeZoomModal();
+      showToast(`Added "${currentZoomProduct.name}" to Bag`, 'shopping_bag');
+      openCartDrawer();
+    });
+  }
+
+  // Bind Zoom triggers on product cards
+  document.querySelectorAll('.group').forEach((card, idx) => {
+    const zoomBtn = card.querySelector('.zoom-trigger-btn');
+    const cardImg = card.querySelector('img');
+
+    const getProductInfo = () => {
+      const titleEl = card.querySelector('h3, h4');
+      const priceEl = card.querySelector('span:contains("₹")') || Array.from(card.querySelectorAll('span')).find(s => s.textContent.includes('₹'));
+      const descEl = card.querySelector('p');
+      const tagEl = card.querySelector('span:contains("#")') || card.querySelector('.bg-primary, .bg-badge-fresh, .bg-secondary');
+
+      return {
+        id: 'P' + (100 + idx),
+        name: titleEl ? titleEl.textContent.trim() : 'Well Icon Comfort Wear',
+        price: priceEl ? parseFloat(priceEl.textContent.replace(/[^0-9.]/g, '')) || 699.00 : 699.00,
+        image: cardImg ? cardImg.getAttribute('src') : 'images/sando_achiever.jpg',
+        desc: descEl ? descEl.textContent.trim() : 'Premium cotton athletic sando engineered for breathability and freedom of movement.',
+        tag: tagEl ? tagEl.textContent.trim() : 'Premium Sando'
+      };
+    };
+
+    if (zoomBtn) {
+      zoomBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openZoomModal(getProductInfo());
+      });
+    }
+
+    if (cardImg) {
+      cardImg.style.cursor = 'pointer';
+      cardImg.addEventListener('click', (e) => {
+        if (!e.target.closest('button')) {
+          openZoomModal(getProductInfo());
+        }
+      });
+    }
+  });
+
   // Add to Cart Button Click Handlers
   document.querySelectorAll('.group, section').forEach(card => {
-    const addBtn = card.querySelector('button:has(span:contains("Add")), button:has(span:contains("ADD TO BAG"))') || 
-                   Array.from(card.querySelectorAll('button')).find(b => b.textContent.includes('ADD TO BAG') || b.textContent.includes('Add'));
+    const addBtn = Array.from(card.querySelectorAll('button')).find(b => b.textContent.includes('ADD TO BAG') || b.textContent.includes('Add'));
     
-    if (addBtn) {
+    if (addBtn && !addBtn.classList.contains('zoom-modal-bound')) {
+      addBtn.classList.add('zoom-modal-bound');
       addBtn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        // Extract Card Info
         const titleEl = card.querySelector('h3, h4');
         const priceEl = card.querySelector('span:contains("₹")') || Array.from(card.querySelectorAll('span')).find(s => s.textContent.includes('₹'));
         const imgEl = card.querySelector('img');
         const tagEl = card.querySelector('span:contains("#")') || Array.from(card.querySelectorAll('span')).find(s => s.textContent.includes('#'));
 
-        const title = titleEl ? titleEl.textContent.trim() : 'Well Icon Premium Comfort Item';
+        const title = titleEl ? titleEl.textContent.trim() : 'Well Icon Sando Apparel';
         const price = priceEl ? parseFloat(priceEl.textContent.replace(/[^0-9.]/g, '')) || 599.00 : 599.00;
-        const image = imgEl ? imgEl.getAttribute('src') : 'images/trend_tank_tops.jpg';
-        const itemId = tagEl ? tagEl.textContent.replace('#', '').trim() : 'W' + Math.floor(100 + Math.random() * 900);
+        const image = imgEl ? imgEl.getAttribute('src') : 'images/sando_achiever.jpg';
+        const itemId = tagEl ? tagEl.textContent.replace('#', '').trim() : 'S' + Math.floor(100 + Math.random() * 900);
 
-        // Check if item exists in cart
         const existingItem = cart.find(i => i.name === title);
         if (existingItem) {
           existingItem.qty += 1;
@@ -212,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
             name: title,
             price: price,
             image: image,
-            color: 'Classic Comfort',
+            color: 'Athletic Fit',
             qty: 1
           });
         }
@@ -225,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 4. WISHLIST & LIKE BUTTON HANDLER
+  // 5. WISHLIST TOGGLE HANDLER
   // ==========================================
   function updateWishlistUI() {
     if (wishlistBadge) {
@@ -235,12 +352,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  const favoriteButtons = document.querySelectorAll('button[aria-label="Favorite item"], button[aria-label="Wishlist item"]');
-  favoriteButtons.forEach((btn, index) => {
+  document.querySelectorAll('button[aria-label="Favorite item"], button[aria-label="Wishlist item"]').forEach((btn, index) => {
     const card = btn.closest('.group');
     const titleEl = card ? card.querySelector('h3, h4') : null;
     const title = titleEl ? titleEl.textContent.trim() : 'Item';
-    const itemId = 'ITEM_' + index;
+    const itemId = 'WISHLIST_' + index;
 
     btn.addEventListener('click', (e) => {
       e.preventDefault();
@@ -266,68 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================
-  // 5. CAROUSEL & HORIZONTAL SCROLL BUTTONS
-  // ==========================================
-  const scrollContainers = [
-    {
-      prevBtn: document.querySelector('button[aria-label="Slide previous trend"]'),
-      nextBtn: document.querySelector('button[aria-label="Slide next trend"]'),
-      grid: document.querySelector('section:has(h2:contains("ON-TREND")) .grid, section:nth-of-type(3) .grid')
-    },
-    {
-      prevBtn: document.querySelector('button[aria-label="Previous bestsellers"]'),
-      nextBtn: document.querySelector('button[aria-label="Next bestsellers"]'),
-      grid: document.querySelector('section:has(h2:contains("BEST SELLERS")) .grid, section:nth-of-type(5) .grid')
-    },
-    {
-      prevBtn: document.querySelector('button[aria-label="Collections left"]'),
-      nextBtn: document.querySelector('button[aria-label="Collections right"]'),
-      grid: document.querySelector('section:has(h2:contains("More collections")) .grid, section:nth-of-type(8) .grid')
-    }
-  ];
-
-  scrollContainers.forEach(({ prevBtn, nextBtn, grid }) => {
-    if (grid) {
-      grid.classList.add('scroll-snap-x', 'overflow-x-auto');
-      Array.from(grid.children).forEach(child => child.classList.add('scroll-snap-item'));
-
-      if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-          grid.scrollBy({ left: -320, behavior: 'smooth' });
-        });
-      }
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-          grid.scrollBy({ left: 320, behavior: 'smooth' });
-        });
-      }
-    }
-  });
-
-  // Hero Carousel Previous/Next controls
-  const heroPrevBtn = document.querySelector('button[aria-label="Previous slide"]');
-  const heroNextBtn = document.querySelector('button[aria-label="Next slide"]');
-  const heroSlideCounter = document.querySelector('span:contains("01 / 04")') || Array.from(document.querySelectorAll('span')).find(s => s.textContent.includes('01 / 04'));
-
-  let currentHeroSlide = 1;
-  const totalHeroSlides = 4;
-
-  if (heroPrevBtn && heroNextBtn) {
-    heroNextBtn.addEventListener('click', () => {
-      currentHeroSlide = (currentHeroSlide % totalHeroSlides) + 1;
-      if (heroSlideCounter) heroSlideCounter.textContent = `0${currentHeroSlide} / 0${totalHeroSlides}`;
-      showToast(`Switched to Drop Slide 0${currentHeroSlide}`, 'auto_awesome');
-    });
-
-    heroPrevBtn.addEventListener('click', () => {
-      currentHeroSlide = currentHeroSlide === 1 ? totalHeroSlides : currentHeroSlide - 1;
-      if (heroSlideCounter) heroSlideCounter.textContent = `0${currentHeroSlide} / 0${totalHeroSlides}`;
-      showToast(`Switched to Drop Slide 0${currentHeroSlide}`, 'auto_awesome');
-    });
-  }
-
-  // ==========================================
-  // 6. FILTER TABS TOGGLE
+  // 6. FILTER TABS & MOBILE DRAWER LOGIC
   // ==========================================
   document.querySelectorAll('[data-filter-tab]').forEach(tab => {
     tab.addEventListener('click', () => {
@@ -338,13 +393,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       tab.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
       tab.classList.remove('text-on-surface-variant');
-      showToast(`Filtered collection view for ${tab.textContent.trim()}`, 'tune');
+      showToast(`Filtered for ${tab.textContent.trim()}`, 'tune');
     });
   });
 
-  // ==========================================
-  // 7. MOBILE MENU & SEARCH OVERLAYS
-  // ==========================================
   function openMobileMenu() {
     if (!mobileMenuDrawer) return;
     mobileMenuDrawer.classList.remove('hidden');
@@ -381,7 +433,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Initialize Cart & Wishlist counts
   updateCartUI();
   updateWishlistUI();
 });
