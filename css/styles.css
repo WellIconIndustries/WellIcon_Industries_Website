@@ -24,3 +24,55 @@ html, body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* Smooth Horizontal Scroll Snap */
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.scroll-snap-item {
+  scroll-snap-align: start;
+}
+
+/* Heart Pulse Micro-Animation */
+@keyframes heartPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+.animate-heart-pulse {
+  animation: heartPulse 0.35s ease-in-out;
+}
+
+/* Badge Bounce Animation */
+@keyframes badgePop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+.animate-badge-pop {
+  animation: badgePop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Toast Slide-In Animation */
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.toast-slide-in {
+  animation: toastIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Drawer Transitions */
+.drawer-backdrop {
+  transition: opacity 0.3s ease-in-out;
+}
+.drawer-content {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}

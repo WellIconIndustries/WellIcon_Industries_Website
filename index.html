@@ -134,7 +134,7 @@
 <body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
 
   <!-- HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 w-full bg-surface-canvas/95 backdrop-blur-md shadow-[0_2px_8px_rgba(33,37,41,0.04)]">
+  <header class="fixed top-0 left-0 right-0 z-40 w-full bg-surface-canvas/95 backdrop-blur-md shadow-[0_2px_8px_rgba(33,37,41,0.04)]">
     <!-- Top Bar -->
     <div class="bg-surface-subtle">
       <div class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop h-8 flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
@@ -162,7 +162,10 @@
     <!-- Navigation Bar -->
     <div class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop h-16 flex items-center justify-between gap-space-md lg:gap-space-lg">
       <div class="flex items-center gap-space-md lg:gap-space-lg shrink-0">
-        <img alt="Well Icon Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UFEXJwjW1thMy15uvLi-ZvAPkMS13TdDvG7HjoWBBEhDOXzRTqc724UQLPj_vMFOEectTP13GPBvL9BqFW1A6b5dQ8LTybydvEbTEfrWUS5BgF2uYKUO41LtnaibdaxB_N7H3rHredsHywmVf0AwQSPrijjdwawu_xWZO9GWa3VD4RJPhWSrOzuEgCQfIYgKX5VGN4AZcAuzFL6UEe2--drwM2jOQJYGBxdgugZi00-bxSY5aMvA7F_SBq"/>
+        <button id="mobile-menu-btn" aria-label="Open Mobile Menu" class="xl:hidden w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors">
+          <span class="material-symbols-outlined text-[24px]">menu</span>
+        </button>
+        <img alt="Well Icon Brand Logo" class="h-8 w-auto object-contain rounded" src="images/well_icon_logo.jpg"/>
         <a class="flex flex-col" data-path="home" href="#">
           <span class="font-headline-sm text-headline-sm font-bold tracking-tight text-primary leading-none">WELL ICON</span>
           <span class="font-label-xs text-label-xs text-secondary uppercase tracking-widest leading-none mt-1">Comfort Wear</span>
@@ -188,7 +191,7 @@
         </button>
         <a aria-label="Wishlist" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors relative" data-path="wishlist" href="#">
           <span class="material-symbols-outlined text-[22px]">favorite</span>
-          <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-sale-crimson"></span>
+          <span class="absolute -top-0.5 -right-0.5 bg-sale-crimson text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">1</span>
         </a>
         <a aria-label="Shopping Bag" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors relative" data-path="shopping-bag" href="#">
           <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
@@ -220,7 +223,7 @@
       <!-- 1. HERO SECTION -->
       <section class="relative w-full bg-surface-canvas overflow-hidden">
         <div class="relative w-full aspect-[21/9] min-h-[460px] md:min-h-[560px] max-h-[660px]">
-          <img alt="WELL ICON EDITION New Drop" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UCtCK1uw1oRfy5wskWUUx4jPhD5ToP9ZC3SrGzIZ-ECeMQE_mx_CXT-3Fu-NpaOk9MpAcAl2hSAPwHKnGQh2nVthSfvqqyameG7JECYaJiYBl9sYZ-h9VoJcfAWvPXU6Ai3W8u8gSWZ-q8zeZv-niFBjwY3u-FwGbDDIy_6XfujtZHZg85GIDn3TqjiteqS_ZOMpmqKSxvlQBTXElsvyyF-A0tXF0Iu2vrXhaaY_6TU9SRO80EFCD1jk4H"/>
+          <img alt="WELL ICON EDITION New Drop" class="w-full h-full object-cover" src="images/hero_groove_banner.jpg"/>
           <div class="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/30 to-transparent flex items-center">
             <div class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl text-on-primary">
               <div class="max-w-xl space-y-space-md">
@@ -244,7 +247,7 @@
             </div>
           </div>
           <!-- Controls & Indicator -->
-          <div class="absolute bottom-6 right-6 lg:right-16 flex items-center gap-space-md bg-primary-container/80 backdrop-blur-md text-on-primary px-space-md py-space-xs rounded-full shadow-lg">
+          <div class="absolute bottom-6 right-6 lg:right-16 flex items-center gap-space-md bg-primary-container/80 backdrop-blur-md text-on-primary px-space-md py-space-xs rounded-full shadow-lg z-10">
             <button aria-label="Previous slide" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-canvas/20 transition-colors">
               <span class="material-symbols-outlined text-[20px]">chevron_left</span>
             </button>
@@ -289,31 +292,31 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
           <div class="group relative rounded-lg overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-shadow">
             <div class="aspect-[3/4] w-full overflow-hidden bg-surface-subtle relative">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Stylish smiling woman dressed in a relaxed soft black Well Icon cotton crop polo and beige mini skirt enjoying an urban summer afternoon with bright soft sunshine, warm beige aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhjxSkRkGfXraRutYMTblNwYHZYgCFacWEfJ7V59J9ZNpV5cfd_KMyOhJwxGRvZS-dA-mWi2m7sVidoo9WPayoKcaEWqdUG9thDk2IC7G_xDW8A4QvYfyu7_nCYTVf9cMX4uYtjwk5iERQnmudckRrZ4-lDBxhJMiwvjzN0P1l8ZRNoPWKDMchBkwV7YJtGPjIbWeq-Q7ZbMRT0SY51n8mb7IO2zsFltaOiaHRWfdTzorSAvdJKnmjIw"/>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Casual Polo Tops & Skirts" src="images/summer_casual_polo.jpg"/>
               <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-space-lg text-on-primary">
                 <span class="font-label-xs text-label-xs uppercase tracking-widest text-surface-container-low mb-1 font-semibold">Street &amp; Daily</span>
                 <h3 class="font-headline-sm text-headline-sm font-bold">Casual Polo Tops &amp; Skirts</h3>
-                <span class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform">Shop The Look <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                <span class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer">Shop The Look <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
               </div>
             </div>
           </div>
           <div class="group relative rounded-lg overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-shadow">
             <div class="aspect-[3/4] w-full overflow-hidden bg-surface-subtle relative">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Athletic woman in light blue relaxed fit crew neck loungewear t-shirt smiling effortlessly indoors, warm sunlight, minimal Scandinavian studio backdrop with soft warm neutral shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGfalrlFXWCssFTgG-pSV7tQA-1yqKyrivp05vTlol6G_JzMG7p9XJJYGKuxRM2bCYgTAJk3foSS6aicoIIqTU0JlTIiIEmto8ru-TKN-mjyA9fZ8D5V3xnJ8jqlHVYyRtPPh3YulAvqA4AG6ewG6kE5C3fyfiasYeoc0vDAEcyVlK8t4wcrzVBqxiD0EDMiJqKpg71PNpExqOrrFHAN5ICvjTGo_mi2oPx1wmqXbfuh0_k8at-uGLlg"/>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Ultra-Breathable Crewneck Tees" src="images/summer_lounge_tees.jpg"/>
               <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-space-lg text-on-primary">
                 <span class="font-label-xs text-label-xs uppercase tracking-widest text-surface-container-low mb-1 font-semibold">Lounge Soft</span>
                 <h3 class="font-headline-sm text-headline-sm font-bold">Ultra-Breathable Crewneck Tees</h3>
-                <span class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform">Explore T-Shirts <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                <span class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer">Explore T-Shirts <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
               </div>
             </div>
           </div>
           <div class="group relative rounded-lg overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-shadow">
             <div class="aspect-[3/4] w-full overflow-hidden bg-surface-subtle relative">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Young handsome man in comfortable white graphic sports t-shirt and sage green shorts relaxing on an outdoor summer chair, bright crisp aesthetic with relaxed sunny outdoor atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2MS60acvb7dHWQo_zoGZFpXdGmWFNUag1lIlC3a6BGKrAjoYOnaR-cEyOkILtslksrAI2p-dyX1oxgM9oP_4-8M_0iRdfddN5mcUTDF1HnykIJHdVyxi3JRVUe1nWu1R6qRTgarOzYmUGwYXnlWqchoQ4PuZrgzfEebo_-dK33Am5IlmaiKTTZkn8hrY19Rh9GR4t47JKZnmv_0qwOxw5spLK9j3OrENrhvoyJtoWfLa_eVoCqiqoQg"/>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Relaxed Shorts & Everyday Active" src="images/summer_outdoor_shorts.jpg"/>
               <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-space-lg text-on-primary">
                 <span class="font-label-xs text-label-xs uppercase tracking-widest text-surface-container-low mb-1 font-semibold">Outdoor Active</span>
                 <h3 class="font-headline-sm text-headline-sm font-bold">Relaxed Shorts &amp; Everyday Active</h3>
-                <span class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform">Discover Men's Wear <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                <span class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer">Discover Men's Wear <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
               </div>
             </div>
           </div>
@@ -330,20 +333,20 @@
               <p class="font-body-md text-body-md text-on-surface-variant">Explore our most promising silhouettes this week.</p>
             </div>
             <div class="flex items-center gap-space-xs">
-              <button aria-label="Slide previous trend" class="w-10 h-10 rounded-full bg-surface-canvas shadow-sm flex items-center justify-center text-primary hover:bg-surface-container transition-colors">
+              <button aria-label="Slide previous trend" class="w-10 h-10 rounded-full bg-surface-canvas shadow-sm flex items-center justify-center text-primary hover:bg-surface-container transition-colors active:scale-95">
                 <span class="material-symbols-outlined">chevron_left</span>
               </button>
-              <button aria-label="Slide next trend" class="w-10 h-10 rounded-full bg-surface-canvas shadow-sm flex items-center justify-center text-primary hover:bg-surface-container transition-colors">
+              <button aria-label="Slide next trend" class="w-10 h-10 rounded-full bg-surface-canvas shadow-sm flex items-center justify-center text-primary hover:bg-surface-container transition-colors active:scale-95">
                 <span class="material-symbols-outlined">chevron_right</span>
               </button>
             </div>
           </div>
           <!-- Trend Cards Carousel -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-space-md">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-space-md pb-4">
             <!-- Pick 1: Summer Pants -->
             <div class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
               <div class="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
-                <img alt="Summer Pants - Breathable by design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1VzXDqHtEcFgd1gr9JXVIWDzcEiWStjhrfs3yoIQp7jzZ7TCnWen62ibZcSv4qV7pM0awwbhrBbbVkKYtg7q0nLFLd3nF3gnPhGB9H90k5-vq-XjL-HS9WQB4XUgMM9zR0gT_pSiqBIBVhGejLkcblx2oYxqV6LEfVc4-AjqTlYLYb3U0fGQCuAqMuGZi61osd6OYukJpc8sZSOfjWO24wZxS7qsBlbGiYcLadQlvNaogOdRjZUlIBumIva"/>
+                <img alt="Summer Pants - Breathable by design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_summer_pants.jpg"/>
                 <div class="absolute top-3 left-3 bg-primary text-on-primary px-2.5 py-1 rounded-full font-label-xs text-label-xs uppercase font-bold">
                   Trending
                 </div>
@@ -353,15 +356,15 @@
                   <h3 class="font-headline-sm text-headline-sm font-bold text-primary">SUMMER PANTS</h3>
                   <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Breathable by design. Crisp lightweight cotton weaves.</p>
                 </div>
-                <a class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors" href="#">
-                  EXPLORE NOW
-                </a>
+                <button class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95">
+                  ADD TO BAG
+                </button>
               </div>
             </div>
             <!-- Pick 2: Core T-Shirts -->
             <div class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
               <div class="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
-                <img alt="Core T-Shirts - Comfort Redefined" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1WErMuUVeZ-I_gAabqBlCLQGhFvfKcBPXtqkwl_CvYkQgBfmGLlsdo6ZmB_sS2GhdO9rLOQz29pdU6nvBi1iZtGoGch8OBijpNxeAd4Cb-vroGCKVuA_atPMDtzl2LInWnb1F0wxRd4kMLGQvOaSLXBqTSekFrzxBwNXXBABymD_eQu1av9S4ujn8rRN3MZR8eXww2vnzYwP7Mj8slU81RvIEzX9eKuOERladYQUg-cx18G4RMoaku6GAsv"/>
+                <img alt="Core T-Shirts - Comfort Redefined" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_core_tshirts.jpg"/>
                 <div class="absolute top-3 left-3 bg-badge-fresh text-on-primary px-2.5 py-1 rounded-full font-label-xs text-label-xs uppercase font-bold">
                   Supima Pure
                 </div>
@@ -371,15 +374,15 @@
                   <h3 class="font-headline-sm text-headline-sm font-bold text-primary">CORE T-SHIRTS</h3>
                   <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Comfort redefined. Zero neck friction and tailored seams.</p>
                 </div>
-                <a class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors" href="#">
-                  EXPLORE NOW
-                </a>
+                <button class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95">
+                  ADD TO BAG
+                </button>
               </div>
             </div>
             <!-- Pick 3: Everyday Bra -->
             <div class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
               <div class="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
-                <img alt="Everyday Bra - Feather light feel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1VavFDFX_hftxnj7Aycvy_WYZ8YgGVWwJNKD4oVTdkssVjjSvXuahIPZqnqa7qJG8Rm-v6v1LB8fgpAgCBOSZwJMZyQZMFAFqF_S_UomEoJQBFa1f1rIBGzQ0ZbzAEvexxsCx2mKECIdPBKCPKqUTOQ-BafbdKfea5c5TixhB_ZVCMbw4WdYZ6FE_iynaNPTpLqUENvlUiPrjYFeS0GD8narPEfdPfmIJgBtz9MQaoHq-BwnLXig7HDdvHk"/>
+                <img alt="Everyday Bra - Feather light feel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_everyday_bra.jpg"/>
                 <div class="absolute top-3 left-3 bg-secondary text-on-primary px-2.5 py-1 rounded-full font-label-xs text-label-xs uppercase font-bold">
                   Wirefree
                 </div>
@@ -389,39 +392,39 @@
                   <h3 class="font-headline-sm text-headline-sm font-bold text-primary">EVERYDAY BRA</h3>
                   <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Feather light feel. Unrestricted non-pinch side panels.</p>
                 </div>
-                <a class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors" href="#">
-                  EXPLORE NOW
-                </a>
+                <button class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95">
+                  ADD TO BAG
+                </button>
               </div>
             </div>
             <!-- Pick 4: Elevated Tank Tops -->
             <div class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
               <div class="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
-                <img alt="Elevated Tank Tops" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1UQqHliTgwAHIAeHmkIZWuDsUKLoxpfqqM0ZR_Cq3oNPUY7z1K8BHe93taAPyhWSNbPx2vlLwiIM_6EXR4LtCc5I5zrcktwZRWS4zj-RDmxCJoh3NYfNKUw7XKam4LtINvVGJGGTscm9-ffTZ8DwH7TJRG76AAAA2hLGvHWwaWytWa3DgZxDVG1wv8EyTn5C1zB_ZBKAnAUl2CdDl_ZjszPPKt032GL7htJTyBnhKBmY9mRZUetE46HxsBy"/>
+                <img alt="Elevated Tank Tops" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_tank_tops.jpg"/>
               </div>
               <div class="p-space-md flex flex-col flex-1 justify-between">
                 <div>
                   <h3 class="font-headline-sm text-headline-sm font-bold text-primary">TANK TOPS</h3>
                   <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Ribbed contour stretch. Built for layering or easy solitude.</p>
                 </div>
-                <a class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors" href="#">
-                  EXPLORE NOW
-                </a>
+                <button class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95">
+                  ADD TO BAG
+                </button>
               </div>
             </div>
             <!-- Pick 5: Boxer Shorts -->
             <div class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
               <div class="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
-                <img alt="Boxer Shorts Relaxed Fit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1XqxRY3Ief47MSYolqXzLHkaz4t-6n7BOMGNQ6RLaver5x2MYXGBPp6EaYz75u3UjSlf3lliZylSedDRafTIjuLdCjBCZyyeSr4YgIDA--ibCoBbg-HbZxS-iCq6PAKQBJfXpAVW5tfvCaM07SZ4CEnqclCppYChYYBBzXaceyKF4Tn0IaH0gWKeQfkTnmMGF5IH1ReU9BGcXvmjS_QH4z0le7cVu2BvGc3JBwmPPKdj6snoE3ZLe2yTKp7"/>
+                <img alt="Boxer Shorts Relaxed Fit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_boxer_shorts.jpg"/>
               </div>
               <div class="p-space-md flex flex-col flex-1 justify-between">
                 <div>
                   <h3 class="font-headline-sm text-headline-sm font-bold text-primary">BOXER SHORTS</h3>
                   <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Button fly, dual side pockets, combed pure cotton prints.</p>
                 </div>
-                <a class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors" href="#">
-                  EXPLORE NOW
-                </a>
+                <button class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95">
+                  ADD TO BAG
+                </button>
               </div>
             </div>
           </div>
@@ -440,7 +443,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
           <!-- Left Editorial Visual with Script Text Overlay -->
           <div class="lg:col-span-5 relative rounded-lg overflow-hidden bg-primary min-h-[480px]">
-            <img alt="Always in it Campaign" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1VHs9FjTFsXPPuVq93CnLikg0G8HU6iUKSUeYmM7JhwsFPEOzjHkKOnXwSY-ksizort4fGs6gwSWVXHiwCo81sgKz5HbRGejYU-ZZceydQi63V_et0Wtibjgxj6k24j40h8NEHXQSIcS-TWtRS8bIgLcnYytEnkg2YX8--nLALfSuuj_4gay0KXlPEtL3COfgSWt7lKvYOLTREBQATVvZC7_csaiM4DQSHlT1wyJC4r_lLJ1t8rcGEPMHv1"/>
+            <img alt="Always in it Campaign" class="w-full h-full object-cover" src="images/campaign_always_init.jpg"/>
             <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-between p-space-xl">
               <div class="flex items-center justify-between">
                 <span class="px-3 py-1 rounded-full bg-surface-canvas/20 backdrop-blur-md text-on-primary font-label-xs text-label-xs font-bold uppercase tracking-widest">Capsule Edition</span>
@@ -472,9 +475,9 @@
               <!-- Item 1 -->
               <div class="group flex flex-col bg-surface-subtle rounded-lg p-space-md hover:bg-surface-container-low transition-colors">
                 <div class="relative w-full aspect-[3/4] rounded-md overflow-hidden bg-surface-canvas mb-space-md">
-                  <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Young model wearing a fresh sky blue super combed cotton graphic printed Well Icon everyday t-shirt with classic blue denim, minimalist editorial lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1-Km7tfbX9MEzsli_Yp4ODZV55yBfQPqgFwY2N5BNRK600Tba0QmO_x9yZN6RNQmeQF4V_aF993iHrCp4GOnQw1yDoPGZ7Rz4CX7OxPkI73olHJbU2I12EiHobkKWXZaevCfh61hAUsz38u1711MRO_SiSQhZk_FKlNIs0bNrSvf6a2iVm5csrvqiS4tvQklldpOTA0Wuc0-dZDptMAWky1b3F3W60HW6y0lh3ZqnpcMDgiQLI2769Q"/>
+                  <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Super Combed Cotton Graphic T-Shirt" src="images/focus_graphic_tee.jpg"/>
                   <span class="absolute bottom-2 left-2 bg-surface-canvas/90 backdrop-blur text-primary font-label-xs text-label-xs font-bold px-2 py-0.5 rounded shadow-sm">3 Colors</span>
-                  <button aria-label="Favorite item" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-canvas/80 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors">
+                  <button aria-label="Favorite item" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-canvas/80 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors active:scale-110">
                     <span class="material-symbols-outlined text-[18px]">favorite</span>
                   </button>
                 </div>
@@ -491,9 +494,9 @@
               <!-- Item 2 -->
               <div class="group flex flex-col bg-surface-subtle rounded-lg p-space-md hover:bg-surface-container-low transition-colors">
                 <div class="relative w-full aspect-[3/4] rounded-md overflow-hidden bg-surface-canvas mb-space-md">
-                  <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Model posing in off-white high waisted relaxed microfiber fabric cargo utility pants by Well Icon, studio light on neutral beige background, stylish leisure wear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9dMu80NAgQbCOrf8ZmY3PYIpvcUrd6Ij2qVebt1Z788FzsZ8rApRom4fH5g2j5-eTCz8daXLeTvf8_4dg_B9laXAu15UG3Kzvxw2uiTgX9W-5EHDVuh71OklunoyC7B3_yfJLI2Vr1hK0A52dOeznu6xcIHC3ZJOOXV_aegqEzJh7qBZwPNuRUroRMtwXf3Z_-5Uj7I-5bZDy-73Vf2DF7l-wCqUeARwaxCsWCj8ysUHrZDkzDckbwg"/>
+                  <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Microfiber Cargo Utility Pants" src="images/focus_cargo_pants.jpg"/>
                   <span class="absolute bottom-2 left-2 bg-surface-canvas/90 backdrop-blur text-primary font-label-xs text-label-xs font-bold px-2 py-0.5 rounded shadow-sm">2 Colors</span>
-                  <button aria-label="Favorite item" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-canvas/80 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors">
+                  <button aria-label="Favorite item" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-canvas/80 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors active:scale-110">
                     <span class="material-symbols-outlined text-[18px]">favorite</span>
                   </button>
                 </div>
@@ -527,22 +530,22 @@
                 <button data-filter-tab class="px-5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold shadow-sm transition-all">Women</button>
               </div>
               <div class="hidden sm:flex items-center gap-1">
-                <button aria-label="Previous bestsellers" class="w-9 h-9 rounded-full bg-surface-canvas shadow-sm flex items-center justify-center text-primary hover:bg-surface-container transition-colors">
+                <button aria-label="Previous bestsellers" class="w-9 h-9 rounded-full bg-surface-canvas shadow-sm flex items-center justify-center text-primary hover:bg-surface-container transition-colors active:scale-95">
                   <span class="material-symbols-outlined text-[20px]">chevron_left</span>
                 </button>
-                <button aria-label="Next bestsellers" class="w-9 h-9 rounded-full bg-primary text-on-primary shadow-sm flex items-center justify-center transition-colors">
+                <button aria-label="Next bestsellers" class="w-9 h-9 rounded-full bg-primary text-on-primary shadow-sm flex items-center justify-center transition-colors active:scale-95">
                   <span class="material-symbols-outlined text-[20px]">chevron_right</span>
                 </button>
               </div>
             </div>
           </div>
-          <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-space-md lg:gap-space-lg">
+          <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-space-md lg:gap-space-lg pb-4">
             <!-- Best Seller 1 -->
             <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Well Icon women's ribbed super combed cotton slim fit solid tank top in soft warm sand color, clean model shot on pale grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFBbv2Hgfvd_hZcwaGNZVXkCPI82BLDlgWTVEOn17urJsk_LhruBCaZ-a_rfJMP6As6qj4opWeV99ry8Mcn43hdJW_7GFbVe9T8U0n1PlivwSKn7ngECturvGCI2yGmXIQjQXVz9vDVkMVXQ73APFdGH_azv7rdXxHctjdIy1fC-bMVKlU-xV0cnqnI6OFTQ3fUKIfndNNrY4cRmS5p9syH_tnANpLN_fjkKVgeUFO8bJaM5fnuGtMXA"/>
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Ribbed Slim Tank Top" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80"/>
                 <span class="absolute top-3 left-3 bg-primary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Bestseller</span>
-                <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors">
+                <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors active:scale-110">
                   <span class="material-symbols-outlined text-[18px]">favorite</span>
                 </button>
                 <span class="absolute bottom-3 left-3 bg-surface-canvas/90 backdrop-blur font-label-xs text-label-xs font-bold px-2 py-0.5 rounded text-primary shadow-sm">6 Colors</span>
@@ -564,9 +567,9 @@
             <!-- Best Seller 2 -->
             <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Everyday blush pink wirefree non-padded seamless cotton stretch full coverage bra on mannequin or model, high end catalog photography, soft gradient background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOmM554jHBYv86Jr50qe5P6fE-bQbWRcf6dmGUdG_pseHCaMSa5Q2_drcr-FVqPfiKcXWt1Oi2cRUVAjliZUkBVS2OJAXg3n1JrLpg_vAXyawc9M5O7j91VDLHaHysPYjiVh7pYXttl305fyjG9YURBe1yYNBfBZfD3gusvCnjurhSvuzfjpKMXao-Ev7DWsnmu5KXzBSW26yOrBoaFjRSUevHsjlrlLqY11evHdIxyHpLs96kahZw9w"/>
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Wirefree Cotton Stretch Bra" src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=800&q=80"/>
                 <span class="absolute top-3 left-3 bg-badge-fresh text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Top Rated</span>
-                <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors">
+                <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant text-sale-crimson hover:text-sale-crimson transition-colors active:scale-110">
                   <span class="material-symbols-outlined text-[18px]">favorite</span>
                 </button>
                 <span class="absolute bottom-3 left-3 bg-surface-canvas/90 backdrop-blur font-label-xs text-label-xs font-bold px-2 py-0.5 rounded text-primary shadow-sm">12 Colors</span>
@@ -588,9 +591,9 @@
             <!-- Best Seller 3 -->
             <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Pack of women high coverage super combed cotton hipster panties in navy and berry red displayed elegantly on neutral surface, editorial studio lingerie capture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsw-M1xXha2buuKId0k9VjQduufXmgbIlLQMxblLGDXfz5_iXUmWrDp7zyHb78skkLwezpQ63rcy7VXCbwlFgcQPEmKdcx2Qhw08T3DEZAgaR2A5U_OCpOlQtwAgEy3Vouimu6kcG9owH3ciLHNvTM87bF__J65RjTfLXc_-mNN9JS81dG3O-01yQRmR_TDtyfoR8nte0elf61aO7zjY6uXqph03SSZSPerYYb3gAJhn4lgZ1OozbZ_A"/>
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="High Coverage Cotton Hipster Panties" src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80"/>
                 <span class="absolute top-3 left-3 bg-secondary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Pack of 2</span>
-                <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors">
+                <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors active:scale-110">
                   <span class="material-symbols-outlined text-[18px]">favorite</span>
                 </button>
                 <span class="absolute bottom-3 left-3 bg-surface-canvas/90 backdrop-blur font-label-xs text-label-xs font-bold px-2 py-0.5 rounded text-primary shadow-sm">4 Colors</span>
@@ -612,9 +615,9 @@
             <!-- Best Seller 4 -->
             <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Medium coverage micromodal elastane stretch bikini panties in subtle mocha and maroon tones, studio product e-commerce photography with crisp white backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChLcCqShDytIe55-8ITNSaBozQd3vLkUBtM1UlNgg47p81y7Ksq1Y_PaHDUpdxUnnZxpPBHyCBScy5l0CR2GTp6fqNotqvK82HR7iiDoXj63OYojmZl5Eb0SPSaFQhsPgYJb-ZbMREkmZFaE8SqfbVhWCl8AwyDf_mozR3RVU3UC6gG_IbFDsXSugXW8ryiT-dM7BaR9z4C-fd2U5q21qACUb6Mtnvegd-EHvRjb-LFXHJZUPHfdNMOw"/>
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Micro Modal Stretch Bikini Brief" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80"/>
                 <span class="absolute top-3 left-3 bg-primary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">MicroModal</span>
-                <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors">
+                <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors active:scale-110">
                   <span class="material-symbols-outlined text-[18px]">favorite</span>
                 </button>
                 <span class="absolute bottom-3 left-3 bg-surface-canvas/90 backdrop-blur font-label-xs text-label-xs font-bold px-2 py-0.5 rounded text-primary shadow-sm">6 Colors</span>
@@ -641,7 +644,7 @@
       <section class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop my-space-xl">
         <div class="relative w-full rounded-lg overflow-hidden bg-primary-container text-on-primary shadow-md">
           <div class="relative aspect-[21/9] sm:aspect-[24/9] md:aspect-[3/1] w-full">
-            <img alt="1876 - 2026 Well Icon 150th Anniversary — Everyday Comfort of Crafting Comfort" class="w-full h-full object-cover mix-blend-luminosity opacity-90" src="https://lh3.googleusercontent.com/aida/AEtjO1X7ret1LN_WThR6BzZU6he-lJkilfkUZ-9cU8ZCXxnsh8hqDF7JEBRvhjfCWLIcRkSLouVtrLCZ7YPgkFOkAAk-Fubu_m0OqeKq-QntcmAIMEeuIwOITelu74hJHa9bI1oeh6pSyURtTirRAuIUE9u13o2FXE3PNBXiCeaU80SAFpMDflljLBnYJxNcO2ghGyT-2RdNK5xCe6l0EVNPyZishFMJoTiXTPO3vAgzSF8FZnUFY0xtNLYAbKFg"/>
+            <img alt="1876 - 2026 Well Icon 150th Anniversary — Crafting Comfort Heritage" class="w-full h-full object-cover mix-blend-luminosity opacity-90" src="https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=1600&q=80"/>
             <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/75 to-transparent flex items-center p-space-lg md:p-space-xl">
               <div class="max-w-xl space-y-3">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-canvas/15 text-tertiary-fixed font-label-xs text-label-xs font-bold tracking-widest uppercase">
@@ -655,7 +658,7 @@
                   From the original Y-Front invention in 1934 to NASA Apollo spacesuits, explore a century and a half of revolutionary textile engineering.
                 </p>
                 <div class="pt-2">
-                  <a class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-surface-canvas text-primary font-label-md text-label-md font-bold hover:bg-surface-subtle transition-all" href="#">
+                  <a class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-surface-canvas text-primary font-label-md text-label-md font-bold hover:bg-surface-subtle transition-all active:scale-95" href="#">
                     EXPLORE HERITAGE CAPSULE
                     <span class="material-symbols-outlined text-[16px]">north_east</span>
                   </a>
@@ -683,7 +686,7 @@
           <!-- Combo 1 -->
           <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
             <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Set of two women modal elastane stretch hipster panties in soft blush pink and deep indigo, studio shot on clean light background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFiFTqUy2QU81T5ip-pYw0lTlGqwACuJnFiBZAC5sGOo8wd-J406VUVeVgMWrY7wedK6K4JMOR6n8M3FCsrxXeLzCt_iU7zUle_spOvZ4NhLdHlIkYJK1W3GZDzPNecaDPY4KVemYtYaZIa5XFPOa8JWIxjvEWYmmkZVvBHiEfBRiTAbi_8R446GoxEZW18JSCPwGusBDy2WRSUlRgKxZsmosac-6YgxXPQSN4CTXlnMeIEtRAieoRUw"/>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Micro Modal Elastane Stretch Hipster" src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=800&q=80"/>
               <span class="absolute top-3 left-3 bg-primary text-on-primary px-2 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Pack of 2</span>
               <span class="absolute bottom-3 left-3 bg-surface-canvas/90 backdrop-blur font-label-xs text-label-xs font-bold px-2 py-0.5 rounded text-primary shadow-sm">7 Colors</span>
             </div>
@@ -702,7 +705,7 @@
           <!-- Combo 2 -->
           <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
             <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Pack of 3 pristine white crisp cotton handkerchiefs neatly boxed by Well Icon, clean minimal product shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDaKXkUh21FhyDSKMKnt00FJLr9HVvcJ40-AKVQclYmjX_tN83gLKx_40QBie3kBykVd0CjjaMFn5DyyBjDu3RUZX3Trh1z5HzjLrFRtLTjMpQhjCWdHa2EUXNjoQqov3C-2f1mdkbCsA9CGBCGoinqSKvPZfDho6zg4zDVCNDHQiRu6UFEV6rMsUcxmrTQ7cVnLjLIAzxL9wq70jhsl2oKHSCRvRvlLomtmG-Bb2TGk-zMgqt8OCg5A"/>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Super Combed Cotton Handkerchief Trio" src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=800&q=80"/>
               <span class="absolute top-3 left-3 bg-badge-fresh text-on-primary px-2 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Pack of 3</span>
             </div>
             <div class="p-space-md flex flex-col flex-1 justify-between">
@@ -720,7 +723,7 @@
           <!-- Combo 3 -->
           <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
             <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Pair of women high coverage super combed cotton stretch mid-thigh shorties in classic black and navy, worn by model for anti chafing comfort, catalog photograph" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJvUMwe2CwUDvr1aOvffq9IzhwwzVbuzWd9dBPmcGVbu1cB8kWKGD9vJo4LxdSJCKmzSwo7jW3XDbchw6zA9YKlSsiGO7X5RoUmOzyoY8TKZSS6qzV8wPBUa30MSNQkUysCwO7GuNHGkyrxMWrO1SPrF1m_2EFm8m0GmdKtP-7p6ELh27ygTL5-2sm6yo-knbqyTYxvKaT2ofljbckYS4BtZb1fcK71xtJquN573vgXSpt0HeDd8CqaA"/>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="High Coverage Cotton Stretch Shorties Duo" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80"/>
               <span class="absolute top-3 left-3 bg-primary text-on-primary px-2 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Pack of 2</span>
               <span class="absolute bottom-3 left-3 bg-surface-canvas/90 backdrop-blur font-label-xs text-label-xs font-bold px-2 py-0.5 rounded text-primary shadow-sm">3 Colors</span>
             </div>
@@ -739,7 +742,7 @@
           <!-- Combo 4 -->
           <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
             <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Women super combed cotton rib camisole with adjustable straps shown in beige and black, studio catalog product on model" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE-EcwNRmJ1v9cMV-VG7BRAGvtlLrqWvhA9WfaE8hdnGlUCAZQq20q8rRY8olgeLIpPrx0bYVF0RSJn0gJN1jWMt8VqO0wcvmUYm-L3EujbS0GnLkjtX3I8XOy_LuFiieRS5QAdce7ni_t84IXZPgSPsPfaKjF5os1pZVUGHfhz2tRP95wgjzeyQD8qwJEH3BytEDUSXgukEeowQ62biixsvdgdUK9N21IBxeZ3imAoFx7UaQXlda8Rw"/>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Super Combed Cotton Camisole Duo Pack" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80"/>
               <span class="absolute top-3 left-3 bg-secondary text-on-primary px-2 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Bestseller</span>
               <span class="absolute bottom-3 left-3 bg-surface-canvas/90 backdrop-blur font-label-xs text-label-xs font-bold px-2 py-0.5 rounded text-primary shadow-sm">4 Colors</span>
             </div>
@@ -767,19 +770,19 @@
               <h2 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">More collections to explore</h2>
             </div>
             <div class="flex items-center gap-2">
-              <button aria-label="Collections left" class="w-9 h-9 rounded-full bg-surface-canvas shadow-sm flex items-center justify-center text-primary hover:bg-surface-container transition-colors">
+              <button aria-label="Collections left" class="w-9 h-9 rounded-full bg-surface-canvas shadow-sm flex items-center justify-center text-primary hover:bg-surface-container transition-colors active:scale-95">
                 <span class="material-symbols-outlined text-[18px]">arrow_back</span>
               </button>
-              <button aria-label="Collections right" class="w-9 h-9 rounded-full bg-primary text-on-primary shadow-sm flex items-center justify-center transition-colors">
+              <button aria-label="Collections right" class="w-9 h-9 rounded-full bg-primary text-on-primary shadow-sm flex items-center justify-center transition-colors active:scale-95">
                 <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
               </button>
             </div>
           </div>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-md">
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-md pb-4">
             <!-- Collection 1: Move -->
             <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="#">
               <div class="aspect-[3/4] w-full bg-surface-container overflow-hidden">
-                <img alt="Move Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1XKhjx2NlKyikOEpQTtxt9uCS54vKb53SPKTN7IZ3tFY0Cfc56W5lqphjadDiy4MX_MxM4yQk2P9AsqSj7I4YV6n_gaxUWv-iCKJPPOY-_OTwGEYuperjqbkHgK0f3mCh-b93x8TNna-w67rCo4duqPtqO2upOk5cKdL2jjGaCd1skljL_Q9Vyr3KUC81LxmzzVRe41silTtqlyRiS8sd1pSeYXef93xLDCzah4-D7U-CRKMCzhZOtpjfo"/>
+                <img alt="Move Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80"/>
               </div>
               <div class="p-space-md flex items-center justify-between">
                 <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">Move</span>
@@ -789,7 +792,7 @@
             <!-- Collection 2: USA Originals -->
             <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="#">
               <div class="aspect-[3/4] w-full bg-surface-container overflow-hidden">
-                <img alt="USA Originals Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1Vnv5alKWvpcPyjbqnOrimyRbAyU0ooIED21trzOu60DUvUQ-jL2chCpQKJD95KhIoqnv88Scf2xjVEb6p07eK5sgRyQ7R_UsUjxvzxPHREYm7WCaIc5ft09F1crfWBHmcbr-9UT04UYpDmyV5pfcKmKhdLBz1hjwDbDht1pfqonwQcG2FUgtDdgiYUG5lePZrHZaMRcndb8PPV6GkUnffMxSV2gxXU-xJzctiM60etQpmYpYdEmPhfURuU"/>
+                <img alt="USA Originals Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=800&q=80"/>
               </div>
               <div class="p-space-md flex items-center justify-between">
                 <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">USA Originals</span>
@@ -799,7 +802,7 @@
             <!-- Collection 3: International Collection -->
             <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="#">
               <div class="aspect-[3/4] w-full bg-surface-container overflow-hidden">
-                <img alt="International Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1U7nMnMNOCZYqqNDxRcYnHTwStJl9M0xpUyasMDbmPahyd4rR7F82_zHvciJ7jXZSF1-CNtGLzlCwVCpQgLrUrGBw6jYG3lMAusHEO9msWUMROtdbquzMrd8-7qaUDLb7Z4hAqxxdYhcZ8mEWXA-rPncaJ5QpJJM8GFiB68KcyIXwmKgZ0m_ESHfzGBxsz0zlEBYfpKdKtfDQpySX8Wr8efvNYVhoZERg1MT9mZaEtV0vBNq4mxVQQ9jATa"/>
+                <img alt="International Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80"/>
               </div>
               <div class="p-space-md flex items-center justify-between">
                 <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors truncate">International</span>
@@ -809,7 +812,7 @@
             <!-- Collection 4: Essence -->
             <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="#">
               <div class="aspect-[3/4] w-full bg-surface-container overflow-hidden">
-                <img alt="Essence Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1WQY9DVP3W4lY3DquQY4lWQgjU5NgxngqgiD7XsdbyVwwRoj71LV8dk9Y4X6O6hIx0hIDNDn6rzFUxXfKOOv_wfkWiu3S2gcuGiuBoQOvDDJQxrWZiBxWazOAFM04pLhf3_lTVk2FutFrw7aXwhA7P7FJdPOYUNNJZHoN7XWtOwyB3dmqECcjUkhmNj2awrttwPS6dpFok9oSaKOVhuynQ2CmFFxNeNry2vz-KoF6aEEzp2RsBY3QZn6KE"/>
+                <img alt="Essence Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=80"/>
               </div>
               <div class="p-space-md flex items-center justify-between">
                 <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">Essence</span>
@@ -819,9 +822,9 @@
             <!-- Collection 5: Relax -->
             <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="#">
               <div class="aspect-[3/4] w-full bg-surface-container overflow-hidden">
-                <img alt="Relax Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida/AEtjO1UXsMRqMts1crzBeNsPsLH1bk045ys41T7vyvQfi82xkxr5KBfWqYAmVbUQcLlMhTV6ajqByEKxUiZD4IuinR1zo55hxxIstK5YyESSfp7LbiZYB2fGqMD9n33ylhBuSR-osgb4DBSY15ONNAanxp43bjcWqN8gGsM0UxS9m3ZaaQaKhzxCef2am3XmhjAjacA1ejdRSl_Or0bjsF9xJ437Uihtqfzgqu5xOO-21ue7qaocqIn7gJ_G5EI"/>
+                <img alt="Relax Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"/>
               </div>
-              <div class="p-space-md flex items-center justify-between">
+              <div class="p-space-md flex flex-row items-center justify-between">
                 <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">Relax</span>
                 <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
@@ -841,7 +844,7 @@
             Founded in 1876, Well Icon pioneered innerwear, evolving and innovating not only the product, but also the way it has been marketed over the years. Well Icon is a leading manufacturer and marketer of comfort apparel sold in more than 140 countries around the world. The company is committed to quality, comfort, fashion, innovation and value. As Well Icon grows and sophistication, the simple commitment to serve its consumer’s need for comfort continues to be the brand’s hallmark.
           </p>
           <div class="pt-space-xs">
-            <a class="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-primary text-primary font-label-md text-label-md font-bold hover:bg-primary hover:text-on-primary transition-all" href="#">
+            <a class="inline-flex items-center gap-2 px-8 py-2.5 rounded-full border border-primary text-primary font-label-md text-label-md font-bold hover:bg-primary hover:text-on-primary transition-all active:scale-95" href="#">
               KNOW MORE
             </a>
           </div>
@@ -1058,6 +1061,101 @@
       </div>
     </div>
   </footer>
+
+  <!-- SHOPPING CART SLIDE-OVER DRAWER -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 hidden">
+    <div id="cart-backdrop" class="fixed inset-0 bg-primary/40 backdrop-blur-xs opacity-0 drawer-backdrop"></div>
+    <div id="cart-panel" class="fixed inset-y-0 right-0 max-w-full flex pl-10 drawer-content translate-x-full">
+      <div class="w-screen max-w-md bg-surface-canvas shadow-2xl flex flex-col justify-between">
+        <div class="p-6 border-b border-border-hairline flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[24px]">shopping_bag</span>
+            <h3 class="font-headline-sm text-headline-sm font-bold text-primary">Your Shopping Bag</h3>
+          </div>
+          <button id="close-cart-btn" aria-label="Close cart" class="w-9 h-9 rounded-full hover:bg-surface-subtle flex items-center justify-center text-on-surface-variant transition-colors">
+            <span class="material-symbols-outlined text-[22px]">close</span>
+          </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto px-6 py-2">
+          <!-- Rendered dynamically by main.js -->
+        </div>
+
+        <!-- Cart Footer & Checkout -->
+        <div class="p-6 border-t border-border-hairline bg-surface-subtle space-y-4">
+          <div class="space-y-2">
+            <div class="flex items-center justify-between text-body-sm text-on-surface-variant">
+              <span>Subtotal</span>
+              <span id="cart-subtotal" class="font-semibold text-primary">₹1,078.00</span>
+            </div>
+            <div class="flex items-center justify-between text-body-sm text-on-surface-variant">
+              <span>Delivery</span>
+              <span class="text-badge-fresh font-semibold uppercase text-xs">Complimentary Express</span>
+            </div>
+            <div class="flex items-center justify-between text-headline-sm text-headline-sm font-bold text-primary pt-2 border-t border-border-hairline">
+              <span>Total Incl. Taxes</span>
+              <span id="cart-total" class="text-primary">₹1,078.00</span>
+            </div>
+          </div>
+          <button onclick="alert('Proceeding to Checkout!');" class="w-full py-3.5 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-all active:scale-95 shadow-md flex items-center justify-center gap-2">
+            PROCEED TO CHECKOUT
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div id="mobile-menu-drawer" class="fixed inset-0 z-50 hidden">
+    <div id="mobile-menu-backdrop" class="fixed inset-0 bg-primary/40 backdrop-blur-xs opacity-0 drawer-backdrop"></div>
+    <div id="mobile-menu-panel" class="fixed inset-y-0 left-0 max-w-full flex pr-10 drawer-content -translate-x-full">
+      <div class="w-screen max-w-xs bg-surface-canvas shadow-2xl flex flex-col justify-between p-6">
+        <div>
+          <div class="flex items-center justify-between pb-6 border-b border-border-hairline mb-6">
+            <div class="flex items-center gap-2">
+              <img alt="Well Icon Logo" class="h-7 w-auto rounded" src="images/well_icon_logo.jpg"/>
+              <span class="font-headline-sm text-headline-sm font-bold text-primary">WELL ICON</span>
+            </div>
+            <button id="close-mobile-menu-btn" aria-label="Close Menu" class="w-9 h-9 rounded-full hover:bg-surface-subtle flex items-center justify-center text-on-surface-variant">
+              <span class="material-symbols-outlined text-[22px]">close</span>
+            </button>
+          </div>
+          <nav class="flex flex-col gap-3 font-label-lg text-label-lg">
+            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="#">Men</a>
+            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="#">Women</a>
+            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="#">Juniors</a>
+            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="#">Athleisure</a>
+            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold" href="#">Thermals</a>
+            <a class="px-4 py-2.5 rounded-lg hover:bg-surface-subtle text-primary font-bold text-badge-fresh" href="#">150th Heritage Capsule</a>
+          </nav>
+        </div>
+        <div class="pt-6 border-t border-border-hairline space-y-3">
+          <a class="flex items-center gap-3 text-body-md text-on-surface-variant hover:text-primary" href="#">
+            <span class="material-symbols-outlined text-[20px]">store</span> Find a Store
+          </a>
+          <a class="flex items-center gap-3 text-body-md text-on-surface-variant hover:text-primary" href="#">
+            <span class="material-symbols-outlined text-[20px]">local_shipping</span> Track Your Order
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MOBILE SEARCH OVERLAY -->
+  <div id="mobile-search-overlay" class="fixed inset-0 z-50 bg-surface-canvas/98 backdrop-blur-md hidden p-6">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="font-headline-sm text-headline-sm font-bold text-primary">Search Products</h3>
+      <button id="close-mobile-search-btn" class="w-9 h-9 rounded-full hover:bg-surface-subtle flex items-center justify-center text-on-surface-variant">
+        <span class="material-symbols-outlined text-[22px]">close</span>
+      </button>
+    </div>
+    <div class="relative flex items-center w-full">
+      <span class="material-symbols-outlined absolute left-4 text-secondary text-[22px]">search</span>
+      <input class="w-full bg-surface-subtle font-body-lg text-body-lg text-on-surface placeholder:text-secondary pl-12 pr-4 py-3 rounded-full outline-none focus:ring-1 focus:ring-primary" placeholder="Search for styles, collections..." type="search"/>
+    </div>
+  </div>
 
   <!-- Main JavaScript File -->
   <script src="js/main.js"></script>
