@@ -331,13 +331,13 @@
         <button aria-label="Search Mobile" class="md:hidden w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors">
           <span class="material-symbols-outlined text-[22px]">search</span>
         </button>
-        <a aria-label="Wishlist" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors relative" href="#">
+        <a aria-label="Wishlist" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors relative" href="wishlist.html">
           <span class="material-symbols-outlined text-[22px]">favorite</span>
-          <span class="absolute -top-0.5 -right-0.5 bg-sale-crimson text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">1</span>
+          <span class="absolute -top-0.5 -right-0.5 bg-sale-crimson text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">0</span>
         </a>
         <a aria-label="Shopping Bag" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors relative" href="#">
           <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
-          <span class="absolute -top-0.5 -right-0.5 bg-primary text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">2</span>
+          <span class="absolute -top-0.5 -right-0.5 bg-primary text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">0</span>
         </a>
       </div>
     </div>
@@ -408,7 +408,7 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-space-lg">
         
         <!-- SANDO CARD 1: Achiever Duo Pack -->
-        <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border-hairline">
+        <div data-product-id="SANDO-01" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border-hairline">
           <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden image-zoom-container">
             <img class="w-full h-full object-cover image-zoom-target transition-transform duration-500" alt="Well Icon Achiever Athletic Gym Sando Duo Pack" src="images/sando_achiever.jpg"/>
             <span class="absolute top-3 left-3 bg-primary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold shadow-md">Bestseller Sando</span>
@@ -439,7 +439,7 @@
         </div>
 
         <!-- SANDO CARD 2: Shape It Performance Tank -->
-        <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border-hairline">
+        <div data-product-id="SANDO-02" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border-hairline">
           <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden image-zoom-container">
             <img class="w-full h-full object-cover image-zoom-target transition-transform duration-500" alt="Well Icon Shape It Microfiber Muscle Sando" src="images/sando_shape_it.png"/>
             <span class="absolute top-3 left-3 bg-badge-fresh text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold shadow-md">Performance Sando</span>
@@ -469,7 +469,7 @@
         </div>
 
         <!-- SANDO CARD 3: Stronger Every Day Contrast Sando -->
-        <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border-hairline">
+        <div data-product-id="SANDO-03" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border-hairline">
           <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden image-zoom-container">
             <img class="w-full h-full object-cover image-zoom-target transition-transform duration-500" alt="Well Icon Stronger Every Day Contrast Gym Sando" src="images/sando_stronger.png"/>
             <span class="absolute top-3 left-3 bg-secondary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold shadow-md">High Impact</span>
@@ -499,7 +499,7 @@
         </div>
 
         <!-- SANDO CARD 4: Strong Vibrant Yellow Cotton Sando -->
-        <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border-hairline">
+        <div data-product-id="SANDO-04" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-border-hairline">
           <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden image-zoom-container">
             <img class="w-full h-full object-cover image-zoom-target transition-transform duration-500" alt="Well Icon Strong Vibrant Yellow Pure Cotton Sando" src="images/sando_strong_yellow.png"/>
             <span class="absolute top-3 left-3 bg-primary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold shadow-md">Pure Cotton</span>
@@ -529,7 +529,7 @@
         </div>
 
         <!-- Product 5 -->
-        <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-border-hairline">
+        <div data-product-id="M101" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-border-hairline">
           <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden image-zoom-container">
             <img class="w-full h-full object-cover image-zoom-target transition-transform duration-300" alt="Outdoor Active Shorts" src="images/summer_outdoor_shorts.jpg"/>
             <button aria-label="Zoom View Product" class="zoom-trigger-btn absolute bottom-3 right-3 w-9 h-9 rounded-full bg-surface-canvas/90 backdrop-blur shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all z-10">
@@ -553,7 +553,7 @@
         </div>
 
         <!-- Product 6 -->
-        <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-border-hairline">
+        <div data-product-id="M102" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-border-hairline">
           <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden image-zoom-container">
             <img class="w-full h-full object-cover image-zoom-target transition-transform duration-300" alt="Boxer Shorts Trio" src="images/trend_boxer_shorts.jpg"/>
             <button aria-label="Zoom View Product" class="zoom-trigger-btn absolute bottom-3 right-3 w-9 h-9 rounded-full bg-surface-canvas/90 backdrop-blur shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all z-10">
@@ -577,7 +577,7 @@
         </div>
 
         <!-- Product 7 -->
-        <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-border-hairline">
+        <div data-product-id="M103" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-border-hairline">
           <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden image-zoom-container">
             <img class="w-full h-full object-cover image-zoom-target transition-transform duration-300" alt="Core Crewneck Tees" src="images/trend_core_tshirts.jpg"/>
             <button aria-label="Zoom View Product" class="zoom-trigger-btn absolute bottom-3 right-3 w-9 h-9 rounded-full bg-surface-canvas/90 backdrop-blur shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all z-10">
@@ -601,7 +601,7 @@
         </div>
 
         <!-- Product 8 -->
-        <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-border-hairline">
+        <div data-product-id="M104" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all border border-border-hairline">
           <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden image-zoom-container">
             <img class="w-full h-full object-cover image-zoom-target transition-transform duration-300" alt="Casual Summer Pants" src="images/trend_summer_pants.jpg"/>
             <button aria-label="Zoom View Product" class="zoom-trigger-btn absolute bottom-3 right-3 w-9 h-9 rounded-full bg-surface-canvas/90 backdrop-blur shadow-md flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all z-10">

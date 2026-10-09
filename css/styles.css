@@ -44,6 +44,12 @@ html, body {
   animation: heartPulse 0.35s ease-in-out;
 }
 
+/* Solid Filled Heart Styling */
+.material-symbols-outlined.fill-active {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24 !important;
+  color: #BA1A1A !important;
+}
+
 /* Badge Bounce Animation */
 @keyframes badgePop {
   0% { transform: scale(1); }

@@ -406,13 +406,13 @@
         <button aria-label="Search Mobile" class="md:hidden w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors">
           <span class="material-symbols-outlined text-[22px]">search</span>
         </button>
-        <a aria-label="Wishlist" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors relative" data-path="wishlist" href="#">
+        <a aria-label="Wishlist" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors relative" data-path="wishlist" href="wishlist.html">
           <span class="material-symbols-outlined text-[22px]">favorite</span>
-          <span class="absolute -top-0.5 -right-0.5 bg-sale-crimson text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">1</span>
+          <span class="absolute -top-0.5 -right-0.5 bg-sale-crimson text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">0</span>
         </a>
         <a aria-label="Shopping Bag" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors relative" data-path="shopping-bag" href="#">
           <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
-          <span class="absolute -top-0.5 -right-0.5 bg-primary text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">2</span>
+          <span class="absolute -top-0.5 -right-0.5 bg-primary text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">0</span>
         </a>
     </div>
   </header>
@@ -695,7 +695,7 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-lg">
               <!-- Item 1 -->
-              <div class="group flex flex-col bg-surface-subtle rounded-lg p-space-md hover:bg-surface-container-low transition-colors">
+              <div data-product-id="W225" class="group flex flex-col bg-surface-subtle rounded-lg p-space-md hover:bg-surface-container-low transition-colors">
                 <div class="relative w-full aspect-[3/4] rounded-md overflow-hidden bg-surface-canvas mb-space-md">
                   <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Super Combed Cotton Graphic T-Shirt" src="images/focus_graphic_tee.jpg"/>
                   <span class="absolute bottom-2 left-2 bg-surface-canvas/90 backdrop-blur text-primary font-label-xs text-label-xs font-bold px-2 py-0.5 rounded shadow-sm">3 Colors</span>
@@ -714,7 +714,7 @@
                 </div>
               </div>
               <!-- Item 2 -->
-              <div class="group flex flex-col bg-surface-subtle rounded-lg p-space-md hover:bg-surface-container-low transition-colors">
+              <div data-product-id="W230" class="group flex flex-col bg-surface-subtle rounded-lg p-space-md hover:bg-surface-container-low transition-colors">
                 <div class="relative w-full aspect-[3/4] rounded-md overflow-hidden bg-surface-canvas mb-space-md">
                   <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Microfiber Cargo Utility Pants" src="images/focus_cargo_pants.jpg"/>
                   <span class="absolute bottom-2 left-2 bg-surface-canvas/90 backdrop-blur text-primary font-label-xs text-label-xs font-bold px-2 py-0.5 rounded shadow-sm">2 Colors</span>
@@ -763,7 +763,7 @@
           </div>
           <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-space-md lg:gap-space-lg pb-4">
             <!-- Best Seller 1 -->
-            <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+            <div data-product-id="A113" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
                 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Ribbed Slim Tank Top" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80"/>
                 <span class="absolute top-3 left-3 bg-primary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Bestseller</span>
@@ -787,11 +787,11 @@
               </div>
             </div>
             <!-- Best Seller 2 -->
-            <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+            <div data-product-id="FE41" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
                 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Wirefree Cotton Stretch Bra" src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=800&q=80"/>
                 <span class="absolute top-3 left-3 bg-badge-fresh text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Top Rated</span>
-                <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant text-sale-crimson hover:text-sale-crimson transition-colors active:scale-110">
+                <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors active:scale-110">
                   <span class="material-symbols-outlined text-[18px]">favorite</span>
                 </button>
                 <span class="absolute bottom-3 left-3 bg-surface-canvas/90 backdrop-blur font-label-xs text-label-xs font-bold px-2 py-0.5 rounded text-primary shadow-sm">12 Colors</span>
@@ -811,7 +811,7 @@
               </div>
             </div>
             <!-- Best Seller 3 -->
-            <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+            <div data-product-id="1406" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
                 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="High Coverage Cotton Hipster Panties" src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80"/>
                 <span class="absolute top-3 left-3 bg-secondary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Pack of 2</span>
@@ -835,7 +835,7 @@
               </div>
             </div>
             <!-- Best Seller 4 -->
-            <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+            <div data-product-id="1803" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
                 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Micro Modal Stretch Bikini Brief" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80"/>
                 <span class="absolute top-3 left-3 bg-primary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">MicroModal</span>
