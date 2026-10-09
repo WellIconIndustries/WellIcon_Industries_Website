@@ -433,6 +433,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================
+  // SPLASH SCREEN CONTROLLER
+  // ==========================================
+  const splashScreen = document.getElementById('splash-screen');
+  if (splashScreen) {
+    document.body.style.overflow = 'hidden';
+
+    let splashDismissed = false;
+    const hideSplash = () => {
+      if (splashDismissed) return;
+      splashDismissed = true;
+      splashScreen.style.opacity = '0';
+      splashScreen.style.pointerEvents = 'none';
+      setTimeout(() => {
+        splashScreen.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 700);
+    };
+
+    // Guarantee smooth logo animation time on visit/reload
+    setTimeout(hideSplash, 1400);
+  }
+
   updateCartUI();
   updateWishlistUI();
 });
+

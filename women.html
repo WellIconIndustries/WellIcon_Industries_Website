@@ -114,6 +114,38 @@
 </head>
 <body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
 
+  <!-- SPLASH SCREEN OVERLAY -->
+  <div id="splash-screen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0c1014] text-white transition-opacity duration-700 ease-in-out select-none">
+    <!-- Soft Glowing Background Pulse -->
+    <div class="absolute w-[400px] h-[400px] bg-badge-fresh/20 rounded-full blur-[100px] animate-pulse pointer-events-none"></div>
+
+    <!-- Splash Main Box -->
+    <div class="relative z-10 flex flex-col items-center text-center px-4">
+      <!-- Brand Logo Icon Container with Ring Animation -->
+      <div class="relative mb-6 animate-splash-pulse">
+        <div class="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-badge-fresh via-surface-tint to-primary blur-md opacity-70 animate-pulse"></div>
+        <div class="relative w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-surface-canvas p-3 flex items-center justify-center shadow-2xl border border-white/20">
+          <img src="images/well_icon_logo.jpg" alt="Well Icon Brand Logo" class="w-full h-full object-contain rounded-xl shadow-sm" />
+        </div>
+      </div>
+
+      <!-- Title with Smooth Letter Spacing Animation -->
+      <h1 class="font-headline-lg font-bold tracking-[0.25em] text-3xl md:text-5xl uppercase text-white drop-shadow-md">
+        WELL ICON
+      </h1>
+      
+      <!-- Tagline -->
+      <p class="font-label-md text-label-md text-outline-variant uppercase tracking-[0.3em] mt-3 font-semibold text-xs md:text-sm">
+        Everyday Comfort, Made for You
+      </p>
+
+      <!-- Animated Loader Line -->
+      <div class="w-40 h-[3px] bg-white/10 rounded-full overflow-hidden mt-8 relative">
+        <div class="splash-loader-bar absolute top-0 left-0 h-full w-full bg-gradient-to-r from-badge-fresh via-white to-badge-fresh rounded-full"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- HEADER -->
   <header class="fixed top-0 left-0 right-0 z-40 w-full bg-surface-canvas/95 backdrop-blur-md shadow-[0_2px_8px_rgba(33,37,41,0.04)]">
     <!-- Top Bar -->
@@ -143,8 +175,10 @@
     <!-- Navigation Bar -->
     <div class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop h-16 flex items-center justify-between gap-space-md lg:gap-space-lg">
       <div class="flex items-center gap-space-md lg:gap-space-lg shrink-0">
-        <button id="mobile-menu-btn" aria-label="Open Mobile Menu" class="xl:hidden w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors">
-          <span class="material-symbols-outlined text-[24px]">menu</span>
+        <button id="mobile-menu-btn" aria-label="Open Mobile Menu" class="xl:hidden w-10 h-10 rounded-full bg-surface-subtle flex flex-col items-center justify-center gap-1 text-primary hover:bg-primary hover:text-on-primary transition-all active:scale-95 border border-border-hairline shadow-xs shrink-0">
+          <span class="w-4 h-[2px] bg-current rounded-full transition-all"></span>
+          <span class="w-4 h-[2px] bg-current rounded-full transition-all"></span>
+          <span class="w-4 h-[2px] bg-current rounded-full transition-all"></span>
         </button>
         <a class="flex items-center gap-2" href="index.html">
           <img alt="Well Icon Brand Logo" class="h-8 w-auto object-contain rounded" src="images/well_icon_logo.jpg"/>
@@ -154,11 +188,141 @@
           </div>
         </a>
       </div>
-      <nav class="hidden xl:flex items-center gap-space-xs font-label-lg text-label-lg">
-        <a class="px-4 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" href="men.html">Men</a>
-        <a class="px-4 py-1.5 bg-primary text-on-primary font-bold rounded-full shadow-sm" href="women.html">Women</a>
-        <a class="px-4 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" href="accessories.html">Accessories</a>
-        <a class="px-4 py-1.5 text-on-surface-variant hover:text-on-surface transition-colors rounded-full" href="index.html">Home</a>
+      <nav class="hidden xl:flex items-center gap-space-xs font-label-lg text-label-lg relative">
+        <!-- MEN Dropdown -->
+        <div class="group py-5">
+          <a href="men.html" class="flex items-center gap-1 px-3 py-1.5 text-on-surface-variant hover:text-primary transition-colors rounded-full font-semibold group-hover:bg-surface-subtle group-hover:text-primary">
+            Men
+            <span class="material-symbols-outlined text-[16px] transition-transform group-hover:rotate-180">expand_more</span>
+          </a>
+          <div class="absolute left-0 top-full w-[720px] bg-surface-canvas dark:bg-surface-container-lowest rounded-2xl shadow-xl border border-border-hairline p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 pointer-events-none group-hover:pointer-events-auto">
+            <div class="grid grid-cols-3 gap-6">
+              <div>
+                <h4 class="font-headline-sm text-[15px] font-bold text-primary border-b border-border-hairline pb-2 mb-3 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-badge-fresh text-[18px]">fitness_center</span> Innerwear & Basics
+                </h4>
+                <ul class="space-y-2 text-body-md text-on-surface-variant text-[14px]">
+                  <li><a href="men.html#sandos" class="hover:text-primary font-medium hover:translate-x-1 inline-block transition-transform text-primary">Sandos & Gym Vests <span class="bg-sale-crimson text-on-primary text-[10px] px-1.5 py-0.5 rounded-full uppercase ml-1 font-bold">Hot</span></a></li>
+                  <li><a href="men.html#boxers" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Boxer Shorts & Trunks</a></li>
+                  <li><a href="men.html#thermals" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Ribbed Thermal Tops</a></li>
+                  <li><a href="men.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Cotton Briefs</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-headline-sm text-[15px] font-bold text-primary border-b border-border-hairline pb-2 mb-3 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-badge-fresh text-[18px]">apparel</span> Outerwear & Casual
+                </h4>
+                <ul class="space-y-2 text-body-md text-on-surface-variant text-[14px]">
+                  <li><a href="men.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Track Pants & Joggers</a></li>
+                  <li><a href="men.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Everyday Comfort Tees</a></li>
+                  <li><a href="men.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Athleisure Shorts</a></li>
+                  <li><a href="men.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Thermal Trousers</a></li>
+                </ul>
+              </div>
+              <div class="bg-surface-subtle p-3.5 rounded-xl flex flex-col justify-between border border-border-hairline">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-secondary bg-surface-canvas px-2 py-0.5 rounded-full inline-block mb-2">Featured Spotlight</span>
+                  <img src="images/sando_achiever.jpg" alt="Achiever Ribbed Sando" class="w-full h-28 object-cover rounded-lg mb-2 shadow-xs" />
+                  <h5 class="font-bold text-primary text-[13px] leading-tight">Achiever Ribbed Sando</h5>
+                  <p class="text-[11px] text-on-surface-variant mt-0.5">100% Combed Cotton • Deep cut shape</p>
+                </div>
+                <a href="men.html" class="mt-2 text-[12px] font-bold text-primary hover:underline flex items-center gap-1">
+                  Shop Men's Collection <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WOMEN Dropdown -->
+        <div class="group py-5">
+          <a href="women.html" class="flex items-center gap-1 px-3 py-1.5 bg-primary text-on-primary font-bold rounded-full text-primary transition-colors">
+            Women
+            <span class="material-symbols-outlined text-[16px] transition-transform group-hover:rotate-180">expand_more</span>
+          </a>
+          <div class="absolute left-0 top-full w-[720px] bg-surface-canvas dark:bg-surface-container-lowest rounded-2xl shadow-xl border border-border-hairline p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 pointer-events-none group-hover:pointer-events-auto">
+            <div class="grid grid-cols-3 gap-6">
+              <div>
+                <h4 class="font-headline-sm text-[15px] font-bold text-primary border-b border-border-hairline pb-2 mb-3 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-badge-fresh text-[18px]">styler</span> Innerwear Essentials
+                </h4>
+                <ul class="space-y-2 text-body-md text-on-surface-variant text-[14px]">
+                  <li><a href="women.html#bras" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Seamless Everyday Bras</a></li>
+                  <li><a href="women.html#panties" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Cotton Comfort Panties</a></li>
+                  <li><a href="women.html#camisoles" class="hover:text-primary font-medium hover:translate-x-1 inline-block transition-transform text-primary">Ribbed Camisoles & Tanks</a></li>
+                  <li><a href="women.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Shapewear Basics</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-headline-sm text-[15px] font-bold text-primary border-b border-border-hairline pb-2 mb-3 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-badge-fresh text-[18px]">bedtime</span> Sleep & Loungewear
+                </h4>
+                <ul class="space-y-2 text-body-md text-on-surface-variant text-[14px]">
+                  <li><a href="women.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Lounge Tops & Tees</a></li>
+                  <li><a href="women.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Soft Pajama Sets</a></li>
+                  <li><a href="women.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Women's Thermal Wear</a></li>
+                  <li><a href="women.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Relaxed Fit Shorts</a></li>
+                </ul>
+              </div>
+              <div class="bg-surface-subtle p-3.5 rounded-xl flex flex-col justify-between border border-border-hairline">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-secondary bg-surface-canvas px-2 py-0.5 rounded-full inline-block mb-2">Women Spotlight</span>
+                  <img src="images/trend_everyday_bra.jpg" alt="Everyday Comfort Bra" class="w-full h-28 object-cover rounded-lg mb-2 shadow-xs" />
+                  <h5 class="font-bold text-primary text-[13px] leading-tight">Everyday Seamless Bra</h5>
+                  <p class="text-[11px] text-on-surface-variant mt-0.5">Ultra-breathable micro-modal stretch</p>
+                </div>
+                <a href="women.html" class="mt-2 text-[12px] font-bold text-primary hover:underline flex items-center gap-1">
+                  Shop Women's Range <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACCESSORIES Dropdown -->
+        <div class="group py-5">
+          <a href="accessories.html" class="flex items-center gap-1 px-3 py-1.5 text-on-surface-variant hover:text-primary transition-colors rounded-full font-semibold group-hover:bg-surface-subtle group-hover:text-primary">
+            Accessories
+            <span class="material-symbols-outlined text-[16px] transition-transform group-hover:rotate-180">expand_more</span>
+          </a>
+          <div class="absolute left-0 top-full w-[720px] bg-surface-canvas dark:bg-surface-container-lowest rounded-2xl shadow-xl border border-border-hairline p-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50 pointer-events-none group-hover:pointer-events-auto">
+            <div class="grid grid-cols-3 gap-6">
+              <div>
+                <h4 class="font-headline-sm text-[15px] font-bold text-primary border-b border-border-hairline pb-2 mb-3 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-badge-fresh text-[18px]">dry</span> Handkerchiefs & Towels
+                </h4>
+                <ul class="space-y-2 text-body-md text-on-surface-variant text-[14px]">
+                  <li><a href="accessories.html#hankies" class="hover:text-primary font-medium hover:translate-x-1 inline-block transition-transform text-primary">Cotton Handkerchief Packs</a></li>
+                  <li><a href="accessories.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Plush Bath Towels</a></li>
+                  <li><a href="accessories.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Gym Sweat Towels</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-headline-sm text-[15px] font-bold text-primary border-b border-border-hairline pb-2 mb-3 flex items-center gap-2">
+                  <span class="material-symbols-outlined text-badge-fresh text-[18px]">steps</span> Socks & Headwear
+                </h4>
+                <ul class="space-y-2 text-body-md text-on-surface-variant text-[14px]">
+                  <li><a href="accessories.html#socks" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Ankle & Crew Socks</a></li>
+                  <li><a href="accessories.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Ribbed Beanie Caps</a></li>
+                  <li><a href="accessories.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Athletic Sweatbands</a></li>
+                </ul>
+              </div>
+              <div class="bg-surface-subtle p-3.5 rounded-xl flex flex-col justify-between border border-border-hairline">
+                <div>
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-secondary bg-surface-canvas px-2 py-0.5 rounded-full inline-block mb-2">Accessories Pack</span>
+                  <img src="images/focus_graphic_tee.jpg" alt="Cotton Accessories" class="w-full h-28 object-cover rounded-lg mb-2 shadow-xs" />
+                  <h5 class="font-bold text-primary text-[13px] leading-tight">Classic Handkerchief (Pack of 6)</h5>
+                  <p class="text-[11px] text-on-surface-variant mt-0.5">100% Super-soft absorbent cotton</p>
+                </div>
+                <a href="accessories.html" class="mt-2 text-[12px] font-bold text-primary hover:underline flex items-center gap-1">
+                  Shop Accessories <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="index.html" class="px-3 py-1.5 text-on-surface-variant hover:text-primary transition-colors rounded-full font-semibold">Home</a>
       </nav>
       <div class="flex-1 max-w-md hidden md:block mx-space-sm">
         <div class="relative flex items-center w-full">

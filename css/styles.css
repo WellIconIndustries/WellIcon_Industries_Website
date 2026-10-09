@@ -108,3 +108,36 @@ html, body {
     transform: scale(1);
   }
 }
+
+/* Splash Screen Animations */
+@keyframes splashProgress {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.splash-loader-bar {
+  animation: splashProgress 1.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes splashLogoPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 0.95;
+  }
+}
+
+.animate-splash-pulse {
+  animation: splashLogoPulse 2.5s ease-in-out infinite;
+}
+
