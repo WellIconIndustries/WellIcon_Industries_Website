@@ -456,7 +456,29 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(hideSplash, 1400);
   }
 
+  // ==========================================
+  // MOBILE STICKY CATEGORY NAV ON SCROLL
+  // ==========================================
+  const mobileCatBar = document.getElementById('mobile-sticky-cat-bar');
+  if (mobileCatBar) {
+    const handleScroll = () => {
+      // Show bar as soon as user scrolls down past header (~120px)
+      const scrollThreshold = 120;
+      if (window.scrollY > scrollThreshold) {
+        mobileCatBar.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+        mobileCatBar.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+      } else {
+        mobileCatBar.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+        mobileCatBar.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
   updateCartUI();
   updateWishlistUI();
 });
+
 

@@ -149,7 +149,7 @@
   <!-- HEADER -->
   <header class="fixed top-0 left-0 right-0 z-40 w-full bg-surface-canvas/95 backdrop-blur-md shadow-[0_2px_8px_rgba(33,37,41,0.04)]">
     <!-- Top Bar -->
-    <div class="bg-surface-subtle">
+    <div class="bg-surface-subtle hidden md:block">
       <div class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop h-8 flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
         <div class="flex items-center gap-space-lg">
           <a class="flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-primary hover:text-on-surface-variant transition-colors" href="index.html">
@@ -180,12 +180,9 @@
           <span class="w-4 h-[2px] bg-current rounded-full transition-all"></span>
           <span class="w-4 h-[2px] bg-current rounded-full transition-all"></span>
         </button>
-        <a class="flex items-center gap-2" href="index.html">
-          <img alt="Well Icon Brand Logo" class="h-8 w-auto object-contain rounded" src="images/well_icon_logo.jpg"/>
-          <div class="flex flex-col">
-            <span class="font-headline-sm text-headline-sm font-bold tracking-tight text-primary leading-none">WELL ICON</span>
-            <span class="font-label-xs text-label-xs text-secondary uppercase tracking-widest leading-none mt-1">Comfort Wear</span>
-          </div>
+        <a class="flex flex-col" href="index.html">
+          <span class="font-headline-sm text-headline-sm font-bold tracking-tight text-primary leading-none">WELL ICON</span>
+          <span class="font-label-xs text-label-xs text-secondary uppercase tracking-widest leading-none mt-1">Comfort Wear</span>
         </a>
       </div>
       <nav class="hidden xl:flex items-center gap-space-xs font-label-lg text-label-lg relative">
@@ -330,7 +327,7 @@
           <input class="w-full bg-surface-subtle font-body-md text-body-md text-on-surface placeholder:text-secondary pl-10 pr-4 py-2 rounded-full outline-none focus:bg-surface-canvas focus:ring-1 focus:ring-primary transition-all" placeholder="Search for Sandos, Gym Vests, Athletic Tanks..." type="search"/>
         </div>
       </div>
-      <div class="flex items-center gap-space-sm md:gap-space-md shrink-0">
+      <div class="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0">
         <button aria-label="Search Mobile" class="md:hidden w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors">
           <span class="material-symbols-outlined text-[22px]">search</span>
         </button>
@@ -342,18 +339,25 @@
           <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
           <span class="absolute -top-0.5 -right-0.5 bg-primary text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">2</span>
         </a>
-        <a aria-label="Account" class="flex items-center gap-space-xs pl-space-xs" href="#">
-          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-            <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
-          </div>
-          <span class="hidden lg:inline font-label-md text-label-md text-on-surface font-semibold">Account</span>
-        </a>
       </div>
     </div>
   </header>
 
+  <!-- MOBILE STICKY CATEGORY NAV BAR (Appears when scrolling past hero poster on phones) -->
+  <div id="mobile-sticky-cat-bar" class="xl:hidden fixed top-[64px] left-0 right-0 z-30 bg-surface-canvas/95 backdrop-blur-md border-b border-border-hairline shadow-md transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none">
+    <div class="w-full overflow-x-auto no-scrollbar py-2 px-2">
+      <div class="flex items-center justify-between min-w-max text-center divide-x divide-border-hairline font-label-md text-label-md">
+        <a href="men.html" class="px-5 py-1 text-primary font-bold border-b-2 border-primary transition-colors">Men</a>
+        <a href="women.html" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Women</a>
+        <a href="accessories.html" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Accessories</a>
+        <a href="men.html#sandos" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Athleisure</a>
+        <a href="men.html#thermals" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Thermals</a>
+      </div>
+    </div>
+  </div>
+
   <!-- MAIN CONTENT -->
-  <main class="w-full pt-28 bg-surface">
+  <main class="w-full pt-16 md:pt-28 bg-surface">
     <!-- Breadcrumb & Banner -->
     <div class="w-full bg-surface-subtle border-b border-border-hairline py-space-xl">
       <div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">

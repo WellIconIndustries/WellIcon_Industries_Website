@@ -168,7 +168,7 @@
   <!-- HEADER -->
   <header class="fixed top-0 left-0 right-0 z-40 w-full bg-surface-canvas/95 backdrop-blur-md shadow-[0_2px_8px_rgba(33,37,41,0.04)]">
     <!-- Top Bar -->
-    <div class="bg-surface-subtle">
+    <div class="bg-surface-subtle hidden md:block">
       <div class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop h-8 flex items-center justify-between text-on-surface-variant font-label-md text-label-md">
         <div class="flex items-center gap-space-lg">
           <a class="flex items-center gap-space-xs font-label-md text-label-md uppercase tracking-wider text-primary hover:text-on-surface-variant transition-colors" data-path="jky-studio" href="#">
@@ -199,8 +199,7 @@
           <span class="w-4 h-[2px] bg-current rounded-full transition-all"></span>
           <span class="w-4 h-[2px] bg-current rounded-full transition-all"></span>
         </button>
-        <img alt="Well Icon Brand Logo" class="h-8 w-auto object-contain rounded" src="images/well_icon_logo.jpg"/>
-        <a class="flex flex-col" data-path="home" href="#">
+        <a class="flex flex-col" data-path="home" href="index.html">
           <span class="font-headline-sm text-headline-sm font-bold tracking-tight text-primary leading-none">WELL ICON</span>
           <span class="font-label-xs text-label-xs text-secondary uppercase tracking-widest leading-none mt-1">Comfort Wear</span>
         </a>
@@ -403,7 +402,7 @@
           <input class="w-full bg-surface-subtle font-body-md text-body-md text-on-surface placeholder:text-secondary pl-10 pr-4 py-2 rounded-full outline-none focus:bg-surface-canvas focus:ring-1 focus:ring-primary transition-all" placeholder="Search for products, styles, collections..." type="search"/>
         </div>
       </div>
-      <div class="flex items-center gap-space-sm md:gap-space-md shrink-0">
+      <div class="flex items-center gap-1 sm:gap-2 md:gap-3 shrink-0">
         <button aria-label="Search Mobile" class="md:hidden w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors">
           <span class="material-symbols-outlined text-[22px]">search</span>
         </button>
@@ -415,63 +414,68 @@
           <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
           <span class="absolute -top-0.5 -right-0.5 bg-primary text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">2</span>
         </a>
-        <a aria-label="Account" class="flex items-center gap-space-xs pl-space-xs" data-path="user-profile" href="#">
-          <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-            <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
-          </div>
-          <span class="hidden lg:inline font-label-md text-label-md text-on-surface font-semibold">Account</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Banner Announcement -->
-    <div class="bg-primary text-on-primary py-1.5 px-margin">
-      <div class="w-full max-w-[1440px] mx-auto flex items-center justify-center text-center font-label-md text-label-md gap-space-md">
-        <span class="material-symbols-outlined text-[16px] text-badge-fresh">verified</span>
-        <span>Complimentary Express Delivery on Orders Over ₹999 | Everyday Comfort, Made for You</span>
-        <a class="underline text-on-primary hover:text-surface-dim transition-colors font-semibold hidden sm:inline" data-path="offers" href="#">Explore Offers</a>
-      </div>
     </div>
   </header>
 
+  <!-- MOBILE STICKY CATEGORY NAV BAR (Appears when scrolling past hero poster on phones) -->
+  <div id="mobile-sticky-cat-bar" class="xl:hidden fixed top-[64px] left-0 right-0 z-30 bg-surface-canvas/95 backdrop-blur-md border-b border-border-hairline shadow-md transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none">
+    <div class="w-full overflow-x-auto no-scrollbar py-2 px-2">
+      <div class="flex items-center justify-between min-w-max text-center divide-x divide-border-hairline font-label-md text-label-md">
+        <a href="men.html" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Men</a>
+        <a href="women.html" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Women</a>
+        <a href="accessories.html" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Accessories</a>
+        <a href="men.html#sandos" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Athleisure</a>
+        <a href="men.html#thermals" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Thermals</a>
+      </div>
+    </div>
+  </div>
+
   <!-- MAIN CONTENT -->
-  <main class="w-full pt-32 bg-surface">
+  <main class="w-full pt-16 md:pt-28 bg-surface">
     <div class="flex flex-col w-full">
 
       <!-- 1. HERO SECTION -->
       <section class="relative w-full bg-surface-canvas overflow-hidden">
-        <div class="relative w-full aspect-[21/9] min-h-[460px] md:min-h-[560px] max-h-[660px]">
-          <img alt="WELL ICON EDITION New Drop" class="w-full h-full object-cover object-center" src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=2000&auto=format&fit=crop" onerror="this.onerror=null; this.src='images/campaign_always_init.jpg';"/>
-          <div class="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/30 to-transparent flex items-center">
-            <div class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-xl text-on-primary">
-              <div class="max-w-xl space-y-space-md">
-                <span class="inline-block px-space-md py-space-xs rounded-full bg-surface-canvas/20 backdrop-blur-md font-label-md text-label-md uppercase tracking-wider text-on-primary">NEW COLLECTION</span>
-                <h1 class="font-display-hero text-display-hero text-on-primary tracking-tight font-extrabold uppercase">
+        <div class="relative w-full aspect-[4/5] sm:aspect-[16/9] md:aspect-[21/9] min-h-[480px] sm:min-h-[520px] md:min-h-[560px] md:max-h-[660px] bg-primary overflow-hidden">
+          <!-- Hero Background Image (Absolute inset-0 ensures 100% full cover without blank gray space) -->
+          <img alt="WELL ICON EDITION New Drop" class="absolute inset-0 w-full h-full object-cover object-center" src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=2000&auto=format&fit=crop" onerror="this.onerror=null; this.src='images/campaign_always_init.jpg';"/>
+          
+          <!-- Responsive Overlay Gradient -->
+          <div class="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/40 to-transparent md:bg-gradient-to-r md:from-primary/80 md:via-primary/35 md:to-transparent flex items-start md:items-center">
+            <div class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop pt-8 sm:pt-12 md:py-space-xl text-on-primary">
+              <div class="max-w-xl space-y-3 sm:space-y-4 md:space-y-space-md">
+                <span class="inline-block px-3 py-1 rounded-full bg-surface-canvas/20 backdrop-blur-md font-label-md text-[10px] sm:text-xs md:text-label-md font-bold uppercase tracking-widest text-on-primary">NEW COLLECTION</span>
+                
+                <h1 class="font-display-hero text-2xl sm:text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-on-primary leading-tight">
                   WELL ICON <span class="text-secondary-fixed">GROOVE™</span>
                 </h1>
-                <p class="font-headline-sm text-headline-sm text-surface-container-low font-normal tracking-wide">
-                  Our New Drop Is Here! Everyday rhythm meets unmatched textile freedom.
+                
+                <p class="font-body-md text-xs sm:text-sm md:text-base text-surface-container-low font-normal tracking-wide max-w-sm sm:max-w-md leading-relaxed">
+                  Everyday rhythm meets unmatched textile freedom. Crafted for lightweight, effortless movement.
                 </p>
-                <div class="pt-space-sm flex items-center gap-space-md">
-                  <a class="px-7 py-3 rounded-full bg-surface-canvas text-primary font-label-lg text-label-lg font-bold shadow-md hover:bg-surface-subtle transition-all active:scale-95 inline-flex items-center gap-2" href="#">
-                    EXPLORE NOW
-                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+
+                <!-- Action Buttons: Single Compact CTA on Mobile, Dual on Desktop -->
+                <div class="pt-1 sm:pt-2 md:pt-space-sm flex items-center gap-3">
+                  <a class="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-surface-canvas text-primary font-label-md text-xs sm:text-sm md:text-label-lg font-bold shadow-md hover:bg-surface-subtle transition-all active:scale-95 inline-flex items-center gap-1.5 whitespace-nowrap" href="men.html">
+                    <span>EXPLORE NOW</span>
+                    <span class="material-symbols-outlined text-[16px] md:text-[18px]">arrow_forward</span>
                   </a>
-                  <a class="px-6 py-3 rounded-full bg-surface-canvas/15 backdrop-blur-md text-on-primary font-label-lg text-label-lg hover:bg-surface-canvas/25 transition-all" href="#">
+                  <a class="hidden sm:inline-flex px-5 py-2.5 sm:py-3 rounded-full bg-surface-canvas/15 backdrop-blur-md text-on-primary font-label-md text-xs sm:text-sm md:text-label-lg hover:bg-surface-canvas/25 transition-all whitespace-nowrap" href="#">
                     View Lookbook
                   </a>
                 </div>
               </div>
             </div>
           </div>
-          <!-- Controls & Indicator -->
-          <div class="absolute bottom-6 right-6 lg:right-16 flex items-center gap-space-md bg-primary-container/80 backdrop-blur-md text-on-primary px-space-md py-space-xs rounded-full shadow-lg z-10">
-            <button aria-label="Previous slide" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-canvas/20 transition-colors">
-              <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+
+          <!-- Controls & Indicator: Compact on Mobile -->
+          <div class="absolute bottom-4 right-4 md:bottom-6 md:right-6 lg:right-16 flex items-center gap-2 md:gap-space-md bg-primary-container/80 backdrop-blur-md text-on-primary px-3 md:px-space-md py-1 md:py-space-xs rounded-full shadow-lg z-10">
+            <button aria-label="Previous slide" class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center hover:bg-surface-canvas/20 transition-colors">
+              <span class="material-symbols-outlined text-[16px] md:text-[20px]">chevron_left</span>
             </button>
-            <span class="font-label-md text-label-md font-bold tracking-widest">01 / 04</span>
-            <button aria-label="Next slide" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-canvas/20 transition-colors">
-              <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+            <span class="font-label-md text-[11px] md:text-label-md font-bold tracking-widest">01 / 04</span>
+            <button aria-label="Next slide" class="w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center hover:bg-surface-canvas/20 transition-colors">
+              <span class="material-symbols-outlined text-[16px] md:text-[20px]">chevron_right</span>
             </button>
           </div>
         </div>
