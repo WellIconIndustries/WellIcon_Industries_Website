@@ -1,0 +1,380 @@
+[
+  {
+    "page": "index.html",
+    "viewport": "small_mobile",
+    "width": 320,
+    "height": 568,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_index_small_mobile.png"
+  },
+  {
+    "page": "index.html",
+    "viewport": "standard_mobile",
+    "width": 375,
+    "height": 812,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_index_standard_mobile.png"
+  },
+  {
+    "page": "index.html",
+    "viewport": "large_mobile",
+    "width": 430,
+    "height": 932,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_index_large_mobile.png"
+  },
+  {
+    "page": "index.html",
+    "viewport": "small_tablet",
+    "width": 600,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_index_small_tablet.png"
+  },
+  {
+    "page": "index.html",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_index_tablet.png"
+  },
+  {
+    "page": "index.html",
+    "viewport": "large_tablet",
+    "width": 1024,
+    "height": 1366,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_index_large_tablet.png"
+  },
+  {
+    "page": "index.html",
+    "viewport": "laptop",
+    "width": 1280,
+    "height": 800,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_index_laptop.png"
+  },
+  {
+    "page": "index.html",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_index_desktop.png"
+  },
+  {
+    "page": "index.html",
+    "viewport": "large_desktop",
+    "width": 1920,
+    "height": 1080,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_index_large_desktop.png"
+  },
+  {
+    "page": "men.html",
+    "viewport": "small_mobile",
+    "width": 320,
+    "height": 568,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_men_small_mobile.png"
+  },
+  {
+    "page": "men.html",
+    "viewport": "standard_mobile",
+    "width": 375,
+    "height": 812,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_men_standard_mobile.png"
+  },
+  {
+    "page": "men.html",
+    "viewport": "large_mobile",
+    "width": 430,
+    "height": 932,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_men_large_mobile.png"
+  },
+  {
+    "page": "men.html",
+    "viewport": "small_tablet",
+    "width": 600,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_men_small_tablet.png"
+  },
+  {
+    "page": "men.html",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_men_tablet.png"
+  },
+  {
+    "page": "men.html",
+    "viewport": "large_tablet",
+    "width": 1024,
+    "height": 1366,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_men_large_tablet.png"
+  },
+  {
+    "page": "men.html",
+    "viewport": "laptop",
+    "width": 1280,
+    "height": 800,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_men_laptop.png"
+  },
+  {
+    "page": "men.html",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_men_desktop.png"
+  },
+  {
+    "page": "men.html",
+    "viewport": "large_desktop",
+    "width": 1920,
+    "height": 1080,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_men_large_desktop.png"
+  },
+  {
+    "page": "women.html",
+    "viewport": "small_mobile",
+    "width": 320,
+    "height": 568,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_women_small_mobile.png"
+  },
+  {
+    "page": "women.html",
+    "viewport": "standard_mobile",
+    "width": 375,
+    "height": 812,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_women_standard_mobile.png"
+  },
+  {
+    "page": "women.html",
+    "viewport": "large_mobile",
+    "width": 430,
+    "height": 932,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_women_large_mobile.png"
+  },
+  {
+    "page": "women.html",
+    "viewport": "small_tablet",
+    "width": 600,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_women_small_tablet.png"
+  },
+  {
+    "page": "women.html",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_women_tablet.png"
+  },
+  {
+    "page": "women.html",
+    "viewport": "large_tablet",
+    "width": 1024,
+    "height": 1366,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_women_large_tablet.png"
+  },
+  {
+    "page": "women.html",
+    "viewport": "laptop",
+    "width": 1280,
+    "height": 800,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_women_laptop.png"
+  },
+  {
+    "page": "women.html",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_women_desktop.png"
+  },
+  {
+    "page": "women.html",
+    "viewport": "large_desktop",
+    "width": 1920,
+    "height": 1080,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_women_large_desktop.png"
+  },
+  {
+    "page": "accessories.html",
+    "viewport": "small_mobile",
+    "width": 320,
+    "height": 568,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_accessories_small_mobile.png"
+  },
+  {
+    "page": "accessories.html",
+    "viewport": "standard_mobile",
+    "width": 375,
+    "height": 812,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_accessories_standard_mobile.png"
+  },
+  {
+    "page": "accessories.html",
+    "viewport": "large_mobile",
+    "width": 430,
+    "height": 932,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_accessories_large_mobile.png"
+  },
+  {
+    "page": "accessories.html",
+    "viewport": "small_tablet",
+    "width": 600,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_accessories_small_tablet.png"
+  },
+  {
+    "page": "accessories.html",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_accessories_tablet.png"
+  },
+  {
+    "page": "accessories.html",
+    "viewport": "large_tablet",
+    "width": 1024,
+    "height": 1366,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_accessories_large_tablet.png"
+  },
+  {
+    "page": "accessories.html",
+    "viewport": "laptop",
+    "width": 1280,
+    "height": 800,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_accessories_laptop.png"
+  },
+  {
+    "page": "accessories.html",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_accessories_desktop.png"
+  },
+  {
+    "page": "accessories.html",
+    "viewport": "large_desktop",
+    "width": 1920,
+    "height": 1080,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_accessories_large_desktop.png"
+  },
+  {
+    "page": "wishlist.html",
+    "viewport": "small_mobile",
+    "width": 320,
+    "height": 568,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_wishlist_small_mobile.png"
+  },
+  {
+    "page": "wishlist.html",
+    "viewport": "standard_mobile",
+    "width": 375,
+    "height": 812,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_wishlist_standard_mobile.png"
+  },
+  {
+    "page": "wishlist.html",
+    "viewport": "large_mobile",
+    "width": 430,
+    "height": 932,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_wishlist_large_mobile.png"
+  },
+  {
+    "page": "wishlist.html",
+    "viewport": "small_tablet",
+    "width": 600,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_wishlist_small_tablet.png"
+  },
+  {
+    "page": "wishlist.html",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_wishlist_tablet.png"
+  },
+  {
+    "page": "wishlist.html",
+    "viewport": "large_tablet",
+    "width": 1024,
+    "height": 1366,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_wishlist_large_tablet.png"
+  },
+  {
+    "page": "wishlist.html",
+    "viewport": "laptop",
+    "width": 1280,
+    "height": 800,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_wishlist_laptop.png"
+  },
+  {
+    "page": "wishlist.html",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_wishlist_desktop.png"
+  },
+  {
+    "page": "wishlist.html",
+    "viewport": "large_desktop",
+    "width": 1920,
+    "height": 1080,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_wishlist_large_desktop.png"
+  },
+  {
+    "page": "cart.html",
+    "viewport": "small_mobile",
+    "width": 320,
+    "height": 568,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_cart_small_mobile.png"
+  },
+  {
+    "page": "cart.html",
+    "viewport": "standard_mobile",
+    "width": 375,
+    "height": 812,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_cart_standard_mobile.png"
+  },
+  {
+    "page": "cart.html",
+    "viewport": "large_mobile",
+    "width": 430,
+    "height": 932,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_cart_large_mobile.png"
+  },
+  {
+    "page": "cart.html",
+    "viewport": "small_tablet",
+    "width": 600,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_cart_small_tablet.png"
+  },
+  {
+    "page": "cart.html",
+    "viewport": "tablet",
+    "width": 768,
+    "height": 1024,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_cart_tablet.png"
+  },
+  {
+    "page": "cart.html",
+    "viewport": "large_tablet",
+    "width": 1024,
+    "height": 1366,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_cart_large_tablet.png"
+  },
+  {
+    "page": "cart.html",
+    "viewport": "laptop",
+    "width": 1280,
+    "height": 800,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_cart_laptop.png"
+  },
+  {
+    "page": "cart.html",
+    "viewport": "desktop",
+    "width": 1440,
+    "height": 900,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_cart_desktop.png"
+  },
+  {
+    "page": "cart.html",
+    "viewport": "large_desktop",
+    "width": 1920,
+    "height": 1080,
+    "screenshot": "/Users/uttam4439/.gemini/antigravity/brain/c571950f-4b96-480f-8850-dc94404b969e/audit_cart_large_desktop.png"
+  }
+]

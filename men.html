@@ -335,9 +335,9 @@
           <span class="material-symbols-outlined text-[22px]">favorite</span>
           <span class="absolute -top-0.5 -right-0.5 bg-sale-crimson text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">0</span>
         </a>
-        <a aria-label="Shopping Bag" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors relative" href="#">
+        <a aria-label="Shopping Bag" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-subtle transition-colors relative" href="cart.html">
           <span class="material-symbols-outlined text-[22px]">shopping_bag</span>
-          <span class="absolute -top-0.5 -right-0.5 bg-primary text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">0</span>
+          <span class="cart-count-badge absolute -top-0.5 -right-0.5 bg-primary text-on-primary font-label-xs text-label-xs rounded-full min-w-4 h-4 px-1 flex items-center justify-center font-bold">0</span>
         </a>
       </div>
     </div>
@@ -708,7 +708,15 @@
             <span>Total Incl. Taxes</span>
             <span id="cart-total">₹0.00</span>
           </div>
-          <button onclick="alert('Proceeding to Checkout!');" class="w-full py-3.5 rounded-full bg-primary text-on-primary font-label-lg font-bold">PROCEED TO CHECKOUT</button>
+          <div class="space-y-2">
+            <a href="cart.html" class="w-full py-3.5 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-all active:scale-95 shadow-md flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+              VIEW FULL CART PAGE
+            </a>
+            <button onclick="if(typeof showToast === 'function') showToast('Proceeding to Checkout!', 'shopping_bag');" class="w-full py-2.5 rounded-full border border-primary text-primary font-label-md font-bold hover:bg-primary hover:text-on-primary transition-all flex items-center justify-center gap-2">
+              PROCEED TO CHECKOUT
+            </button>
+          </div>
         </div>
       </div>
     </div>

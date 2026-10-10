@@ -1,11 +1,85 @@
+/* ==========================================================================
+   WELL ICON — RESPONSIVE UI DESIGN SYSTEM & UTILITY STYLESHEET
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS & FLUID TYPOGRAPHY (CSS VARIABLES)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Typography Scale via clamp() */
+  --font-family-base: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --fs-3xs: clamp(0.625rem, 0.6rem + 0.15vw, 0.6875rem);   /* 10px -> 11px */
+  --fs-2xs: clamp(0.6875rem, 0.65rem + 0.2vw, 0.75rem);    /* 11px -> 12px */
+  --fs-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8125rem);     /* 12px -> 13px */
+  --fs-sm: clamp(0.8125rem, 0.75rem + 0.3vw, 0.875rem);    /* 13px -> 14px */
+  --fs-base: clamp(0.875rem, 0.825rem + 0.35vw, 1rem);     /* 14px -> 16px */
+  --fs-md: clamp(1rem, 0.925rem + 0.45vw, 1.125rem);       /* 16px -> 18px */
+  --fs-lg: clamp(1.125rem, 1rem + 0.65vw, 1.375rem);       /* 18px -> 22px */
+  --fs-xl: clamp(1.375rem, 1.2rem + 0.85vw, 1.75rem);      /* 22px -> 28px */
+  --fs-2xl: clamp(1.625rem, 1.35rem + 1.25vw, 2.25rem);    /* 26px -> 36px */
+  --fs-3xl: clamp(2rem, 1.5rem + 2vw, 3rem);              /* 32px -> 48px */
+  --fs-hero: clamp(2.25rem, 1.65rem + 2.5vw, 3.75rem);    /* 36px -> 60px */
+
+  /* Line Heights */
+  --lh-tight: 1.15;
+  --lh-snug: 1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.625;
+
+  /* Spacing Scale */
+  --space-gutter-mobile: 1rem;       /* 16px */
+  --space-gutter-tablet: 1.5rem;     /* 24px */
+  --space-gutter-desktop: 2.5rem;    /* 40px */
+  --container-max-width: 1440px;
+
+  /* Touch Targets */
+  --touch-target-min: 44px;
+
+  /* Theme Colors (Matches Tailwind Brand Config) */
+  --color-primary: #0c1014;
+  --color-on-primary: #ffffff;
+  --color-secondary: #5c5f63;
+  --color-surface: #f9f9f9;
+  --color-surface-canvas: #ffffff;
+  --color-surface-subtle: #f7f7f8;
+  --color-badge-fresh: #1e4620;
+  --color-sale-crimson: #ba1a1a;
+  --color-border-hairline: #e5e5e7;
+}
+
+/* --------------------------------------------------------------------------
+   2. GLOBAL RESET & LAYOUT CONTAINMENT (PREVENT OVERFLOW)
+   -------------------------------------------------------------------------- */
 @layer base {
-  html, body {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
     margin: 0;
     padding: 0;
+    font-family: var(--font-family-base);
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    line-height: var(--lh-normal);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  body {
-    overscroll-behavior: none;
+
+  /* Responsive Media Rules */
+  img, video, iframe, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
+
   main > :first-child {
     margin-top: 0 !important;
   }
@@ -14,26 +88,113 @@
   }
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+/* --------------------------------------------------------------------------
+   3. ACCESSIBILITY & FOCUS STATES
+   -------------------------------------------------------------------------- */
+/* Visible High-Contrast Focus Ring */
+:focus-visible {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+}
+
+/* Ensure minimum touch target for interactive controls where appropriate */
+button, 
+a.btn-touch, 
+input[type="button"], 
+input[type="submit"], 
+input[type="reset"] {
+  min-height: var(--touch-target-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. SCROLLBAR & SNAP UTILITIES
+   -------------------------------------------------------------------------- */
+/* Hide scrollbars for clean app-like UI */
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-html, body {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+html, body, .no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Smooth Horizontal Scroll Snap */
 .scroll-snap-x {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 .scroll-snap-item {
   scroll-snap-align: start;
 }
 
+/* --------------------------------------------------------------------------
+   5. PRODUCT CARDS & IMAGE RATIOS
+   -------------------------------------------------------------------------- */
+.product-card-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--color-surface-subtle);
+  border-radius: 0.75rem;
+}
+
+.product-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card-image-wrap:hover .product-card-image {
+  transform: scale(1.05);
+}
+
+/* Responsive Grid Clamp Utilities */
+.responsive-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+}
+
+@media (min-width: 640px) {
+  .responsive-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. ANIMATIONS & TRANSITIONS
+   -------------------------------------------------------------------------- */
 /* Heart Pulse Micro-Animation */
 @keyframes heartPulse {
   0% { transform: scale(1); }
@@ -47,7 +208,7 @@ html, body {
 /* Solid Filled Heart Styling */
 .material-symbols-outlined.fill-active {
   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24 !important;
-  color: #BA1A1A !important;
+  color: var(--color-sale-crimson) !important;
 }
 
 /* Badge Bounce Animation */
@@ -99,11 +260,7 @@ html, body {
   transform: scale(1.25);
 }
 
-/* High-Definition Zoom Modal Backdrop */
-.modal-pop-in {
-  animation: modalPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
+/* Modal Pop-In Animation */
 @keyframes modalPopIn {
   from {
     opacity: 0;
@@ -114,18 +271,15 @@ html, body {
     transform: scale(1);
   }
 }
+.modal-pop-in {
+  animation: modalPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
 /* Splash Screen Animations */
 @keyframes splashProgress {
-  0% {
-    transform: translateX(-100%);
-  }
-  50% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
 }
 
 .splash-loader-bar {
@@ -146,4 +300,3 @@ html, body {
 .animate-splash-pulse {
   animation: splashLogoPulse 2.5s ease-in-out infinite;
 }
-
