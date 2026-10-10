@@ -4,5 +4,7 @@ window.WELL_ICON_CONFIG = Object.freeze({
   googleFormUrl: '',
   // Current catalogue values and variants are development samples.
   catalogueMode: 'sample',
-  currency: 'INR'
+  currency: 'INR',
+  // Leave blank when there is no approved announcement or promotion.
+  announcementMessage: ''
 });

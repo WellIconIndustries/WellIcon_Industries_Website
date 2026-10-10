@@ -130,40 +130,9 @@
       }
     };
   </script>
+  <script src="js/loader.js"></script>
 </head>
-<body class="bg-surface font-body-md text-body-md text-on-surface antialiased">
-
-  <!-- SPLASH SCREEN OVERLAY -->
-  <div id="splash-screen" class="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#0c1014] text-white transition-opacity duration-700 ease-in-out select-none">
-    <!-- Soft Glowing Background Pulse -->
-    <div class="absolute w-[400px] h-[400px] bg-badge-fresh/20 rounded-full blur-[100px] animate-pulse pointer-events-none"></div>
-
-    <!-- Splash Main Box -->
-    <div class="relative z-10 flex flex-col items-center text-center px-4">
-      <!-- Brand Logo Icon Container with Ring Animation -->
-      <div class="relative mb-6 animate-splash-pulse">
-        <div class="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-badge-fresh via-surface-tint to-primary blur-md opacity-70 animate-pulse"></div>
-        <div class="relative w-24 h-24 md:w-28 md:h-28 rounded-2xl bg-surface-canvas p-3 flex items-center justify-center shadow-2xl border border-white/20">
-          <img src="images/well_icon_logo.jpg" alt="Well Icon Brand Logo" class="w-full h-full object-contain rounded-xl shadow-sm" />
-        </div>
-      </div>
-
-      <!-- Title with Smooth Letter Spacing Animation -->
-      <h1 class="font-headline-lg font-bold tracking-[0.25em] text-3xl md:text-5xl uppercase text-white drop-shadow-md">
-        WELL ICON
-      </h1>
-      
-      <!-- Tagline -->
-      <p class="font-label-md text-label-md text-outline-variant uppercase tracking-[0.3em] mt-3 font-semibold text-xs md:text-sm">
-        Everyday Comfort, Made for You
-      </p>
-
-      <!-- Animated Loader Line -->
-      <div class="w-40 h-[3px] bg-white/10 rounded-full overflow-hidden mt-8 relative">
-        <div class="splash-loader-bar absolute top-0 left-0 h-full w-full bg-gradient-to-r from-badge-fresh via-white to-badge-fresh rounded-full"></div>
-      </div>
-    </div>
-  </div>
+<body class="home-page bg-surface font-body-md text-body-md text-on-surface antialiased">
 
   <!-- HEADER -->
   <header class="fixed top-0 left-0 right-0 z-40 w-full bg-surface-canvas/95 backdrop-blur-md shadow-[0_2px_8px_rgba(33,37,41,0.04)]">
@@ -182,7 +151,7 @@
             <span class="material-symbols-outlined text-[15px]">store</span>Find a Store
           </a>
           <a class="hover:text-primary transition-colors hidden sm:flex items-center gap-space-xs" data-path="track-order" href="collection.html?category=men-bottomwear">
-            <span class="material-symbols-outlined text-[15px]">local_shipping</span>Track Order
+            <span class="material-symbols-outlined text-[15px]">shopping_bag</span>Shopping Bag
           </a>
           <a class="hover:text-primary transition-colors flex items-center gap-space-xs" data-path="help-support" href="site-info.html?topic=contact">
             <span class="material-symbols-outlined text-[15px]">help</span>Help
@@ -218,7 +187,7 @@
                   <span class="material-symbols-outlined text-badge-fresh text-[18px]">fitness_center</span> Innerwear & Basics
                 </h4>
                 <ul class="space-y-2 text-body-md text-on-surface-variant text-[14px]">
-                  <li><a href="collection.html?category=men-vests" class="hover:text-primary font-medium hover:translate-x-1 inline-block transition-transform text-primary">Sandos & Gym Vests <span class="bg-sale-crimson text-on-primary text-[10px] px-1.5 py-0.5 rounded-full uppercase ml-1 font-bold">Hot</span></a></li>
+                  <li><a href="collection.html?category=men-vests" class="hover:text-primary font-medium hover:translate-x-1 inline-block transition-transform text-primary">Sandos & Gym Vests</a></li>
                   <li><a href="collection.html?category=men-innerwear" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Boxer Shorts & Trunks</a></li>
                   <li><a href="site-info.html?topic=thermals" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Ribbed Thermal Tops</a></li>
                   <li><a href="men.html" class="hover:text-primary hover:translate-x-1 inline-block transition-transform">Cotton Briefs</a></li>
@@ -394,7 +363,7 @@
           </div>
         </div>
 
-        <a class="px-3.5 py-1.5 bg-primary text-on-primary font-bold rounded-full text-[13px] hover:bg-primary-container transition-colors shadow-xs ml-2" data-path="seasonal-collection" href="index.html">Featured Collection</a>
+        <a class="px-3.5 py-1.5 bg-primary text-on-primary font-bold rounded-full text-[13px] hover:bg-primary-container transition-colors shadow-xs ml-2" data-path="seasonal-collection" href="collection.html">Featured Collection</a>
       </nav>
       <div class="flex-1 max-w-md hidden md:block mx-space-sm">
         <div class="relative flex items-center w-full">
@@ -417,28 +386,43 @@
     </div>
   </header>
 
-  <!-- MOBILE STICKY CATEGORY NAV BAR (Appears when scrolling past hero poster on phones) -->
-  <div id="mobile-sticky-cat-bar" class="xl:hidden fixed top-[64px] left-0 right-0 z-30 bg-surface-canvas/95 backdrop-blur-md border-b border-border-hairline shadow-md transition-all duration-300 transform -translate-y-full opacity-0 pointer-events-none">
-    <div class="w-full overflow-x-auto no-scrollbar py-2 px-2">
-      <div class="flex items-center justify-between min-w-max text-center divide-x divide-border-hairline font-label-md text-label-md">
-        <a href="men.html" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Men</a>
-        <a href="women.html" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Women</a>
-        <a href="accessories.html" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Accessories</a>
-        <a href="collection.html?category=men-vests" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Athleisure</a>
-        <a href="site-info.html?topic=thermals" class="px-5 py-1 text-on-surface hover:text-primary font-bold transition-colors">Thermals</a>
-      </div>
-    </div>
-  </div>
-
   <!-- MAIN CONTENT -->
-  <main class="w-full pt-16 md:pt-28 bg-surface">
+  <main class="w-full bg-surface">
     <div class="flex flex-col w-full">
+
+      <div id="home-announcement" class="home-announcement" aria-live="polite"></div>
+
+      <nav class="home-category-shortcuts" aria-label="Shop categories">
+        <a class="home-category-shortcut" href="men.html">
+          <span class="home-category-shortcut__image"><img src="images/sando_achiever.jpg" alt="" width="56" height="56"></span>
+          <span>Men</span>
+        </a>
+        <a class="home-category-shortcut" href="women.html">
+          <span class="home-category-shortcut__image"><img src="images/trend_everyday_bra.jpg" alt="" width="56" height="56"></span>
+          <span>Women</span>
+        </a>
+        <a class="home-category-shortcut" href="accessories.html">
+          <span class="home-category-shortcut__image home-category-shortcut__icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 19.5 12 12l-8.5 7.5a1 1 0 0 0 .7 1.7h15.6a1 1 0 0 0 .7-1.7Z"/><path d="M9 9a3 3 0 1 1 5.7 1.3"/></svg></span>
+          <span>Accessories</span>
+        </a>
+        <a class="home-category-shortcut" href="collection.html?category=men-vests">
+          <span class="home-category-shortcut__image"><img src="images/sando_stronger.png" alt="" width="56" height="56"></span>
+          <span>Sandos</span>
+        </a>
+        <a class="home-category-shortcut" href="collection.html?category=men-bottomwear">
+          <span class="home-category-shortcut__image"><img src="images/summer_outdoor_shorts.jpg" alt="" width="56" height="56"></span>
+          <span>Bottomwear</span>
+        </a>
+      </nav>
 
       <!-- 1. HERO SECTION -->
       <section class="relative w-full bg-surface-canvas overflow-hidden">
-        <div class="relative w-full aspect-[4/5] sm:aspect-[16/9] md:aspect-[21/9] min-h-[480px] sm:min-h-[520px] md:min-h-[560px] md:max-h-[660px] bg-primary overflow-hidden">
+        <div class="home-hero-frame relative w-full aspect-[4/5] sm:aspect-[16/9] md:aspect-[21/9] min-h-[400px] sm:min-h-[500px] md:min-h-[540px] md:max-h-[660px] bg-primary overflow-hidden">
           <!-- Hero Background Image (Absolute inset-0 ensures 100% full cover without blank gray space) -->
-          <img alt="WELL ICON EDITION New Drop" class="absolute inset-0 w-full h-full object-cover object-center" src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=2000&auto=format&fit=crop" onerror="this.onerror=null; this.src='images/campaign_always_init.jpg';"/>
+          <picture class="absolute inset-0 block h-full w-full">
+            <source media="(max-width: 600px)" srcset="images/campaign_always_init.jpg">
+            <img alt="Well Icon comfort collection campaign" class="absolute inset-0 w-full h-full object-cover object-center" src="images/hero_groove_banner.jpg" fetchpriority="high"/>
+          </picture>
           
           <!-- Responsive Overlay Gradient -->
           <div class="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/40 to-transparent md:bg-gradient-to-r md:from-primary/80 md:via-primary/35 md:to-transparent flex items-start md:items-center">
@@ -447,21 +431,21 @@
                 <span class="inline-block px-3 py-1 rounded-full bg-surface-canvas/20 backdrop-blur-md font-label-md text-[10px] sm:text-xs md:text-label-md font-bold uppercase tracking-widest text-on-primary">COLLECTION PREVIEW</span>
                 
                 <h1 class="font-display-hero text-2xl sm:text-3xl md:text-5xl font-extrabold uppercase tracking-tight text-on-primary leading-tight">
-                  WELL ICON <span class="text-secondary-fixed">MOVE</span>
+                  WELL ICON <span class="text-secondary-fixed">GROOVE</span>
                 </h1>
                 
                 <p class="font-body-md text-xs sm:text-sm md:text-base text-surface-container-low font-normal tracking-wide max-w-sm sm:max-w-md leading-relaxed">
-                  Everyday rhythm meets unmatched textile freedom. Crafted for lightweight, effortless movement.
+                  Comfort for the everyday. Find easy layers and relaxed essentials for your routine.
                 </p>
 
                 <!-- Action Buttons: Single Compact CTA on Mobile, Dual on Desktop -->
                 <div class="pt-1 sm:pt-2 md:pt-space-sm flex items-center gap-3">
-                  <a class="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-surface-canvas text-primary font-label-md text-xs sm:text-sm md:text-label-lg font-bold shadow-md hover:bg-surface-subtle transition-all active:scale-95 inline-flex items-center gap-1.5 whitespace-nowrap" href="men.html">
-                    <span>EXPLORE NOW</span>
+                  <a class="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-surface-canvas text-primary font-label-md text-xs sm:text-sm md:text-label-lg font-bold shadow-md hover:bg-surface-subtle transition-all active:scale-95 inline-flex items-center gap-1.5 whitespace-nowrap" href="collection.html">
+                    <span>SHOP THE COLLECTION</span>
                     <span class="material-symbols-outlined text-[16px] md:text-[18px]">arrow_forward</span>
                   </a>
-                  <a class="hidden sm:inline-flex px-5 py-2.5 sm:py-3 rounded-full bg-surface-canvas/15 backdrop-blur-md text-on-primary font-label-md text-xs sm:text-sm md:text-label-lg hover:bg-surface-canvas/25 transition-all whitespace-nowrap" href="collection.html">
-                    View Lookbook
+                  <a class="hidden sm:inline-flex px-5 py-2.5 sm:py-3 rounded-full bg-surface-canvas/15 backdrop-blur-md text-on-primary font-label-md text-xs sm:text-sm md:text-label-lg hover:bg-surface-canvas/25 transition-all whitespace-nowrap" href="women.html">
+                    SHOP WOMEN
                   </a>
                 </div>
               </div>
@@ -493,22 +477,22 @@
       <!-- 2. BEST OF SUMMERS -->
       <section class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-2xl">
         <div class="flex flex-col items-center text-center mb-space-xl">
-          <span class="font-label-xs text-label-xs tracking-widest uppercase text-secondary font-bold mb-1">Curated Seasonals</span>
+          <span class="font-label-xs text-label-xs tracking-widest uppercase text-secondary font-bold mb-1">A Well Icon style edit</span>
           <h2 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">
-            BEST <span class="font-normal text-secondary">OF</span> SUMMERS
+            THE <span class="font-normal text-secondary">SEASON</span> EDIT
           </h2>
           <p class="font-body-md text-body-md text-on-surface-variant max-w-lg mt-1">
-            Lightweight silhouettes designed to stay breezy through rising temperatures.
+            A light edit of layers, tees, and relaxed essentials from the sample catalogue.
           </p>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-lg">
+        <div class="grid home-campaign-grid grid-cols-1 md:grid-cols-3 gap-space-lg">
           <div class="group relative rounded-lg overflow-hidden bg-surface-container shadow-sm hover:shadow-md transition-shadow">
             <div class="aspect-[3/4] w-full overflow-hidden bg-surface-subtle relative">
               <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Casual Polo Tops & Skirts" src="images/summer_casual_polo.jpg"/>
               <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-space-lg text-on-primary">
                 <span class="font-label-xs text-label-xs uppercase tracking-widest text-surface-container-low mb-1 font-semibold">Street &amp; Daily</span>
                 <h3 class="font-headline-sm text-headline-sm font-bold">Casual Polo Tops &amp; Skirts</h3>
-                <span class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer">Shop The Look <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                <a href="collection.html?category=women-tops" class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform">Shop The Look <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
               </div>
             </div>
           </div>
@@ -518,7 +502,7 @@
               <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-space-lg text-on-primary">
                 <span class="font-label-xs text-label-xs uppercase tracking-widest text-surface-container-low mb-1 font-semibold">Lounge Soft</span>
                 <h3 class="font-headline-sm text-headline-sm font-bold">Ultra-Breathable Crewneck Tees</h3>
-                <span class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer">Explore T-Shirts <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                <a href="collection.html?category=men-tops" class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform">Explore T-Shirts <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
               </div>
             </div>
           </div>
@@ -528,7 +512,7 @@
               <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-space-lg text-on-primary">
                 <span class="font-label-xs text-label-xs uppercase tracking-widest text-surface-container-low mb-1 font-semibold">Outdoor Active</span>
                 <h3 class="font-headline-sm text-headline-sm font-bold">Relaxed Shorts &amp; Everyday Active</h3>
-                <span class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform cursor-pointer">Discover Men's Wear <span class="material-symbols-outlined text-[16px]">arrow_forward</span></span>
+                <a href="collection.html?category=men-bottomwear" class="font-label-md text-label-md font-semibold underline mt-2 flex items-center gap-1 group-hover:translate-x-1 transition-transform">Discover Men's Wear <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span></a>
               </div>
             </div>
           </div>
@@ -540,9 +524,9 @@
         <div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
           <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
             <div>
-              <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary font-bold block mb-1">Editor's Choice</span>
-              <h2 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">ON-TREND PICKS</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant">Explore our most promising silhouettes this week.</p>
+              <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary font-bold block mb-1">Style ideas</span>
+              <h2 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">ESSENTIALS TO EXPLORE</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">Browse relaxed pieces and everyday sample styles.</p>
             </div>
             <div class="flex items-center gap-space-xs">
               <button aria-label="Slide previous trend" class="w-10 h-10 rounded-full bg-surface-canvas shadow-sm flex items-center justify-center text-primary hover:bg-surface-container transition-colors active:scale-95">
@@ -554,13 +538,13 @@
             </div>
           </div>
           <!-- Trend Cards Carousel -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-space-md pb-4">
+          <div class="grid home-trend-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-space-md pb-4">
             <!-- Pick 1: Summer Pants -->
-            <div class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+            <div data-product-id="M104" class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
               <div class="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
                 <img alt="Summer Pants - Breathable by design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_summer_pants.jpg"/>
                 <div class="absolute top-3 left-3 bg-primary text-on-primary px-2.5 py-1 rounded-full font-label-xs text-label-xs uppercase font-bold">
-                  Trending
+                  Sample style
                 </div>
               </div>
               <div class="p-space-md flex flex-col flex-1 justify-between">
@@ -568,13 +552,11 @@
                   <h3 class="font-headline-sm text-headline-sm font-bold text-primary">SUMMER PANTS</h3>
                   <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Breathable by design. Crisp lightweight cotton weaves.</p>
                 </div>
-                <button class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95">
-                  ADD TO BAG
-                </button>
+                <a class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95" href="collection.html?category=men-bottomwear">VIEW COLLECTION</a>
               </div>
             </div>
             <!-- Pick 2: Core T-Shirts -->
-            <div class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+            <div data-product-id="M103" class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
               <div class="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
                 <img alt="Core T-Shirts - Comfort Redefined" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_core_tshirts.jpg"/>
                 <div class="absolute top-3 left-3 bg-badge-fresh text-on-primary px-2.5 py-1 rounded-full font-label-xs text-label-xs uppercase font-bold">
@@ -586,13 +568,11 @@
                   <h3 class="font-headline-sm text-headline-sm font-bold text-primary">CORE T-SHIRTS</h3>
                   <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Comfort redefined. Zero neck friction and tailored seams.</p>
                 </div>
-                <button class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95">
-                  ADD TO BAG
-                </button>
+                <a class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95" href="collection.html?category=men-tops">VIEW COLLECTION</a>
               </div>
             </div>
             <!-- Pick 3: Everyday Bra -->
-            <div class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+            <div data-product-id="FE41" class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
               <div class="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
                 <img alt="Everyday Bra - Feather light feel" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_everyday_bra.jpg"/>
                 <div class="absolute top-3 left-3 bg-secondary text-on-primary px-2.5 py-1 rounded-full font-label-xs text-label-xs uppercase font-bold">
@@ -604,13 +584,11 @@
                   <h3 class="font-headline-sm text-headline-sm font-bold text-primary">EVERYDAY BRA</h3>
                   <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Feather light feel. Unrestricted non-pinch side panels.</p>
                 </div>
-                <button class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95">
-                  ADD TO BAG
-                </button>
+                <a class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95" href="collection.html?category=women-bras">VIEW COLLECTION</a>
               </div>
             </div>
             <!-- Pick 4: Elevated Tank Tops -->
-            <div class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+            <div data-product-id="W204" class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
               <div class="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
                 <img alt="Elevated Tank Tops" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_tank_tops.jpg"/>
               </div>
@@ -619,13 +597,11 @@
                   <h3 class="font-headline-sm text-headline-sm font-bold text-primary">TANK TOPS</h3>
                   <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Ribbed contour stretch. Built for layering or easy solitude.</p>
                 </div>
-                <button class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95">
-                  ADD TO BAG
-                </button>
+                <a class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95" href="collection.html?category=women-tops">VIEW COLLECTION</a>
               </div>
             </div>
             <!-- Pick 5: Boxer Shorts -->
-            <div class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
+            <div data-product-id="M102" class="group bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col">
               <div class="relative w-full aspect-[4/3] bg-surface-container-low overflow-hidden">
                 <img alt="Boxer Shorts Relaxed Fit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_boxer_shorts.jpg"/>
               </div>
@@ -634,18 +610,9 @@
                   <h3 class="font-headline-sm text-headline-sm font-bold text-primary">BOXER SHORTS</h3>
                   <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Button fly, dual side pockets, combed pure cotton prints.</p>
                 </div>
-                <button class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95">
-                  ADD TO BAG
-                </button>
+                <a class="mt-4 inline-flex items-center justify-center w-full py-2.5 rounded-full bg-surface-subtle hover:bg-primary hover:text-on-primary text-primary font-label-md text-label-md font-semibold transition-colors active:scale-95" href="collection.html?category=men-innerwear">VIEW COLLECTION</a>
               </div>
             </div>
-          </div>
-          <!-- Pagination dots -->
-          <div class="flex items-center justify-center gap-2 mt-space-lg">
-            <span class="w-6 h-2 rounded-full bg-primary inline-block"></span>
-            <span class="w-2 h-2 rounded-full bg-outline-variant inline-block"></span>
-            <span class="w-2 h-2 rounded-full bg-outline-variant inline-block"></span>
-            <span class="w-2 h-2 rounded-full bg-outline-variant inline-block"></span>
           </div>
         </div>
       </section>
@@ -677,11 +644,7 @@
                 <h3 class="font-headline-md text-headline-md font-bold text-primary">In Focus Now</h3>
                 <p class="font-body-sm text-body-sm text-on-surface-variant">Recommended pairs from the current drop</p>
               </div>
-              <!-- Gender Toggle -->
-              <div class="flex items-center bg-surface-subtle p-1 rounded-full">
-                <button data-filter-tab class="px-4 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Men</button>
-                <button data-filter-tab class="px-4 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold shadow-sm transition-all">Women</button>
-              </div>
+              <a href="collection.html?category=women-tops" class="font-label-md text-label-md font-bold text-primary underline">Shop Women</a>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-lg">
               <!-- Item 1 -->
@@ -727,35 +690,41 @@
         </div>
       </section>
 
-      <!-- 5. BEST SELLERS -->
-      <section class="w-full bg-surface py-space-2xl">
+      <section class="home-products-section" aria-labelledby="new-arrivals-title">
+        <div class="home-products-section__inner">
+          <div class="home-section-heading">
+            <div>
+              <span class="home-eyebrow">SAMPLE CATALOGUE PREVIEW</span>
+              <h2 id="new-arrivals-title">NEW ARRIVALS</h2>
+              <p>Explore a fresh edit of Well Icon sample styles.</p>
+            </div>
+          </div>
+          <div id="home-new-arrivals-grid" class="home-product-grid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- 5. FEATURED PRODUCTS (sales ranking is not available in the sample catalogue) -->
+      <section id="products" class="w-full bg-surface py-space-2xl">
         <div class="max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop">
           <div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-md">
             <div>
-              <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary font-bold block mb-1">Featured</span>
+              <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary font-bold block mb-1">Sample catalogue</span>
               <h2 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">FEATURED PRODUCTS</h2>
               <p class="font-body-md text-body-md text-on-surface-variant">Explore sample products from the Well Icon catalogue.</p>
             </div>
             <div class="flex items-center gap-space-md">
               <div class="flex items-center bg-surface-subtle p-1 rounded-full border border-border-hairline">
-                <button data-filter-tab class="px-5 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Men</button>
-                <button data-filter-tab class="px-5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold shadow-sm transition-all">Women</button>
-              </div>
-              <div class="hidden sm:flex items-center gap-1">
-                <button aria-label="Previous featured products" class="w-9 h-9 rounded-full bg-surface-canvas shadow-sm flex items-center justify-center text-primary hover:bg-surface-container transition-colors active:scale-95">
-                  <span class="material-symbols-outlined text-[20px]">chevron_left</span>
-                </button>
-                <button aria-label="Next featured products" class="w-9 h-9 rounded-full bg-primary text-on-primary shadow-sm flex items-center justify-center transition-colors active:scale-95">
-                  <span class="material-symbols-outlined text-[20px]">chevron_right</span>
-                </button>
+                <button data-filter-tab class="px-4 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold shadow-sm transition-all">All</button>
+                <button data-filter-tab class="px-4 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Men</button>
+                <button data-filter-tab class="px-4 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Women</button>
               </div>
             </div>
           </div>
-          <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-space-md lg:gap-space-lg pb-4">
+          <div class="grid home-featured-grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-space-md lg:gap-space-lg pb-4">
             <!-- Best Seller 1 -->
-            <div data-product-id="A113" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+            <div data-product-id="M101" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Ribbed Slim Tank Top" src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80"/>
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Outdoor active shorts" src="images/summer_outdoor_shorts.jpg"/>
                 <span class="absolute top-3 left-3 bg-primary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Featured</span>
                 <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors active:scale-110">
                   <span class="material-symbols-outlined text-[18px]">favorite</span>
@@ -777,9 +746,9 @@
               </div>
             </div>
             <!-- Best Seller 2 -->
-            <div data-product-id="FE41" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+            <div data-product-id="M103" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Wirefree Cotton Stretch Bra" src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=800&q=80"/>
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Everyday cotton tee" src="images/trend_core_tshirts.jpg"/>
                 <span class="absolute top-3 left-3 bg-badge-fresh text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Featured</span>
                 <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors active:scale-110">
                   <span class="material-symbols-outlined text-[18px]">favorite</span>
@@ -803,7 +772,7 @@
             <!-- Best Seller 3 -->
             <div data-product-id="1406" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="High Coverage Cotton Hipster Panties" src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80"/>
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Lounge collection sample" src="images/summer_lounge_tees.jpg"/>
                 <span class="absolute top-3 left-3 bg-secondary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Pack of 2</span>
                 <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors active:scale-110">
                   <span class="material-symbols-outlined text-[18px]">favorite</span>
@@ -827,7 +796,7 @@
             <!-- Best Seller 4 -->
             <div data-product-id="1803" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
               <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Micro Modal Stretch Bikini Brief" src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80"/>
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Ribbed tank top sample" src="images/trend_tank_tops.jpg"/>
                 <span class="absolute top-3 left-3 bg-primary text-on-primary px-2.5 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">MicroModal</span>
                 <button aria-label="Wishlist item" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-canvas/90 backdrop-blur flex items-center justify-center text-on-surface-variant hover:text-sale-crimson transition-colors active:scale-110">
                   <span class="material-symbols-outlined text-[18px]">favorite</span>
@@ -856,7 +825,7 @@
       <section class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop my-space-xl">
         <div class="relative w-full rounded-lg overflow-hidden bg-primary-container text-on-primary shadow-md">
           <div class="relative aspect-[21/9] sm:aspect-[24/9] md:aspect-[3/1] w-full">
-            <img alt="Well Icon Everyday Comfort" class="w-full h-full object-cover mix-blend-luminosity opacity-90" src="https://images.unsplash.com/photo-1606744824163-985d376605aa?auto=format&fit=crop&w=1600&q=80"/>
+            <img alt="Well Icon Everyday Comfort" class="w-full h-full object-cover mix-blend-luminosity opacity-90" src="images/campaign_always_init.jpg"/>
             <div class="absolute inset-0 bg-gradient-to-r from-primary via-primary/75 to-transparent flex items-center p-space-lg md:p-space-xl">
               <div class="max-w-xl space-y-3">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-canvas/15 text-tertiary-fixed font-label-xs text-label-xs font-bold tracking-widest uppercase">
@@ -889,16 +858,17 @@
             <h2 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">MULTIPACKS</h2>
             <p class="font-body-md text-body-md text-on-surface-variant">Development samples shown for catalogue review.</p>
           </div>
-          <div class="flex items-center bg-surface-subtle p-1 rounded-full border border-border-hairline">
-            <button data-filter-tab class="px-5 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Men</button>
-            <button data-filter-tab class="px-5 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold shadow-sm transition-all">Women</button>
+          <div class="home-filter-tabs" role="group" aria-label="Filter multipacks">
+            <button type="button" data-home-multipack-filter="all" class="is-active" aria-pressed="true">All</button>
+            <button type="button" data-home-multipack-filter="Women" aria-pressed="false">Women</button>
+            <button type="button" data-home-multipack-filter="Accessories" aria-pressed="false">Accessories</button>
           </div>
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-space-md lg:gap-space-lg">
+        <div id="multipacks-grid" class="grid home-multipack-grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-space-md lg:gap-space-lg">
           <!-- Combo 1 -->
-          <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+          <div data-product-id="1802" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
             <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Micro Modal Elastane Stretch Hipster" src="https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=800&q=80"/>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Ribbed tank top sample" src="images/trend_tank_tops.jpg"/>
               <span class="absolute top-3 left-3 bg-primary text-on-primary px-2 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Pack of 2</span>
               
             </div>
@@ -906,7 +876,7 @@
               <div>
                 <span class="font-label-xs text-label-xs text-secondary font-bold">#1802</span>
                 <h3 class="font-title-md text-title-md text-primary mt-0.5 line-clamp-1">Micro Modal Elastane Stretch Hipster (2-Pack)</h3>
-                <p class="font-body-sm text-body-sm text-on-surface-variant">Featherweight touch with antimicrobial treatment</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Development sample product. Confirm details with Well Icon before ordering.</p>
               </div>
               <div class="mt-4 flex items-center justify-between pt-2 border-t border-border-hairline">
                 <span class="font-title-md text-title-md font-bold text-primary">₹539.00</span>
@@ -915,16 +885,16 @@
             </div>
           </div>
           <!-- Combo 2 -->
-          <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+          <div data-product-id="HANK-01" data-gender="Accessories" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
             <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Super Combed Cotton Handkerchief Trio" src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=800&q=80"/>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Well Icon sample collection" src="images/summer_casual_polo.jpg"/>
               <span class="absolute top-3 left-3 bg-badge-fresh text-on-primary px-2 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Pack of 3</span>
             </div>
             <div class="p-space-md flex flex-col flex-1 justify-between">
               <div>
                 <span class="font-label-xs text-label-xs text-secondary font-bold">#HK01</span>
                 <h3 class="font-title-md text-title-md text-primary mt-0.5 line-clamp-1">Super Combed Cotton Handkerchief Trio</h3>
-                <p class="font-body-sm text-body-sm text-on-surface-variant">StayFresh antibacterial finish, satin border</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Development sample product. Confirm details with Well Icon before ordering.</p>
               </div>
               <div class="mt-4 flex items-center justify-between pt-2 border-t border-border-hairline">
                 <span class="font-title-md text-title-md font-bold text-primary">₹299.00</span>
@@ -933,9 +903,9 @@
             </div>
           </div>
           <!-- Combo 3 -->
-          <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+          <div data-product-id="1529" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
             <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="High Coverage Cotton Stretch Shorties Duo" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80"/>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Lounge collection sample" src="images/summer_lounge_tees.jpg"/>
               <span class="absolute top-3 left-3 bg-primary text-on-primary px-2 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Pack of 2</span>
               
             </div>
@@ -943,7 +913,7 @@
               <div>
                 <span class="font-label-xs text-label-xs text-secondary font-bold">#1529</span>
                 <h3 class="font-title-md text-title-md text-primary mt-0.5 line-clamp-1">High Coverage Cotton Stretch Shorties Duo</h3>
-                <p class="font-body-sm text-body-sm text-on-surface-variant">Anti-chafing thigh shield, zero roll waistband</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Development sample product. Confirm details with Well Icon before ordering.</p>
               </div>
               <div class="mt-4 flex items-center justify-between pt-2 border-t border-border-hairline">
                 <span class="font-title-md text-title-md font-bold text-primary">₹649.00</span>
@@ -952,9 +922,9 @@
             </div>
           </div>
           <!-- Combo 4 -->
-          <div class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+          <div data-product-id="1487" class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
             <div class="relative w-full aspect-[3/4] bg-surface-subtle overflow-hidden">
-              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Super Combed Cotton Camisole Duo Pack" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80"/>
+              <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Lounge collection sample" src="images/summer_lounge_tees.jpg"/>
               <span class="absolute top-3 left-3 bg-secondary text-on-primary px-2 py-0.5 rounded-full font-label-xs text-label-xs uppercase font-bold">Featured</span>
               
             </div>
@@ -962,7 +932,7 @@
               <div>
                 <span class="font-label-xs text-label-xs text-secondary font-bold">#1487</span>
                 <h3 class="font-title-md text-title-md text-primary mt-0.5 line-clamp-1">Super Combed Cotton Camisole Duo Pack</h3>
-                <p class="font-body-sm text-body-sm text-on-surface-variant">Adjustable slim straps, gentle contour cling</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">Development sample product. Confirm details with Well Icon before ordering.</p>
               </div>
               <div class="mt-4 flex items-center justify-between pt-2 border-t border-border-hairline">
                 <span class="font-title-md text-title-md font-bold text-primary">₹599.00</span>
@@ -979,65 +949,57 @@
           <div class="flex items-center justify-between mb-space-xl">
             <div>
               <span class="font-label-xs text-label-xs uppercase tracking-widest text-secondary font-bold block mb-1">Curation Rail</span>
-              <h2 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">More collections to explore</h2>
-            </div>
-            <div class="flex items-center gap-2">
-              <button aria-label="Collections left" class="w-9 h-9 rounded-full bg-surface-canvas shadow-sm flex items-center justify-center text-primary hover:bg-surface-container transition-colors active:scale-95">
-                <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-              </button>
-              <button aria-label="Collections right" class="w-9 h-9 rounded-full bg-primary text-on-primary shadow-sm flex items-center justify-center transition-colors active:scale-95">
-                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-              </button>
+              <h2 class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">FEATURED CATEGORIES</h2>
             </div>
           </div>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-md pb-4">
+          <div class="grid home-category-card-grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-space-md pb-4">
             <!-- Collection 1: Move -->
-            <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="collection.html">
+            <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="collection.html?category=men-vests">
               <div class="aspect-[3/4] w-full bg-surface-container overflow-hidden">
-                <img alt="Move Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=800&q=80"/>
+                <img alt="Men's sandos and vests" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/sando_achiever.jpg" loading="lazy"/>
               </div>
               <div class="p-space-md flex items-center justify-between">
-                <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">Move</span>
+                <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">Men's Sandos</span>
                 <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </a>
             <!-- Collection 2: USA Originals -->
-            <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="collection.html">
+            <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="collection.html?category=men-tops">
               <div class="aspect-[3/4] w-full bg-surface-container overflow-hidden">
-                <img alt="USA Originals Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=800&q=80"/>
+                <img alt="Men's everyday T-shirts" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_core_tshirts.jpg" loading="lazy"/>
               </div>
               <div class="p-space-md flex items-center justify-between">
-                <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">USA Originals</span>
+                <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">Men's T-Shirts</span>
                 <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </a>
             <!-- Collection 3: International Collection -->
-            <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="collection.html">
+            <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="collection.html?category=women-bras">
               <div class="aspect-[3/4] w-full bg-surface-container overflow-hidden">
-                <img alt="International Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80"/>
+                <img alt="Women's everyday bras" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_everyday_bra.jpg" loading="lazy"/>
               </div>
               <div class="p-space-md flex items-center justify-between">
-                <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors truncate">International</span>
+                <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors truncate">Women's Bras</span>
                 <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </a>
             <!-- Collection 4: Essence -->
-            <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="collection.html">
+            <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="collection.html?category=women-tops">
               <div class="aspect-[3/4] w-full bg-surface-container overflow-hidden">
-                <img alt="Essence Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=800&q=80"/>
+                <img alt="Women's tanks and tops" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/trend_tank_tops.jpg" loading="lazy"/>
               </div>
               <div class="p-space-md flex items-center justify-between">
-                <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">Essence</span>
+                <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">Women's Tops</span>
                 <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </a>
             <!-- Collection 5: Relax -->
-            <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="collection.html">
+            <a class="group flex flex-col bg-surface-canvas rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all" href="accessories.html">
               <div class="aspect-[3/4] w-full bg-surface-container overflow-hidden">
-                <img alt="Relax Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80"/>
+                <img alt="Well Icon everyday comfort campaign" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="images/campaign_always_init.jpg" loading="lazy"/>
               </div>
               <div class="p-space-md flex flex-row items-center justify-between">
-                <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">Relax</span>
+                <span class="font-title-md text-title-md font-bold text-primary group-hover:text-badge-fresh transition-colors">Accessories</span>
                 <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </div>
             </a>
@@ -1163,96 +1125,44 @@
 
     <!-- Main Footer Directory Links -->
     <div class="w-full max-w-[1440px] mx-auto px-margin md:px-margin-tablet lg:px-margin-desktop py-space-2xl">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-space-xl mb-space-2xl">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-space-xl mb-space-2xl">
         <div class="flex flex-col gap-space-sm">
-          <h4 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary mb-space-xs">Shop Categories</h4>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="men" href="collection.html?category=men-innerwear">Men's Innerwear</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="women" href="women.html">Women's Lingerie</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="athleisure" href="site-info.html?topic=other">Athleisure &amp; Sport</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="thermals" href="site-info.html?topic=thermals">All-Season Thermals</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="juniors" href="site-info.html?topic=kids">Junior Essentials</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="seasonal-collection" href="collection.html">Seasonal Collection</a>
+          <h4 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary mb-space-xs">Shop</h4>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="men.html">Men</a>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="women.html">Women</a>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="accessories.html">Accessories</a>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="collection.html">All sample products</a>
         </div>
         <div class="flex flex-col gap-space-sm">
-          <h4 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary mb-space-xs">Customer Care</h4>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="track-order" href="collection.html?category=men-bottomwear">Track Your Order</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="returns-exchanges" href="site-info.html?topic=returns">Returns &amp; Exchanges</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="size-guide" href="site-info.html?topic=sizing">Tactile Size Guide</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="shipping-policy" href="site-info.html?topic=shipping">Shipping &amp; Delivery</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="contact-us" href="site-info.html?topic=contact">Contact Support</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="faq" href="site-info.html?topic=faq">Frequently Asked Questions</a>
+          <h4 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary mb-space-xs">Orders</h4>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="cart.html">Shopping bag</a>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="order.html">Review an order</a>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="site-info.html?topic=shipping">Shipping information</a>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="site-info.html?topic=returns">Returns information</a>
         </div>
         <div class="flex flex-col gap-space-sm">
-          <h4 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary mb-space-xs">Corporate &amp; Brand</h4>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="about-brand" href="site-info.html?topic=about">About Well Icon</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="corporate-governance" href="collection.html?category=men-vests">Investor Relations</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="franchise-enquiries" href="site-info.html?topic=corporate-gifting">Franchise Opportunities</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="corporate-gifting" href="site-info.html?topic=corporate-gifting">Bulk &amp; Corporate Gifting</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="careers" href="site-info.html?topic=careers">Careers at Page</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="sustainability" href="site-info.html?topic=other">Cotton &amp; Fabric Purity</a>
+          <h4 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary mb-space-xs">Well Icon</h4>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="site-info.html?topic=about">About Well Icon</a>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="site-info.html?topic=contact">Contact information</a>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="site-info.html?topic=privacy">Privacy policy</a>
+          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary" href="site-info.html?topic=terms">Terms and conditions</a>
         </div>
         <div class="flex flex-col gap-space-sm">
-          <h4 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary mb-space-xs">Experience</h4>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="store-locator" href="site-info.html?topic=stores">Store Locator (Exclusive Stores)</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="jky-studio" href="site-info.html?topic=other">WELL ICON Virtual Studio</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="fabric-glossary" href="site-info.html?topic=other">Materials &amp; Care</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="gift-cards" href="site-info.html?topic=other">E-Gift Cards</a>
-          <a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" data-path="feedback" href="site-info.html?topic=other">Customer Feedback</a>
-        </div>
-        <div class="col-span-2 md:col-span-1 lg:col-span-1 flex flex-col gap-space-md">
-          <h4 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary">Download App</h4>
-          <p class="font-body-sm text-body-sm text-on-surface-variant">Experience tactile fabric curation directly from your phone.</p>
-          <div class="flex flex-col gap-space-xs">
-            <a class="flex items-center gap-space-sm bg-surface-subtle px-4 py-2.5 rounded-full hover:bg-surface-container-high transition-colors text-primary" href="site-info.html?topic=stores">
-              <span class="material-symbols-outlined text-[20px]">phone_iphone</span>
-              <div class="flex flex-col text-left leading-none">
-                <span class="font-label-xs text-label-xs text-secondary uppercase">Available on</span>
-                <span class="font-label-md text-label-md font-bold text-on-surface mt-0.5">Apple App Store</span>
-              </div>
-            </a>
-            <a class="flex items-center gap-space-sm bg-surface-subtle px-4 py-2.5 rounded-full hover:bg-surface-container-high transition-colors text-primary" href="site-info.html?topic=social">
-              <span class="material-symbols-outlined text-[20px]">android</span>
-              <div class="flex flex-col text-left leading-none">
-                <span class="font-label-xs text-label-xs text-secondary uppercase">Get it on</span>
-                <span class="font-label-md text-label-md font-bold text-on-surface mt-0.5">Google Play</span>
-              </div>
-            </a>
-          </div>
-          <div class="pt-space-xs">
-            <span class="font-label-xs text-label-xs uppercase tracking-wider text-secondary block mb-2">Follow the Conversation</span>
-            <div class="flex items-center gap-space-xs text-on-surface-variant">
-              <a aria-label="Community" class="w-8 h-8 rounded-full bg-surface-subtle flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" href="site-info.html?topic=social">
-                <span class="material-symbols-outlined text-[18px]">public</span>
-              </a>
-              <a aria-label="Chat" class="w-8 h-8 rounded-full bg-surface-subtle flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" href="site-info.html?topic=social">
-                <span class="material-symbols-outlined text-[18px]">chat</span>
-              </a>
-              <a aria-label="Camera Stream" class="w-8 h-8 rounded-full bg-surface-subtle flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" href="site-info.html?topic=social">
-                <span class="material-symbols-outlined text-[18px]">photo_camera</span>
-              </a>
-              <a aria-label="Video channel" class="w-8 h-8 rounded-full bg-surface-subtle flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors" href="site-info.html?topic=social">
-                <span class="material-symbols-outlined text-[18px]">smart_display</span>
-              </a>
-            </div>
-          </div>
+          <h4 class="font-label-lg text-label-lg font-bold uppercase tracking-wider text-primary mb-space-xs">Shopping without an account</h4>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">Browse collections, save favorites, and review your order before submitting it through the configured order form.</p>
+          <a class="font-body-md text-body-md font-bold text-primary hover:underline" href="collection.html">Explore the catalogue</a>
         </div>
       </div>
 
-      <!-- Footer Keyword Chips -->
+      <!-- Footer category links -->
       <div class="pt-space-lg mb-space-xl">
-        <span class="font-label-xs text-label-xs uppercase tracking-wider text-secondary block mb-space-sm font-bold">Popular Comfort Searches</span>
+        <span class="font-label-xs text-label-xs uppercase tracking-wider text-secondary block mb-space-sm font-bold">Browse collections</span>
         <div class="flex flex-wrap gap-x-space-md gap-y-space-xs font-body-sm text-body-sm text-on-secondary-container">
-          <a class="hover:text-primary transition-colors" data-path="men" href="collection.html?category=men-innerwear">Men Briefs</a><span>•</span>
-          <a class="hover:text-primary transition-colors" data-path="men" href="collection.html?category=men-innerwear">Trunks</a><span>•</span>
-          <a class="hover:text-primary transition-colors" data-path="men" href="collection.html?category=men-innerwear">Boxer Shorts</a><span>•</span>
-          <a class="hover:text-primary transition-colors" data-path="men" href="collection.html?category=men-vests">Crew Neck Vests</a><span>•</span>
-          <a class="hover:text-primary transition-colors" data-path="women" href="collection.html?category=women-bras">Seamless Bras</a><span>•</span>
-          <a class="hover:text-primary transition-colors" data-path="women" href="collection.html?category=women-innerwear">Boyleg Panties</a><span>•</span>
-          <a class="hover:text-primary transition-colors" data-path="women" href="collection.html?category=men-bottomwear">Lounge Pants</a><span>•</span>
-          <a class="hover:text-primary transition-colors" data-path="athleisure" href="collection.html?category=men-bottomwear">Active Joggers</a><span>•</span>
-          <a class="hover:text-primary transition-colors" data-path="athleisure" href="collection.html?category=men-bottomwear">Gym Track Pants</a><span>•</span>
-          <a class="hover:text-primary transition-colors" data-path="thermals" href="site-info.html?topic=thermals">Merino Thermals</a><span>•</span>
-          <a class="hover:text-primary transition-colors" data-path="seasonal-collection" href="collection.html?category=men-tops">Everyday Tees</a>
+          <a class="hover:text-primary transition-colors" href="collection.html?category=men-vests">Men's Sandos</a>
+          <a class="hover:text-primary transition-colors" href="collection.html?category=men-tops">Men's Tops</a>
+          <a class="hover:text-primary transition-colors" href="collection.html?category=women-bras">Women's Bras</a>
+          <a class="hover:text-primary transition-colors" href="collection.html?category=women-tops">Women's Tops</a>
+          <a class="hover:text-primary transition-colors" href="accessories.html">Accessories</a>
         </div>
       </div>
 
@@ -1399,8 +1309,8 @@
           <a class="flex items-center gap-3 text-body-md text-on-surface-variant hover:text-primary" href="site-info.html?topic=stores">
             <span class="material-symbols-outlined text-[20px]">store</span> Find a Store
           </a>
-          <a class="flex items-center gap-3 text-body-md text-on-surface-variant hover:text-primary" href="collection.html?category=men-bottomwear">
-            <span class="material-symbols-outlined text-[20px]">local_shipping</span> Track Your Order
+          <a class="flex items-center gap-3 text-body-md text-on-surface-variant hover:text-primary" href="collection.html">
+            <span class="material-symbols-outlined text-[20px]">storefront</span> Browse All Collections
           </a>
         </div>
       </div>
@@ -1424,5 +1334,6 @@
   <!-- Main JavaScript File -->
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

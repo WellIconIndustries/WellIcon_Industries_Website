@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const CART_STORAGE_KEY = 'wellIconCart';
   const CART_LEGACY_KEY = 'wellicon_cart';
 
-  if (window.WELL_ICON_CONFIG?.catalogueMode === 'sample' && !document.querySelector('.sample-catalogue-banner')) {
+  if (window.WELL_ICON_CONFIG?.catalogueMode === 'sample' && !document.body.classList.contains('home-page') && !document.querySelector('.sample-catalogue-banner')) {
     const banner = document.createElement('div');
     banner.className = 'sample-catalogue-banner';
     banner.setAttribute('role', 'note');
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Super Combed Cotton Rib Fabric Slim Fit Tank Top',
       price: 329.00,
       originalPrice: 499.00,
-      image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=800&q=80',
+      image: 'images/trend_tank_tops.jpg',
       tag: '#A113',
       desc: 'StayFresh technology, racerback cut ribbed slim tank top.',
       link: 'women.html'
@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Wirefree Non-Padded Cotton Stretch Full Coverage Bra',
       price: 749.00,
       originalPrice: 999.00,
-      image: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=800&q=80',
+      image: 'images/trend_everyday_bra.jpg',
       tag: '#FE41',
       desc: 'Wider adjustable straps, zero underwire poke full coverage bra.',
       link: 'collection.html?category=women-bras'
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'High Coverage Cotton Hipster with Concealed Waistband',
       price: 539.00,
       originalPrice: 799.00,
-      image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80',
+      image: 'images/summer_lounge_tees.jpg',
       tag: '#1406',
       desc: 'Ultrasoft flat seams, pure cotton gusset hipster panties pack.',
       link: 'collection.html?category=women-innerwear'
@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Medium Coverage Micro Modal Stretch Bikini Brief',
       price: 539.00,
       originalPrice: 799.00,
-      image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80',
+      image: 'images/trend_tank_tops.jpg',
       tag: '#1803',
       desc: 'Twice as soft as cotton, tagless interior bikini brief.',
       link: 'collection.html?category=women-innerwear'
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Micro Modal Elastane Stretch Hipster (2-Pack)',
       price: 539.00,
       originalPrice: null,
-      image: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=800&q=80',
+      image: 'images/trend_tank_tops.jpg',
       tag: '#1802',
       desc: 'Development sample product. Confirm fabric and fit details with Well Icon.',
       link: 'collection.html?category=women-innerwear'
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'High Coverage Cotton Stretch Shorties Duo',
       price: 649.00,
       originalPrice: null,
-      image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
+      image: 'images/summer_lounge_tees.jpg',
       tag: '#1529',
       desc: 'Development sample product. Confirm fabric and fit details with Well Icon.',
       link: 'collection.html?category=women-innerwear'
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Super Combed Cotton Camisole Duo Pack',
       price: 599.00,
       originalPrice: null,
-      image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80',
+      image: 'images/summer_lounge_tees.jpg',
       tag: '#1487',
       desc: 'Development sample product. Confirm fabric and fit details with Well Icon.',
       link: 'collection.html?category=women-tops'
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Super Combed Cotton Handkerchief Trio',
       price: 299.00,
       originalPrice: 449.00,
-      image: 'https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=800&q=80',
+      image: 'images/summer_casual_polo.jpg',
       tag: '#HK01',
       desc: 'StayFresh antibacterial finish, satin border handkerchief trio.',
       link: 'collection.html?category=accessories-handkerchiefs'
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Terry Cushioned Athletic Ankle Socks (3-Pack)',
       price: 399.00,
       originalPrice: 599.00,
-      image: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=800&q=80',
+      image: 'images/trend_boxer_shorts.jpg',
       tag: '#SK02',
       desc: 'Arch support band, moisture absorbent cushioned ankle socks.',
       link: 'collection.html?category=accessories-socks'
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Adjustable Organic Cotton Sports Cap',
       price: 499.00,
       originalPrice: 699.00,
-      image: 'https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&w=800&q=80',
+      image: 'images/sando_achiever.jpg',
       tag: '#CP03',
       desc: 'UV resistant peak, embroidered logo cotton sports cap.',
       link: 'accessories.html'
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
       name: 'Plush Soft Cotton Gym & Bath Towel',
       price: 699.00,
       originalPrice: 999.00,
-      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
+      image: 'images/summer_lounge_tees.jpg',
       tag: '#BT04',
       desc: 'Super absorbent plush soft combed cotton bath towel.',
       link: 'accessories.html'
@@ -870,7 +870,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateProductButtonsState() {
     cart = getCart();
 
-    document.querySelectorAll('[data-product-id], .group, section div').forEach((card, idx) => {
+    // Refresh actual product cards only. Scanning every nested section div can
+    // rediscover a card's button under an unrelated descendant and reset it to
+    // Add to Bag when another product's size is selected.
+    document.querySelectorAll('[data-product-id].group, [data-product-id].collection-product-card, #product-detail[data-product-id]').forEach((card, idx) => {
       // EXCLUDE CART DRAWER & STANDALONE CART PAGE CONTAINERS
       if (card.closest('#cart-drawer') || card.closest('#cart-page-container') || card.closest('#cart-items-container') || card.closest('#cart-page-items-list')) return;
 
@@ -907,26 +910,31 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btn.id === 'zoom-modal-add-bag') return; // Handled separately
 
         const isDetailButton = btn.classList.contains('detail-add-btn');
+        const isHomeProductButton = btn.classList.contains('home-product-card__add') || Boolean(card.closest('.home-featured-grid'));
+        if (isHomeProductButton) btn.classList.add('home-product-card__add');
 
         btn.setAttribute('aria-pressed', added ? 'true' : 'false');
         btn.classList.add('flex', 'items-center', 'justify-center', 'rounded-full', 'transition-all', 'active:scale-95', 'shrink-0');
         btn.classList.add('font-label-md', 'text-label-md', 'font-bold');
-        if (!isDetailButton) btn.classList.add('w-10', 'h-10', 'sm:w-auto', 'sm:h-auto', 'px-0', 'sm:px-4', 'py-0', 'sm:py-2');
+        if (!isDetailButton && !isHomeProductButton) btn.classList.add('w-10', 'h-10', 'sm:w-auto', 'sm:h-auto', 'px-0', 'sm:px-4', 'py-0', 'sm:py-2');
+        if (isHomeProductButton) btn.classList.add('w-full', 'h-auto', 'px-4', 'py-2');
 
         if (added) {
           btn.classList.remove('w-10', 'h-10', 'px-0');
-          btn.classList.add('w-auto', 'h-auto', 'px-3', 'sm:px-4');
+          if (isHomeProductButton) btn.classList.add('w-full', 'h-auto', 'px-4', 'py-2');
+          else btn.classList.add('w-auto', 'h-auto', 'px-3', 'sm:px-4');
           btn.classList.add('added-in-cart', 'bg-badge-fresh', 'text-on-primary');
           btn.classList.remove('bg-primary');
           btn.setAttribute('aria-label', `Go to Cart (${product.name})`);
           btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">shopping_cart</span><span class="ml-1.5 font-bold">GO TO CART →</span>`;
         } else {
           btn.classList.remove('w-auto', 'h-auto', 'px-3');
-          btn.classList.add('w-10', 'h-10', 'px-0');
+          if (isHomeProductButton) btn.classList.add('w-full', 'h-auto', 'px-4', 'py-2');
+          else btn.classList.add('w-10', 'h-10', 'px-0');
           btn.classList.remove('added-in-cart', 'bg-badge-fresh');
           btn.classList.add('bg-primary', 'text-on-primary');
           btn.setAttribute('aria-label', `Add ${product.name} to Bag`);
-          btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">shopping_bag</span><span class="${isDetailButton ? 'ml-1.5' : 'hidden sm:inline-block ml-1.5'} font-bold">ADD TO BAG</span>`;
+          btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">shopping_bag</span><span class="${isDetailButton || isHomeProductButton ? 'ml-1.5' : 'hidden sm:inline-block ml-1.5'} font-bold">ADD TO BAG</span>`;
         }
       });
     });
@@ -1488,6 +1496,8 @@ document.addEventListener('DOMContentLoaded', () => {
   function matchesCollectionFilter(product, label) {
     const value = label.toLowerCase();
     if (!value || value.startsWith('all ')) return true;
+    if (value === 'all') return true;
+    if (value === 'men' || value === 'women') return String(product.gender || '').toLowerCase() === value;
     if (value.includes('gym sando')) return /^SANDO-/.test(product.id);
     if (value.includes('performance tank')) return ['SANDO-02', 'SANDO-03'].includes(product.id);
     if (value.includes('cotton vest')) return ['SANDO-01', 'SANDO-04'].includes(product.id);
@@ -1728,45 +1738,6 @@ document.addEventListener('DOMContentLoaded', () => {
     closeMobileSearchBtn.addEventListener('click', () => {
       mobileSearchOverlay.classList.add('hidden');
     });
-  }
-
-  // ==========================================
-  // 10. SPLASH SCREEN CONTROLLER
-  // ==========================================
-  const splashScreen = document.getElementById('splash-screen');
-  if (splashScreen) {
-    let splashDismissed = false;
-    const hideSplash = () => {
-      if (splashDismissed) return;
-      splashDismissed = true;
-      splashScreen.style.opacity = '0';
-      splashScreen.style.pointerEvents = 'none';
-      setTimeout(() => {
-        splashScreen.style.display = 'none';
-      }, 700);
-    };
-
-    setTimeout(hideSplash, 1200);
-  }
-
-  // ==========================================
-  // 11. MOBILE STICKY CATEGORY NAV ON SCROLL
-  // ==========================================
-  const mobileCatBar = document.getElementById('mobile-sticky-cat-bar');
-  if (mobileCatBar) {
-    const handleScroll = () => {
-      const scrollThreshold = 120;
-      if (window.scrollY > scrollThreshold) {
-        mobileCatBar.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
-        mobileCatBar.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
-      } else {
-        mobileCatBar.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
-        mobileCatBar.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
   }
 
   // CROSS-TAB CART & WISHLIST SYNCHRONIZATION

@@ -16,10 +16,11 @@ A responsive, static Well Icon storefront inspired by familiar fashion e-commerc
 ## Shared code and data
 
 - `js/config.js` — public configuration, including the Google Form URL and sample catalogue mode.
+- `js/loader.js` — one branded welcome splash per browser tab session, followed by a lightweight top progress cue on later page loads and navigation.
 - `js/main.js` — central sample catalogue, cart/wishlist state, navigation, search, product selection, and shared interactions.
 - `js/collection.js`, `js/order.js`, `js/site-info.js` — page-specific behavior built on the shared storefront APIs.
 - `css/styles.css` — design tokens, accessibility states, responsive safeguards, and shared page styles.
-- `images/` — supplied local campaign and product assets. A few sample cards also use remote Unsplash images.
+- `images/` — supplied local campaign and product assets used throughout the storefront.
 
 The products, prices, sizes, product specifications, and much of the imagery are development samples. Replace them with Well Icon-approved catalogue information before accepting live orders. No unverified discounts, stock levels, color counts, reviews, or shipping charges are displayed as live facts.
 

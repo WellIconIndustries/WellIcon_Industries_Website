@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css"><script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/loader.js"></script>
 </head>
 <body>
   <div class="product-promo">Everyday essentials, made for your everyday</div>
@@ -66,7 +67,9 @@
         related.className = 'product-related';
         related.setAttribute('aria-labelledby', 'related-title');
         related.innerHTML = `<h2 id="related-title">More from this collection</h2><div class="product-related-grid">${relatedProducts.map(item => `<a class="product-related-card" href="product.html?id=${encodeURIComponent(item.id)}"><img src="${item.image}" alt="" loading="lazy" onerror="this.onerror=null;this.src='images/hero_groove_banner.jpg'"><span>${item.name}</span><strong>${money(item.price)}</strong></a>`).join('')}</div>`;
-        root.appendChild(related);
+        // Keep recommendations outside the two-column product grid. Leaving
+        // them inside makes the sticky information panel overlap them while scrolling.
+        root.insertAdjacentElement('afterend', related);
       }
       const wish = root.querySelector('.wishlist-toggle-btn');
       const saved = window.wellIconWishlistAPI?.isWishlisted(product.id);
