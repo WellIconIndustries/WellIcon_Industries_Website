@@ -737,29 +737,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btn.id === 'zoom-modal-add-bag') return; // Handled separately
 
         btn.setAttribute('aria-pressed', added ? 'true' : 'false');
+        btn.classList.add('flex', 'items-center', 'justify-center', 'rounded-full', 'transition-all', 'active:scale-95', 'shrink-0');
+        btn.classList.add('w-10', 'h-10', 'sm:w-auto', 'sm:h-auto', 'px-0', 'sm:px-4', 'py-0', 'sm:py-2', 'font-label-md', 'text-label-md', 'font-bold');
 
         if (added) {
           btn.classList.add('added-in-cart', 'bg-badge-fresh', 'text-on-primary');
           btn.classList.remove('bg-primary');
-          
-          if (btn.classList.contains('px-4') && (btn.textContent.trim() === 'Add' || btn.textContent.includes('Added') || btn.textContent.includes('Go'))) {
-            btn.innerHTML = `<span class="material-symbols-outlined text-[16px]">shopping_cart</span> Go to Cart →`;
-          } else if (btn.querySelector('.material-symbols-outlined')) {
-            btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">shopping_cart</span> GO TO CART →`;
-          } else {
-            btn.textContent = 'GO TO CART →';
-          }
+          btn.setAttribute('aria-label', `Go to Cart (${product.name})`);
+          btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">shopping_cart</span><span class="hidden sm:inline-block ml-1.5 font-bold">GO TO CART →</span>`;
         } else {
           btn.classList.remove('added-in-cart', 'bg-badge-fresh');
           btn.classList.add('bg-primary', 'text-on-primary');
-
-          if (btn.classList.contains('px-4') && (btn.textContent.trim() === 'Add' || btn.textContent.includes('Added') || btn.textContent.includes('Go'))) {
-            btn.innerHTML = `<span class="material-symbols-outlined text-[16px]">shopping_bag</span> Add`;
-          } else if (btn.querySelector('.material-symbols-outlined')) {
-            btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">shopping_bag</span> ADD TO BAG`;
-          } else {
-            btn.textContent = 'ADD TO BAG';
-          }
+          btn.setAttribute('aria-label', `Add ${product.name} to Bag`);
+          btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">shopping_bag</span><span class="hidden sm:inline-block ml-1.5 font-bold">ADD TO BAG</span>`;
         }
       });
     });
