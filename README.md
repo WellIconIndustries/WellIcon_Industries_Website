@@ -1,33 +1,51 @@
-# WELL ICON Industries Website
+# WELL ICON storefront
 
-A modern, responsive e-commerce web application designed with Tailwind CSS, Google Fonts, and Material Symbols.
+A responsive, static Well Icon storefront inspired by familiar fashion e-commerce browsing patterns. It uses HTML, CSS, Tailwind utilities from the CDN, and vanilla JavaScript. No customer account, login, server, payment gateway, or order database is used.
 
-## 📁 Project Structure
+## Pages
 
+- `index.html` — homepage and featured collections.
+- `men.html`, `women.html`, `accessories.html` — catalogue landing pages with category filters and sorting.
+- `collection.html?category=...` — shared filtered collection template.
+- `product.html?id=...` — product details, sample size selection, Add to Bag, and Buy Now.
+- `cart.html` — persistent cart with quantity controls, line totals, and subtotal.
+- `wishlist.html` — saved products and move-to-cart actions.
+- `order.html` — review/copy order summary and configured Google Form handoff.
+- `site-info.html?topic=...` — transparent notices for business information or services not yet configured.
+
+## Shared code and data
+
+- `js/config.js` — public configuration, including the Google Form URL and sample catalogue mode.
+- `js/main.js` — central sample catalogue, cart/wishlist state, navigation, search, product selection, and shared interactions.
+- `js/collection.js`, `js/order.js`, `js/site-info.js` — page-specific behavior built on the shared storefront APIs.
+- `css/styles.css` — design tokens, accessibility states, responsive safeguards, and shared page styles.
+- `images/` — supplied local campaign and product assets. A few sample cards also use remote Unsplash images.
+
+The products, prices, sizes, product specifications, and much of the imagery are development samples. Replace them with Well Icon-approved catalogue information before accepting live orders. No unverified discounts, stock levels, color counts, reviews, or shipping charges are displayed as live facts.
+
+## Local preview
+
+Serve the repository root so relative links work:
+
+```sh
+python3 -m http.server 8000
 ```
-WellIcon_Industries_Website/
-├── index.html        # Main HTML markup containing header, hero, product sections, & footer
-├── css/
-│   └── styles.css    # Custom CSS rules and scrollbar overrides
-├── js/
-│   └── main.js      # Client-side JavaScript for tabs, wishlist toggle & cart interactions
-└── README.md         # Project documentation
-```
 
-## 🚀 Features
+Then open `http://localhost:8000/`.
 
-- **Responsive Top & Navigation Header**: Sticky layout with top announcement bar, brand logo, section navigation, search, wishlist & bag indicators.
-- **Hero Slider Section**: Showcase new collection drops ("GROOVE™") with CTA buttons and slider indicators.
-- **Curated Seasonals ("Best of Summers")**: Visual grid highlight cards for daily wear, loungewear, and activewear.
-- **On-Trend Picks**: Editor's choice product carousel with status badges.
-- **Split Campaign Feature ("Always In It")**: Editorial brand presentation alongside product recommendations with gender filter toggles.
-- **Bestsellers & Value Multipacks**: Interactive product cards with color count indicators, price details, wishlist toggles, and "Add to Bag" functionality.
-- **150th Anniversary Heritage Banner**: Milestone campaign section highlighting brand heritage.
-- **Footer & Newsletter**: Email subscription form, category directory links, app download links, social channels, and legal notices.
+## Google Form setup
 
-## 🛠️ Tech Stack
+Edit `js/config.js` and set `googleFormUrl` to the client's published Google Form URL. The URL is public storefront configuration, not a secret. The order page displays a copyable list of products, selected sizes, quantities, prices, and subtotal. Customers must paste the summary into the form and submit it themselves. The storefront does not claim that opening the form submits an order, verifies payment, or generates an order number. Verified Google Form field IDs are needed before reliable prefill can be added.
 
-- **HTML5** & **CSS3**
-- **Tailwind CSS** (via CDN with extended color palette and font utility classes)
-- **Vanilla JavaScript** (ES6+)
-- **Google Fonts** (*DM Sans*) & **Google Material Symbols Outlined**
+Buy Now creates a direct-order review draft for the selected product and leaves the existing cart untouched. Standard cart ordering reviews the saved cart contents.
+
+## GitHub Pages
+
+The site is static and uses relative page and asset paths, so it can be served from the project root at `/WellIcon/`. No build step is required. External font, Tailwind CDN, and remote sample-image requests need an internet connection. No deployment was performed as part of this repository work.
+
+## Client information required before launch
+
+- Published Google Form URL and verified prefill entry IDs, if desired.
+- Approved product IDs, descriptions, prices, images, sizes, and colors.
+- Confirmed shipping, tax, returns, privacy, and terms information.
+- Customer support details, store locations, social links, and mailing-list service if those features are wanted.

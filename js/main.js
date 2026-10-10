@@ -8,6 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const CART_STORAGE_KEY = 'wellIconCart';
   const CART_LEGACY_KEY = 'wellicon_cart';
 
+  if (window.WELL_ICON_CONFIG?.catalogueMode === 'sample' && !document.querySelector('.sample-catalogue-banner')) {
+    const banner = document.createElement('div');
+    banner.className = 'sample-catalogue-banner';
+    banner.setAttribute('role', 'note');
+    banner.textContent = 'Catalogue preview: sample products, prices, and sizes are shown for development.';
+    const header = document.querySelector('header');
+    if (header?.parentElement) header.parentElement.insertBefore(banner, header);
+    else document.body.prepend(banner);
+  }
+
   // Master Catalogue Registry
   const WELL_ICON_PRODUCTS = [
     {
@@ -18,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'images/sando_achiever.jpg',
       tag: '#SANDO-01',
       desc: 'High-performance grey bull & teal Achiever muscle sando set. Stretch contour fit.',
-      link: 'men.html#sandos'
+      link: 'collection.html?category=men-vests'
     },
     {
       id: 'SANDO-02',
@@ -28,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'images/sando_shape_it.png',
       tag: '#SANDO-02',
       desc: 'Moisture-wicking black & teal workout sando pair with geometric athletic typography.',
-      link: 'men.html#sandos'
+      link: 'collection.html?category=men-vests'
     },
     {
       id: 'SANDO-03',
@@ -38,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'images/sando_stronger.png',
       tag: '#SANDO-03',
       desc: 'Vibrant yellow & black contrast shoulder panel sando with barbell chest graphic print.',
-      link: 'men.html#sandos'
+      link: 'collection.html?category=men-vests'
     },
     {
       id: 'SANDO-04',
@@ -48,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'images/sando_strong_yellow.png',
       tag: '#SANDO-04',
       desc: 'Vibrant sunny yellow ultra-soft combed cotton rib sando with vertical graphic detail.',
-      link: 'men.html#sandos'
+      link: 'collection.html?category=men-vests'
     },
     {
       id: 'M101',
@@ -68,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'images/trend_boxer_shorts.jpg',
       tag: '#M102',
       desc: 'Dual side pockets, button fly woven boxer shorts.',
-      link: 'men.html#boxers'
+      link: 'collection.html?category=men-innerwear'
     },
     {
       id: 'M103',
@@ -128,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=800&q=80',
       tag: '#FE41',
       desc: 'Wider adjustable straps, zero underwire poke full coverage bra.',
-      link: 'women.html#bras'
+      link: 'collection.html?category=women-bras'
     },
     {
       id: '1406',
@@ -138,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80',
       tag: '#1406',
       desc: 'Ultrasoft flat seams, pure cotton gusset hipster panties pack.',
-      link: 'women.html#panties'
+      link: 'collection.html?category=women-innerwear'
     },
     {
       id: '1803',
@@ -148,7 +158,37 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80',
       tag: '#1803',
       desc: 'Twice as soft as cotton, tagless interior bikini brief.',
-      link: 'women.html#panties'
+      link: 'collection.html?category=women-innerwear'
+    },
+    {
+      id: '1802',
+      name: 'Micro Modal Elastane Stretch Hipster (2-Pack)',
+      price: 539.00,
+      originalPrice: null,
+      image: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=800&q=80',
+      tag: '#1802',
+      desc: 'Development sample product. Confirm fabric and fit details with Well Icon.',
+      link: 'collection.html?category=women-innerwear'
+    },
+    {
+      id: '1529',
+      name: 'High Coverage Cotton Stretch Shorties Duo',
+      price: 649.00,
+      originalPrice: null,
+      image: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
+      tag: '#1529',
+      desc: 'Development sample product. Confirm fabric and fit details with Well Icon.',
+      link: 'collection.html?category=women-innerwear'
+    },
+    {
+      id: '1487',
+      name: 'Super Combed Cotton Camisole Duo Pack',
+      price: 599.00,
+      originalPrice: null,
+      image: 'https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80',
+      tag: '#1487',
+      desc: 'Development sample product. Confirm fabric and fit details with Well Icon.',
+      link: 'collection.html?category=women-tops'
     },
     {
       id: 'W201',
@@ -158,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'images/trend_everyday_bra.jpg',
       tag: '#W201',
       desc: 'Zero underwire poke, non-pinch side panels wirefree bra.',
-      link: 'women.html#bras'
+      link: 'collection.html?category=women-bras'
     },
     {
       id: 'W202',
@@ -198,7 +238,7 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=800&q=80',
       tag: '#HK01',
       desc: 'StayFresh antibacterial finish, satin border handkerchief trio.',
-      link: 'accessories.html#hankies'
+      link: 'collection.html?category=accessories-handkerchiefs'
     },
     {
       id: 'SOCK-01',
@@ -208,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
       image: 'https://images.unsplash.com/photo-1582552938357-32b906df40cb?auto=format&fit=crop&w=800&q=80',
       tag: '#SK02',
       desc: 'Arch support band, moisture absorbent cushioned ankle socks.',
-      link: 'accessories.html#socks'
+      link: 'collection.html?category=accessories-socks'
     },
     {
       id: 'CP03',
@@ -232,6 +272,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
+  // Development sample catalogue metadata. Replace these sample variants with
+  // the client's confirmed catalogue before accepting live orders.
+  const SAMPLE_PRODUCT_META = {
+    'SANDO-01': ['men-vests', 'Men', ['S', 'M', 'L', 'XL', 'XXL']],
+    'SANDO-02': ['men-vests', 'Men', ['S', 'M', 'L', 'XL', 'XXL']],
+    'SANDO-03': ['men-vests', 'Men', ['S', 'M', 'L', 'XL', 'XXL']],
+    'SANDO-04': ['men-vests', 'Men', ['S', 'M', 'L', 'XL', 'XXL']],
+    M101: ['men-bottomwear', 'Men', ['S', 'M', 'L', 'XL', 'XXL']],
+    M102: ['men-innerwear', 'Men', ['S', 'M', 'L', 'XL', 'XXL']],
+    M103: ['men-tops', 'Men', ['XS', 'S', 'M', 'L', 'XL', 'XXL']],
+    M104: ['men-bottomwear', 'Men', ['S', 'M', 'L', 'XL', 'XXL']],
+    W225: ['women-tops', 'Women', ['XS', 'S', 'M', 'L', 'XL']],
+    W230: ['women-bottomwear', 'Women', ['XS', 'S', 'M', 'L', 'XL']],
+    A113: ['women-tops', 'Women', ['XS', 'S', 'M', 'L', 'XL']],
+    FE41: ['women-bras', 'Women', ['32B', '34B', '36B', '38B']],
+    '1406': ['women-innerwear', 'Women', ['S', 'M', 'L', 'XL', 'XXL']],
+    '1803': ['women-innerwear', 'Women', ['S', 'M', 'L', 'XL', 'XXL']],
+    '1802': ['women-innerwear', 'Women', ['S', 'M', 'L', 'XL', 'XXL']],
+    '1529': ['women-innerwear', 'Women', ['S', 'M', 'L', 'XL', 'XXL']],
+    '1487': ['women-tops', 'Women', ['XS', 'S', 'M', 'L', 'XL']],
+    W201: ['women-bras', 'Women', ['32B', '34B', '36B', '38B']],
+    W202: ['women-tops', 'Women', ['XS', 'S', 'M', 'L', 'XL']],
+    W203: ['women-bottomwear', 'Women', ['XS', 'S', 'M', 'L', 'XL']],
+    W204: ['women-tops', 'Women', ['XS', 'S', 'M', 'L', 'XL']],
+    'HANK-01': ['accessories-handkerchiefs', 'Accessories', ['One Size']],
+    'SOCK-01': ['accessories-socks', 'Accessories', ['One Size']],
+    CP03: ['accessories-headwear', 'Accessories', ['One Size']],
+    BT04: ['accessories-towels', 'Accessories', ['One Size']]
+  };
+
+  WELL_ICON_PRODUCTS.forEach(product => {
+    const [category, gender, availableSizes] = SAMPLE_PRODUCT_META[product.id] || ['other', 'Unisex', ['One Size']];
+    product.category = category;
+    product.gender = gender;
+    product.availableSizes = availableSizes;
+    product.availableColors = [];
+    product.images = [product.image];
+    product.isSample = true;
+    // Source data does not include verified list prices/discounts.
+    product.originalPrice = null;
+  });
+
   // ==========================================
   // 2. DATA PERSISTENCE & HELPERS
   // ==========================================
@@ -242,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const parsed = JSON.parse(stored);
       if (!Array.isArray(parsed)) return [];
       const ids = parsed.map(item => (typeof item === 'object' && item !== null ? item.id : String(item))).filter(Boolean);
-      return Array.from(new Set(ids));
+      return Array.from(new Set(ids)).filter(id => Boolean(getProductById(id)));
     } catch (e) {
       console.warn('Error reading wishlist from localStorage:', e);
       return [];
@@ -295,7 +377,23 @@ document.addEventListener('DOMContentLoaded', () => {
       const stored = localStorage.getItem(CART_STORAGE_KEY) || localStorage.getItem(CART_LEGACY_KEY);
       if (!stored) return [];
       const parsed = JSON.parse(stored);
-      return Array.isArray(parsed) ? parsed : [];
+      if (!Array.isArray(parsed)) return [];
+      return parsed.filter(item => item && typeof item === 'object' && typeof item.id === 'string' && item.id.trim()).map(item => {
+        const product = getProductById(item.id);
+        const quantity = Number.parseInt(item.qty, 10);
+        const storedPrice = Number(item.price);
+        const price = Number.isFinite(product?.price) ? product.price : (Number.isFinite(storedPrice) && storedPrice >= 0 ? storedPrice : null);
+        if (!Number.isFinite(price)) return null;
+        return {
+          id: item.id,
+          name: product?.name || (typeof item.name === 'string' ? item.name : 'Well Icon item'),
+          price,
+          image: product?.image || (typeof item.image === 'string' ? item.image : 'images/hero_groove_banner.jpg'),
+          variant: typeof item.variant === 'string' ? item.variant : '',
+          color: typeof item.color === 'string' ? item.color : '',
+          qty: Number.isFinite(quantity) && quantity > 0 ? Math.min(quantity, 99) : 1
+        };
+      }).filter(Boolean);
     } catch (e) {
       console.warn('Error reading cart from localStorage:', e);
       return [];
@@ -332,21 +430,26 @@ document.addEventListener('DOMContentLoaded', () => {
     return cart.findIndex(item => item.id === productId && (!variant || (item.variant || item.color) === variant));
   }
 
-  function addToCart(productId, variant = 'M', qty = 1, customProductObj = null) {
+  function addToCart(productId, variant = '', qty = 1, customProductObj = null) {
     if (!productId) return null;
     const product = customProductObj || getProductById(productId);
     if (!product) return null;
+    const productPrice = Number(product.price);
+    if (!Number.isFinite(productPrice) || productPrice < 0) return null;
+    const requestedQty = Number.parseInt(qty, 10);
+    if (!Number.isFinite(requestedQty) || requestedQty < 1) return null;
+    qty = Math.min(99, requestedQty);
 
-    const targetVariant = variant || product.variant || 'M';
+    const targetVariant = variant || product.variant || '';
     const existingIndex = findCartIndex(productId, targetVariant);
 
     if (existingIndex > -1) {
-      cart[existingIndex].qty += qty;
+      cart[existingIndex].qty = Math.min(99, cart[existingIndex].qty + qty);
     } else {
       cart.push({
         id: product.id,
         name: product.name,
-        price: typeof product.price === 'number' ? product.price : parseFloat(product.price) || 699,
+        price: productPrice,
         image: product.image,
         variant: targetVariant,
         color: targetVariant,
@@ -368,9 +471,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateCartQuantity(index, newQty) {
     if (index >= 0 && index < cart.length) {
-      if (newQty >= 1) {
-        cart[index].qty = newQty;
-      }
+      const quantity = Number.parseInt(newQty, 10);
+      if (!Number.isFinite(quantity) || quantity < 1) return;
+      cart[index].qty = Math.min(99, quantity);
       updateCartUI();
     }
   }
@@ -592,7 +695,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   <span class="font-title-md text-headline-sm font-bold text-primary">₹${item.price.toFixed(2)}</span>
                   ${item.originalPrice ? `<span class="font-label-xs text-label-xs text-secondary line-through ml-1.5">₹${item.originalPrice.toFixed(2)}</span>` : ''}
                 </div>
-                ${discountPercent > 0 ? `<span class="font-label-xs text-label-xs text-sale-crimson font-bold bg-sale-crimson/10 px-2 py-0.5 rounded">${discountPercent}% OFF</span>` : '<span class="font-label-xs text-label-xs text-badge-fresh font-semibold bg-badge-fresh/10 px-2 py-0.5 rounded">In Stock</span>'}
+                ${discountPercent > 0 ? `<span class="font-label-xs text-label-xs text-sale-crimson font-bold bg-sale-crimson/10 px-2 py-0.5 rounded">${discountPercent}% OFF</span>` : ''}
               </div>
 
               <div class="flex items-center gap-2">
@@ -629,13 +732,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const item = getProductById(pId);
         if (!item) return;
 
-        const existingIndex = findCartIndex(item.id, 'M');
-        if (existingIndex > -1) {
-          window.location.href = 'cart.html';
-        } else {
-          addToCart(item.id, 'M', 1, item);
-          showToast(`Added "${item.name}" to Shopping Bag!`, 'shopping_bag');
+        const selectedSizeBtn = btn.closest('[data-product-id]')?.querySelector('.size-btn.active, [data-size].selected');
+        const selectedSize = selectedSizeBtn?.getAttribute('data-size') || '';
+        if (!selectedSize) {
+          showToast('Please select a size first', 'straighten');
+          btn.closest('[data-product-id]')?.querySelector('.well-icon-size-picker button')?.focus();
+          return;
         }
+
+        if (findCartIndex(item.id, selectedSize) > -1) {
+          window.location.href = 'cart.html';
+          return;
+        }
+
+        addToCart(item.id, selectedSize, 1, item);
+        markButtonAsGoToCart(btn, item);
+        showToast(`Added "${item.name}" to Shopping Bag!`, 'shopping_bag');
       });
     });
 
@@ -645,9 +757,10 @@ document.addEventListener('DOMContentLoaded', () => {
         e.stopPropagation();
         const pId = el.getAttribute('data-product-id') || el.closest('[data-product-id]')?.getAttribute('data-product-id');
         const prod = getProductById(pId);
-        if (prod) openZoomModal(prod);
+        if (prod) window.location.href = `product.html?id=${encodeURIComponent(prod.id)}`;
       });
     });
+    updateProductButtonsState();
   }
 
   // ==========================================
@@ -675,32 +788,85 @@ document.addEventListener('DOMContentLoaded', () => {
     if (master) return master;
 
     const priceEl = card.querySelector('.font-bold.text-primary, .text-sale-crimson, .font-title-md') || Array.from(card.querySelectorAll('span, div')).find(s => s.textContent.includes('₹'));
-    const origPriceEl = card.querySelector('.line-through');
     const imgEl = card.querySelector('img');
     const descEl = card.querySelector('p');
 
-    let price = 699.00;
+    let price = NaN;
     if (priceEl) {
       const pMatch = priceEl.textContent.replace(/[^0-9.]/g, '');
       if (pMatch && !isNaN(parseFloat(pMatch))) price = parseFloat(pMatch);
     }
 
-    let originalPrice = price * 1.35;
-    if (origPriceEl) {
-      const opMatch = origPriceEl.textContent.replace(/[^0-9.]/g, '');
-      if (opMatch && !isNaN(parseFloat(opMatch))) originalPrice = parseFloat(opMatch);
-    }
-
     const image = imgEl ? (imgEl.getAttribute('src') || imgEl.src) : 'images/sando_achiever.jpg';
     const tag = tagEl ? tagEl.textContent.trim() : ('#' + id);
-    const desc = descEl ? descEl.textContent.trim() : 'Super combed pure cotton apparel crafted for maximum comfort and breathability.';
+    if (!Number.isFinite(price)) return null;
+    const desc = descEl ? descEl.textContent.trim() : 'Review the listed details for this Well Icon item.';
 
-    const prod = { id, name, price, originalPrice, image, tag, desc, link: 'index.html' };
+    const lowerName = name.toLowerCase();
+    const isAccessory = /handkerchief|sock|cap|towel/.test(lowerName);
+    const availableSizes = isAccessory ? ['One Size'] : /bra/.test(lowerName) ? ['32B', '34B', '36B', '38B'] : ['XS', 'S', 'M', 'L', 'XL'];
+    const prod = {
+      id, name, price, originalPrice: null, image, tag, desc, link: 'index.html',
+      category: isAccessory ? 'accessories' : 'featured',
+      gender: /women|bra|panty|camisole|girl/.test(lowerName) ? 'Women' : (/men|sando|boxer/.test(lowerName) ? 'Men' : 'Unisex'),
+      availableSizes, availableColors: [], isSample: true
+    };
     registerProduct(prod);
     return prod;
   }
 
   // UPDATE PRODUCT BUTTON STATES ACROSS THE STOREFRONT (EXCLUDING CART DRAWER & CART PAGE)
+  function ensureProductSizePicker(card, product) {
+    if (!card || !product || card.querySelector('.well-icon-size-picker')) return;
+    const addButton = Array.from(card.querySelectorAll('button')).find(button => {
+      const label = button.textContent.trim().toUpperCase();
+      return button.matches('.cart-add-btn, .move-to-bag-btn') || label.includes('ADD TO BAG') || label.includes('ADD TO CART') || label === 'ADD';
+    });
+    if (!addButton || !Array.isArray(product.availableSizes) || !product.availableSizes.length) return;
+
+    const picker = document.createElement('div');
+    picker.className = 'well-icon-size-picker';
+    picker.setAttribute('role', 'group');
+    picker.setAttribute('aria-label', `Select a sample size for ${product.name}`);
+    const label = document.createElement('span');
+    label.className = 'font-label-xs text-secondary font-bold';
+    label.textContent = 'SIZE';
+    picker.appendChild(label);
+
+    product.availableSizes.forEach(size => {
+      const option = document.createElement('button');
+      const existingVariant = cart.find(item => item.id === product.id)?.variant || '';
+      const isOneSize = (product.availableSizes.length === 1 && size === 'One Size') || existingVariant === size;
+      option.type = 'button';
+      option.className = `size-btn${isOneSize ? ' active selected' : ''}`;
+      option.dataset.size = size;
+      option.setAttribute('aria-pressed', String(isOneSize));
+      option.textContent = size;
+      option.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        picker.querySelectorAll('[data-size]').forEach(other => {
+          const selected = other === option;
+          other.classList.toggle('active', selected);
+          other.classList.toggle('selected', selected);
+          other.setAttribute('aria-pressed', String(selected));
+        });
+        const hint = picker.querySelector('.size-selection-hint');
+        if (hint) hint.textContent = `Selected size: ${size}`;
+        updateProductButtonsState();
+      });
+      picker.appendChild(option);
+    });
+
+    const hint = document.createElement('span');
+    hint.className = 'size-selection-hint';
+    hint.setAttribute('aria-live', 'polite');
+    hint.textContent = product.availableSizes.length === 1 ? 'Standard size' : 'Choose a size before adding';
+    picker.appendChild(hint);
+    const actionRow = addButton.closest('.mt-4') || addButton.parentElement;
+    if (actionRow?.parentElement) actionRow.parentElement.insertBefore(picker, actionRow);
+  }
+
   function updateProductButtonsState() {
     cart = getCart();
 
@@ -711,10 +877,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const product = extractProductFromCard(card, idx);
       if (!product || !product.id) return;
 
+      ensureProductSizePicker(card, product);
+
       const cardSizeBtn = card.querySelector('.size-btn.active, [data-size].selected');
       const selectedVariant = cardSizeBtn ? cardSizeBtn.getAttribute('data-size') : null;
 
-      const added = isInCart(product.id, selectedVariant);
+      // A size-specific item only appears added after the customer chooses the
+      // same size variant that is already in the cart.
+      const added = Boolean(selectedVariant) && isInCart(product.id, selectedVariant);
 
       const addBtns = card.querySelectorAll('.cart-add-btn, .move-to-bag-btn');
       const genericBtns = Array.from(card.querySelectorAll('button')).filter(b => {
@@ -728,7 +898,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isWishlist) return false;
 
         const txt = b.textContent.trim().toUpperCase();
-        return txt.includes('ADD TO BAG') || txt.includes('ADD TO CART') || txt.includes('GO TO CART') || txt.includes('GO TO BAG') || txt.includes('ADDED TO BAG') || txt.includes('ADDED TO CART') || txt === 'ADD';
+        return txt.includes('ADD TO BAG') || txt.includes('ADD TO CART') || txt.includes('GO TO CART') || txt.includes('GO TO BAG') || txt.includes('ADDED TO BAG') || txt.includes('ADDED TO CART') || txt === 'ADD' || txt.endsWith(' ADD');
       });
 
       const allAddBtns = Array.from(new Set([...addBtns, ...genericBtns]));
@@ -736,31 +906,39 @@ document.addEventListener('DOMContentLoaded', () => {
       allAddBtns.forEach(btn => {
         if (btn.id === 'zoom-modal-add-bag') return; // Handled separately
 
+        const isDetailButton = btn.classList.contains('detail-add-btn');
+
         btn.setAttribute('aria-pressed', added ? 'true' : 'false');
         btn.classList.add('flex', 'items-center', 'justify-center', 'rounded-full', 'transition-all', 'active:scale-95', 'shrink-0');
-        btn.classList.add('w-10', 'h-10', 'sm:w-auto', 'sm:h-auto', 'px-0', 'sm:px-4', 'py-0', 'sm:py-2', 'font-label-md', 'text-label-md', 'font-bold');
+        btn.classList.add('font-label-md', 'text-label-md', 'font-bold');
+        if (!isDetailButton) btn.classList.add('w-10', 'h-10', 'sm:w-auto', 'sm:h-auto', 'px-0', 'sm:px-4', 'py-0', 'sm:py-2');
 
         if (added) {
+          btn.classList.remove('w-10', 'h-10', 'px-0');
+          btn.classList.add('w-auto', 'h-auto', 'px-3', 'sm:px-4');
           btn.classList.add('added-in-cart', 'bg-badge-fresh', 'text-on-primary');
           btn.classList.remove('bg-primary');
           btn.setAttribute('aria-label', `Go to Cart (${product.name})`);
-          btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">shopping_cart</span><span class="hidden sm:inline-block ml-1.5 font-bold">GO TO CART →</span>`;
+          btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">shopping_cart</span><span class="ml-1.5 font-bold">GO TO CART →</span>`;
         } else {
+          btn.classList.remove('w-auto', 'h-auto', 'px-3');
+          btn.classList.add('w-10', 'h-10', 'px-0');
           btn.classList.remove('added-in-cart', 'bg-badge-fresh');
           btn.classList.add('bg-primary', 'text-on-primary');
           btn.setAttribute('aria-label', `Add ${product.name} to Bag`);
-          btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">shopping_bag</span><span class="hidden sm:inline-block ml-1.5 font-bold">ADD TO BAG</span>`;
+          btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">shopping_bag</span><span class="${isDetailButton ? 'ml-1.5' : 'hidden sm:inline-block ml-1.5'} font-bold">ADD TO BAG</span>`;
         }
       });
     });
 
     // Zoom Modal Button State
     if (currentZoomProduct && zoomAddBagBtn) {
-      const inCart = isInCart(currentZoomProduct.id, currentSelectedZoomSize);
+      const inCart = Boolean(currentSelectedZoomSize) && isInCart(currentZoomProduct.id, currentSelectedZoomSize);
       zoomAddBagBtn.setAttribute('aria-pressed', inCart ? 'true' : 'false');
       if (inCart) {
         zoomAddBagBtn.classList.add('bg-badge-fresh');
         zoomAddBagBtn.classList.remove('bg-primary');
+        zoomAddBagBtn.setAttribute('aria-label', `Go to Cart (${currentZoomProduct.name})`);
         zoomAddBagBtn.innerHTML = `<span class="material-symbols-outlined text-[20px]">shopping_cart</span> GO TO CART →`;
       } else {
         zoomAddBagBtn.classList.remove('bg-badge-fresh');
@@ -792,6 +970,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cartSubtotalEl) cartSubtotalEl.textContent = `₹${subtotal.toFixed(2)}`;
     if (cartTotalEl) cartTotalEl.textContent = `₹${subtotal.toFixed(2)}`;
 
+    document.querySelectorAll('.proceed-order-btn').forEach(button => {
+      button.disabled = cart.length === 0;
+      button.setAttribute('aria-disabled', String(cart.length === 0));
+    });
+
     // Render Drawer Items
     renderCartDrawerItems();
 
@@ -812,7 +995,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="flex flex-col items-center justify-center py-16 text-center text-on-surface-variant">
           <span class="material-symbols-outlined text-[56px] text-outline-variant mb-3">shopping_bag</span>
           <p class="font-headline-sm text-headline-sm font-bold text-primary">Your Shopping Bag is empty</p>
-          <p class="font-body-sm text-body-sm text-secondary mt-1 max-w-xs">Explore our latest drops and bestsellers to add comfort staples.</p>
+          <p class="font-body-sm text-body-sm text-secondary mt-1 max-w-xs">Browse the sample collections and choose products to add to your cart.</p>
           <a href="men.html" class="mt-6 px-6 py-2.5 rounded-full bg-primary text-on-primary font-label-md font-bold hover:bg-primary-container transition-all">Start Shopping</a>
         </div>
       `;
@@ -974,7 +1157,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('a[aria-label="Shopping Bag"]').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      if (!window.location.pathname.endsWith('cart.html')) {
+      if (cartDrawer && !window.location.pathname.endsWith('cart.html')) {
         e.preventDefault();
         openCartDrawer();
       }
@@ -990,7 +1173,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function openZoomModal(productData) {
     if (!zoomModal) return;
     currentZoomProduct = productData;
-    currentSelectedZoomSize = 'M';
+    currentSelectedZoomSize = '';
 
     if (zoomImg) zoomImg.src = productData.image;
     if (zoomTitle) zoomTitle.textContent = productData.name;
@@ -998,18 +1181,52 @@ document.addEventListener('DOMContentLoaded', () => {
     if (zoomPrice) zoomPrice.textContent = `₹${(typeof productData.price === 'number' ? productData.price : parseFloat(productData.price) || 699).toFixed(2)}`;
     if (zoomDesc) zoomDesc.textContent = productData.desc || 'Super combed pure cotton fabric crafted for maximum breathability and flexible stretch contour.';
 
-    // Reset Zoom Modal Size Selector if present
-    const sizeBtns = zoomModal.querySelectorAll('.size-btn, [data-size]');
-    sizeBtns.forEach(btn => {
-      const sz = btn.getAttribute('data-size') || btn.textContent.trim();
-      if (sz === 'M') {
-        btn.classList.add('border-2', 'border-primary', 'bg-primary', 'text-on-primary');
-        btn.classList.remove('border-border-hairline', 'text-on-surface-variant');
-      } else {
-        btn.classList.remove('border-2', 'border-primary', 'bg-primary', 'text-on-primary');
-        btn.classList.add('border-border-hairline', 'text-on-surface-variant');
-      }
-    });
+    // Build available sizes from the product's catalogue entry and require an
+    // explicit choice when more than one size is available.
+    const details = zoomModal.querySelector('.space-y-4');
+    let sizeSection = details && Array.from(details.children).find(child => child.classList.contains('pt-2'));
+    if (!sizeSection && details) {
+      sizeSection = document.createElement('div');
+      sizeSection.className = 'pt-2';
+      details.appendChild(sizeSection);
+    }
+    if (sizeSection) {
+      const sizes = productData.availableSizes || ['One Size'];
+      const sizeLabel = document.createElement('label');
+      sizeLabel.className = 'font-label-md text-label-md font-bold text-primary block mb-2';
+      sizeLabel.textContent = 'Select size';
+      const options = document.createElement('div');
+      options.className = 'well-icon-size-picker';
+      options.setAttribute('role', 'group');
+      options.setAttribute('aria-label', `Select a sample size for ${productData.name}`);
+      sizes.forEach(size => {
+        const option = document.createElement('button');
+        const isOneSize = sizes.length === 1 && size === 'One Size';
+        option.type = 'button';
+        option.className = `size-btn${isOneSize ? ' active selected' : ''}`;
+        option.dataset.size = size;
+        option.setAttribute('aria-pressed', String(isOneSize));
+        option.textContent = size;
+        option.addEventListener('click', () => {
+          options.querySelectorAll('[data-size]').forEach(other => {
+            const selected = other === option;
+            other.classList.toggle('active', selected);
+            other.classList.toggle('selected', selected);
+            other.setAttribute('aria-pressed', String(selected));
+          });
+          currentSelectedZoomSize = size;
+          updateProductButtonsState();
+        });
+        options.appendChild(option);
+      });
+      const hint = document.createElement('span');
+      hint.className = 'size-selection-hint';
+      hint.setAttribute('aria-live', 'polite');
+      hint.textContent = sizes.length === 1 ? 'Standard size' : 'Choose a size before adding';
+      options.appendChild(hint);
+      sizeSection.replaceChildren(sizeLabel, options);
+      currentSelectedZoomSize = sizes.length === 1 ? sizes[0] : '';
+    }
 
     updateProductButtonsState();
     zoomModal.classList.remove('hidden');
@@ -1060,6 +1277,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // GLOBAL EVENT DELEGATION FOR ADD TO CART & GO TO CART BUTTONS
+  function markButtonAsGoToCart(button, product) {
+    if (!button || !product) return;
+    button.classList.add('added-in-cart', 'bg-badge-fresh', 'text-on-primary');
+    button.classList.remove('bg-primary', 'w-10', 'h-10', 'px-0');
+    button.classList.add('w-auto', 'h-auto', 'px-3');
+    button.setAttribute('aria-label', `Go to Cart (${product.name})`);
+    button.setAttribute('aria-pressed', 'true');
+    button.innerHTML = `<span class="material-symbols-outlined text-[18px]" aria-hidden="true">shopping_cart</span><span class="ml-1.5 font-bold">GO TO CART →</span>`;
+  }
+
+  function beginOrderReview(items, mode) {
+    if (!Array.isArray(items) || items.length === 0) {
+      showToast('Your cart is empty', 'shopping_bag');
+      return;
+    }
+    try {
+      sessionStorage.setItem('wellIconOrderDraft', JSON.stringify({ mode, items, createdAt: new Date().toISOString() }));
+      window.location.href = `order.html?mode=${encodeURIComponent(mode)}`;
+    } catch (error) {
+      console.warn('Could not save the order review draft:', error);
+      showToast('Could not prepare the order summary. Please try again.', 'error');
+    }
+  }
+
   document.addEventListener('click', (e) => {
     const favBtn = e.target.closest('button[aria-label*="wishlist"], button[aria-label*="Wishlist"], button[aria-label*="favorite"], button[aria-label*="Favorite"], .wishlist-toggle-btn') ||
                    (e.target.closest('button') && e.target.closest('button').querySelector('.material-symbols-outlined')?.textContent.trim() === 'favorite' ? e.target.closest('button') : null);
@@ -1074,6 +1315,35 @@ document.addEventListener('DOMContentLoaded', () => {
         const isAdded = toggleWishlist(product.id, product);
         showToast(isAdded ? `Saved "${product.name}" to Wishlist` : `Removed "${product.name}" from Wishlist`, isAdded ? 'favorite' : 'favorite_border');
       }
+      return;
+    }
+
+    const buyNowButton = e.target.closest('[data-action="buy-now"]');
+    if (buyNowButton) {
+      e.preventDefault();
+      e.stopPropagation();
+      const detail = buyNowButton.closest('[data-product-id]');
+      const product = getProductById(detail?.getAttribute('data-product-id'));
+      const selectedSize = detail?.querySelector('.size-btn.active, [data-size].selected')?.getAttribute('data-size') || '';
+      const sizeHint = detail?.querySelector('.detail-size-note');
+      if (!product) return;
+      if (!selectedSize) {
+        if (sizeHint) sizeHint.textContent = 'Please choose a size before continuing.';
+        detail.querySelector('.detail-size-fieldset [data-size]')?.focus();
+        showToast('Please select a size first', 'straighten');
+        return;
+      }
+      const quantityInput = detail.querySelector('#product-qty');
+      const quantity = Math.max(1, Math.min(99, Number.parseInt(quantityInput?.value || '1', 10) || 1));
+      beginOrderReview([{ id: product.id, name: product.name, price: Number(product.price), image: product.image, variant: selectedSize, color: '', qty: quantity }], 'direct');
+      return;
+    }
+
+    const proceedOrderButton = e.target.closest('.proceed-order-btn');
+    if (proceedOrderButton) {
+      e.preventDefault();
+      e.stopPropagation();
+      beginOrderReview(cart.map(item => ({ ...item })), 'cart');
       return;
     }
 
@@ -1098,18 +1368,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Zoom Modal Button Click
     if (addBtn.id === 'zoom-modal-add-bag' || addBtn.closest('#zoom-modal')) {
       if (!currentZoomProduct) return;
-      const selectedSize = currentSelectedZoomSize || 'M';
-      const existingIndex = findCartIndex(currentZoomProduct.id, selectedSize);
-
-      if (existingIndex > -1) {
-        // Product is in cart: "GO TO CART →" clicked! Open Cart Page
+      const selectedSize = currentSelectedZoomSize || '';
+      if (!selectedSize) {
+        zoomModal?.querySelector('.well-icon-size-picker [data-size]')?.focus();
+        showToast('Please select a size first', 'straighten');
+        return;
+      }
+      if (findCartIndex(currentZoomProduct.id, selectedSize) > -1) {
         closeZoomModal();
         window.location.href = 'cart.html';
         return;
-      } else {
-        addToCart(currentZoomProduct.id, selectedSize, 1, currentZoomProduct);
-        showToast(`Added "${currentZoomProduct.name}" (Size: ${selectedSize}) to Bag`, 'shopping_bag');
       }
+      addToCart(currentZoomProduct.id, selectedSize, 1, currentZoomProduct);
+      updateProductButtonsState();
+      showToast(`Added "${currentZoomProduct.name}" to Bag`, 'shopping_bag');
       return;
     }
 
@@ -1119,19 +1391,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!product || !product.id) return;
 
     const selectedSizeBtn = card.querySelector('.size-btn.active, [data-size].selected');
-    const selectedSize = selectedSizeBtn ? selectedSizeBtn.getAttribute('data-size') : 'M';
+    const selectedSize = selectedSizeBtn ? selectedSizeBtn.getAttribute('data-size') : '';
 
-    const existingIndex = findCartIndex(product.id, selectedSize);
+    if (!selectedSize) {
+      card.querySelector('.well-icon-size-picker [data-size]')?.focus();
+      card.querySelector('.size-selection-hint')?.replaceChildren(document.createTextNode('Please choose a size before adding'));
+      showToast('Please select a size first', 'straighten');
+      return;
+    }
 
-    if (existingIndex > -1) {
-      // PRODUCT IS ALREADY IN CART: "GO TO CART →" CLICKED -> OPEN CART PAGE!
+    if (findCartIndex(product.id, selectedSize) > -1) {
       window.location.href = 'cart.html';
       return;
-    } else {
-      // FIRST TAP: ADD TO CART & CHANGE BUTTON TO "GO TO CART →"
-      addToCart(product.id, selectedSize, 1, product);
-      showToast(`Added "${product.name}" to Shopping Bag`, 'shopping_bag');
     }
+
+    const qtyInput = document.getElementById('product-qty');
+    const qty = Math.min(99, Math.max(1, parseInt(qtyInput?.value || '1', 10) || 1));
+    const updatedCart = addToCart(product.id, selectedSize, qty, product);
+    if (updatedCart && findCartIndex(product.id, selectedSize) > -1) {
+      // Update the exact button that was clicked immediately, even if a page's
+      // card markup is too different for the general state scan to find it.
+      markButtonAsGoToCart(addBtn, product);
+    }
+    showToast(`Added "${product.name}" to Shopping Bag`, 'shopping_bag');
   });
 
   // BIND PRODUCT DETAIL TRIGGERS (IMAGE, TITLE, VIEW DETAILS BUTTON)
@@ -1153,7 +1435,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.closest('button')) return;
         e.preventDefault();
         e.stopPropagation();
-        openZoomModal(product);
+        window.location.href = `product.html?id=${encodeURIComponent(product.id)}`;
       });
     }
 
@@ -1166,7 +1448,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.closest('button')) return;
         e.preventDefault();
         e.stopPropagation();
-        openZoomModal(product);
+        window.location.href = `product.html?id=${encodeURIComponent(product.id)}`;
       });
     }
 
@@ -1176,7 +1458,7 @@ document.addEventListener('DOMContentLoaded', () => {
       zoomBtn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        openZoomModal(product);
+        window.location.href = `product.html?id=${encodeURIComponent(product.id)}`;
       });
     }
   });
@@ -1199,17 +1481,217 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   // 9. FILTER TABS & MOBILE DRAWER LOGIC
   // ==========================================
+  const collectionGrid = document.querySelector('#products .grid');
+  const collectionCards = collectionGrid ? Array.from(collectionGrid.children).filter(card => card.matches('.group, [data-product-id]')) : [];
+  let activeCollectionFilter = '';
+
+  function matchesCollectionFilter(product, label) {
+    const value = label.toLowerCase();
+    if (!value || value.startsWith('all ')) return true;
+    if (value.includes('gym sando')) return /^SANDO-/.test(product.id);
+    if (value.includes('performance tank')) return ['SANDO-02', 'SANDO-03'].includes(product.id);
+    if (value.includes('cotton vest')) return ['SANDO-01', 'SANDO-04'].includes(product.id);
+    if (value.includes('shorts') || value.includes('jogger') || value.includes('loungewear')) return /bottomwear/.test(product.category) || /short|jogger|lounge|pant/i.test(product.name);
+    if (value.includes('bra')) return product.category === 'women-bras';
+    if (value.includes('panties') || value.includes('hipster')) return product.category === 'women-innerwear';
+    if (value.includes('camisole') || value.includes('slip')) return product.category === 'women-tops' && /camisole|slip|tank/i.test(product.name);
+    if (value.includes('handkerchief')) return product.category === 'accessories-handkerchiefs';
+    if (value.includes('sock')) return product.category === 'accessories-socks';
+    if (value.includes('cap') || value.includes('headwear')) return product.category === 'accessories-headwear';
+    if (value.includes('towel')) return product.category === 'accessories-towels';
+    return product.category === value.replaceAll(' ', '-');
+  }
+
+  function applyCollectionView() {
+    if (!collectionGrid) return;
+    let visibleCount = 0;
+    collectionCards.forEach((card, index) => {
+      const product = extractProductFromCard(card, index);
+      const visible = product && matchesCollectionFilter(product, activeCollectionFilter);
+      card.hidden = !visible;
+      if (visible) visibleCount += 1;
+    });
+
+    let emptyState = collectionGrid.querySelector('.collection-empty-state');
+    if (!visibleCount) {
+      if (!emptyState) {
+        emptyState = document.createElement('p');
+        emptyState.className = 'collection-empty-state';
+        emptyState.setAttribute('role', 'status');
+        emptyState.textContent = 'No products match this collection yet.';
+        collectionGrid.appendChild(emptyState);
+      }
+    } else if (emptyState) emptyState.remove();
+
+    let count = document.getElementById('collection-result-count');
+    if (!count) {
+      count = document.createElement('p');
+      count.id = 'collection-result-count';
+      count.className = 'font-label-sm text-secondary';
+      count.setAttribute('aria-live', 'polite');
+      collectionGrid.parentElement?.insertBefore(count, collectionGrid);
+    }
+    count.textContent = `${visibleCount} sample product${visibleCount === 1 ? '' : 's'}`;
+  }
+
   document.querySelectorAll('[data-filter-tab]').forEach(tab => {
     tab.addEventListener('click', () => {
+      const label = tab.textContent.trim();
+      if (!collectionGrid) {
+        window.location.href = /^men$/i.test(label) ? 'men.html' : 'women.html';
+        return;
+      }
       const parent = tab.parentElement;
-      parent.querySelectorAll('button').forEach(btn => {
-        btn.classList.remove('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
-        btn.classList.add('text-on-surface-variant');
+      parent.querySelectorAll('button').forEach(button => {
+        button.classList.remove('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
+        button.classList.add('text-on-surface-variant');
+        button.setAttribute('aria-pressed', 'false');
       });
       tab.classList.add('bg-primary', 'text-on-primary', 'font-bold', 'shadow-sm');
       tab.classList.remove('text-on-surface-variant');
-      showToast(`Filtered for ${tab.textContent.trim()}`, 'tune');
+      tab.setAttribute('aria-pressed', 'true');
+      activeCollectionFilter = /^all\b/i.test(label) ? '' : label;
+      applyCollectionView();
     });
+    tab.setAttribute('aria-pressed', tab.classList.contains('bg-primary') ? 'true' : 'false');
+  });
+
+  document.querySelectorAll('#products ~ * select, body > main select, select').forEach(select => {
+    if (!collectionGrid || select.closest('#mobile-menu-drawer, #cart-drawer')) return;
+    select.addEventListener('change', () => {
+      const selected = select.options[select.selectedIndex]?.textContent.toLowerCase() || '';
+      const cards = collectionCards.slice().sort((a, b) => {
+        const first = extractProductFromCard(a);
+        const second = extractProductFromCard(b);
+        if (selected.includes('low to high')) return (first?.price || 0) - (second?.price || 0);
+        if (selected.includes('high to low')) return (second?.price || 0) - (first?.price || 0);
+        if (selected.includes('name a') || selected.includes('alphabetical')) return (first?.name || '').localeCompare(second?.name || '');
+        return Number(a.dataset.featuredIndex || 0) - Number(b.dataset.featuredIndex || 0);
+      });
+      cards.forEach((card, index) => {
+        if (card.matches('.group, [data-product-id]')) {
+          if (!card.dataset.featuredIndex) card.dataset.featuredIndex = String(index);
+          collectionGrid.appendChild(card);
+        }
+      });
+      applyCollectionView();
+    });
+  });
+
+  if (collectionGrid) {
+    collectionCards.forEach((card, index) => { card.dataset.featuredIndex = String(index); });
+    applyCollectionView();
+  }
+
+  document.querySelectorAll('[aria-label="Slide previous trend"], [aria-label="Slide next trend"], [aria-label="Previous featured products"], [aria-label="Next featured products"]').forEach(button => {
+    const section = button.closest('section');
+    const carousel = section && Array.from(section.querySelectorAll('.grid')).find(grid => grid.children.length > 1);
+    if (!carousel) {
+      button.disabled = true;
+      return;
+    }
+    carousel.classList.add('well-icon-horizontal-carousel');
+    button.addEventListener('click', () => {
+      const direction = /previous|left/i.test(button.getAttribute('aria-label') || '') ? -1 : 1;
+      carousel.scrollBy({ left: direction * Math.max(240, carousel.clientWidth * 0.8), behavior: 'smooth' });
+    });
+  });
+
+  // Lightweight catalog search that remains static-hosting friendly.
+  document.querySelectorAll('input[type="search"]').forEach(input => {
+    input.setAttribute('aria-label', input.getAttribute('aria-label') || 'Search Well Icon products');
+    const host = input.parentElement;
+    if (!host) return;
+    host.classList.add('well-icon-search-host');
+    const results = document.createElement('div');
+    results.className = 'well-icon-search-results hidden';
+    results.setAttribute('role', 'listbox');
+    host.appendChild(results);
+    const renderResults = () => {
+      const query = input.value.trim().toLowerCase();
+      results.replaceChildren();
+      if (!query) { results.classList.add('hidden'); return; }
+      const matches = WELL_ICON_PRODUCTS.filter(product => `${product.name} ${product.desc} ${product.id}`.toLowerCase().includes(query)).slice(0, 6);
+      if (!matches.length) {
+        const empty = document.createElement('p');
+        empty.className = 'search-empty-state';
+        empty.textContent = 'No matching products';
+        results.appendChild(empty);
+      } else {
+        matches.forEach(product => {
+          const link = document.createElement('a');
+          link.className = 'search-result-link';
+          link.href = `product.html?id=${encodeURIComponent(product.id)}`;
+          link.setAttribute('role', 'option');
+          const name = document.createElement('span');
+          name.textContent = product.name;
+          const price = document.createElement('span');
+          price.textContent = `₹${Number(product.price).toFixed(2)}`;
+          link.append(name, price);
+          results.appendChild(link);
+        });
+      }
+      results.classList.remove('hidden');
+    };
+    input.addEventListener('input', renderResults);
+    input.addEventListener('keydown', event => {
+      if (event.key === 'Escape') { input.value = ''; renderResults(); }
+      if (event.key === 'Enter') results.querySelector('a')?.click();
+    });
+    document.addEventListener('click', event => {
+      if (!host.contains(event.target)) results.classList.add('hidden');
+    });
+  });
+
+  // Resolve any legacy placeholder links to a real collection or a clearly
+  // labeled information page instead of leaving them as dead `#` controls.
+  document.querySelectorAll('a[href="#"], a[href=""]').forEach(anchor => {
+    const label = anchor.textContent.replace(/\s+/g, ' ').trim().toLowerCase();
+    const path = (anchor.dataset.path || '').toLowerCase();
+    const info = topic => `site-info.html?topic=${encodeURIComponent(topic)}`;
+    let destination = '';
+
+    if (label === 'men') destination = 'men.html';
+    else if (label === 'women') destination = 'women.html';
+    else if (/accessor/.test(path) || /accessor/.test(label)) destination = 'accessories.html';
+    else if (/men/.test(label)) {
+      if (/brief|trunk|boxer|innerwear|underwear/.test(label)) destination = 'collection.html?category=men-innerwear';
+      else if (/sando|vest|tank/.test(label)) destination = 'collection.html?category=men-vests';
+      else if (/short|jogger|pant|bottom|bermuda|pajama/.test(label)) destination = 'collection.html?category=men-bottomwear';
+      else if (/tee|shirt|top|sweat/.test(label)) destination = 'collection.html?category=men-tops';
+      else destination = 'men.html';
+    } else if (/women/.test(label)) {
+      if (/bra/.test(label)) destination = 'collection.html?category=women-bras';
+      else if (/panty|panties|hipster|bikini|brief|shortie/.test(label)) destination = 'collection.html?category=women-innerwear';
+      else if (/legging|lounge|short|pant|bottom/.test(label)) destination = 'collection.html?category=women-bottomwear';
+      else if (/camisole|top|tee|shirt|tank/.test(label)) destination = 'collection.html?category=women-tops';
+      else destination = 'women.html';
+    } else if (/handkerchief/.test(label)) destination = 'collection.html?category=accessories-handkerchiefs';
+    else if (/sock/.test(label)) destination = 'collection.html?category=accessories-socks';
+    else if (/towel/.test(label)) destination = 'collection.html?category=accessories-towels';
+    else if (/cap|headwear/.test(label)) destination = 'collection.html?category=accessories-headwear';
+    else if (/kid|boy|girl|junior/.test(label) || path === 'juniors') destination = info('kids');
+    else if (/thermal/.test(label) || path === 'thermals') destination = info('thermals');
+    else if (/track order|tracking/.test(label) || path === 'track-order') destination = info('order-tracking');
+    else if (/return|exchange/.test(label) || path === 'returns-exchanges') destination = info('returns');
+    else if (/ship|delivery/.test(label) || path === 'shipping-policy') destination = info('shipping');
+    else if (/size guide|size information/.test(label) || path === 'size-guide') destination = info('sizing');
+    else if (/contact|support|help/.test(label) || path === 'help-support' || path === 'contact-us') destination = info('contact');
+    else if (/faq|frequently asked/.test(label) || path === 'faq') destination = info('faq');
+    else if (/privacy/.test(label) || path === 'privacy-policy') destination = info('privacy');
+    else if (/terms/.test(label) || path === 'terms-conditions') destination = info('terms');
+    else if (/accessibility/.test(label)) destination = info('accessibility');
+    else if (/store|locator/.test(label) || path === 'store-locator') destination = info('stores');
+    else if (/newsletter|subscribe|email updates/.test(label)) destination = info('newsletter');
+    else if (/social|community|chat|camera|video|instagram|youtube|facebook/.test(label)) destination = info('social');
+    else if (/career/.test(label) || path === 'careers') destination = info('careers');
+    else if (/corporate|gifting|franchise|investor/.test(label)) destination = info('corporate-gifting');
+    else if (/about|know more|brand/.test(label) || path === 'about-brand') destination = info('about');
+    else if (/material|fabric|care/.test(label)) destination = info('other');
+    else if (/lookbook|collection|original|international|essence|relax|move|featured/.test(label)) destination = 'collection.html';
+    else destination = info('other');
+
+    anchor.href = destination;
   });
 
   function openMobileMenu() {
@@ -1315,6 +1797,10 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCartPage,
     clearCart
   };
+
+  window.wellIconGetProduct = getProductById;
+  window.wellIconListProducts = () => WELL_ICON_PRODUCTS.map(product => ({ ...product, availableSizes: [...product.availableSizes], availableColors: [...product.availableColors] }));
+  window.showToast = showToast;
 
   window.wellIconWishlistAPI = {
     getWishlist,

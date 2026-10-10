@@ -136,7 +136,7 @@
   <!-- TOP ANNOUNCEMENT TICKER -->
   <div class="bg-primary text-on-primary py-2 px-margin text-center font-label-xs text-label-xs uppercase tracking-widest font-bold flex items-center justify-center gap-2 shadow-xs z-40">
     <span class="material-symbols-outlined text-[14px] text-badge-fresh">local_shipping</span>
-    <span>Free Shipping on Orders Above ₹1,499 | Hassle-Free 15-Day Exchanges</span>
+    <span>Demo store · Payment, taxes, and delivery are not configured</span>
   </div>
 
   <!-- HEADER -->
@@ -248,24 +248,20 @@
               <span id="cart-page-subtotal" class="font-bold text-primary">₹0.00</span>
             </div>
             <div class="flex items-center justify-between text-secondary">
-              <span>Estimated Express Delivery</span>
-              <span class="font-bold text-badge-fresh">FREE</span>
-            </div>
-            <div class="flex items-center justify-between text-secondary">
-              <span>Taxes</span>
-              <span class="font-bold text-primary">Inclusive</span>
+              <span>Taxes &amp; delivery</span>
+              <span class="font-bold text-secondary">Not calculated</span>
             </div>
           </div>
 
           <div class="border-t border-border-hairline pt-4 flex items-center justify-between">
-            <span class="font-headline-sm text-headline-sm font-bold text-primary">Estimated Total</span>
+            <span class="font-headline-sm text-headline-sm font-bold text-primary">Items subtotal</span>
             <span id="cart-page-total" class="font-display-hero text-headline-lg font-bold text-primary">₹0.00</span>
           </div>
 
           <div class="space-y-3 pt-2">
-            <button id="checkout-btn" onclick="if(typeof showToast === 'function') showToast('Checkout initialized! Proceeding to order confirmation.', 'shopping_bag');" class="w-full py-4 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
-              <span class="material-symbols-outlined text-[20px]">lock</span>
-              <span>PROCEED TO CHECKOUT</span>
+            <button id="checkout-btn" class="proceed-order-btn w-full py-4 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-bold hover:bg-primary-container transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-[20px]">assignment_turned_in</span>
+              <span>PROCEED TO ORDER</span>
             </button>
 
             <a href="men.html" class="w-full py-3 rounded-full border border-border-hairline text-center text-primary font-label-md font-bold hover:bg-surface-subtle transition-colors block">
@@ -276,16 +272,16 @@
           <!-- TRUST BADGES -->
           <div class="pt-6 border-t border-border-hairline space-y-3 font-body-sm text-body-sm text-secondary">
             <div class="flex items-center gap-3">
-              <span class="material-symbols-outlined text-[20px] text-badge-fresh">verified</span>
-              <span>100% Super Combed Cotton Quality Guarantee</span>
+              <span class="material-symbols-outlined text-[20px] text-badge-fresh">info</span>
+              <span>Product details are shown on each item page</span>
             </div>
             <div class="flex items-center gap-3">
               <span class="material-symbols-outlined text-[20px] text-primary">published_with_changes</span>
-              <span>Hassle-Free 15-Day Exchange Policy</span>
+              <span>Delivery and return information</span>
             </div>
             <div class="flex items-center gap-3">
               <span class="material-symbols-outlined text-[20px] text-primary">security</span>
-              <span>Encrypted &amp; Secure Checkout</span>
+              <span>Checkout is not configured yet</span>
             </div>
           </div>
         </div>
@@ -323,8 +319,8 @@
               <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
               VIEW FULL CART PAGE
             </a>
-            <button onclick="if(typeof showToast === 'function') showToast('Proceeding to Checkout!', 'shopping_bag');" class="w-full py-3 rounded-full border border-primary text-primary font-label-md font-bold hover:bg-primary hover:text-on-primary transition-all">
-              PROCEED TO CHECKOUT
+            <button class="proceed-order-btn w-full py-3 rounded-full border border-primary text-primary font-label-md font-bold hover:bg-primary hover:text-on-primary transition-all">
+              PROCEED TO ORDER
             </button>
           </div>
         </div>
@@ -352,7 +348,7 @@
             <li><a href="men.html" class="hover:text-on-primary transition-colors">Men's Collection</a></li>
             <li><a href="women.html" class="hover:text-on-primary transition-colors">Women's Collection</a></li>
             <li><a href="accessories.html" class="hover:text-on-primary transition-colors">Accessories</a></li>
-            <li><a href="men.html#sandos" class="hover:text-on-primary transition-colors">Athleisure &amp; Sandos</a></li>
+            <li><a href="collection.html?category=men-vests" class="hover:text-on-primary transition-colors">Athleisure &amp; Sandos</a></li>
           </ul>
         </div>
 
@@ -361,32 +357,30 @@
           <ul class="space-y-2 font-body-sm text-on-primary-container">
             <li><a href="wishlist.html" class="hover:text-on-primary transition-colors">Saved Wishlist</a></li>
             <li><a href="cart.html" class="hover:text-on-primary transition-colors">Shopping Cart</a></li>
-            <li><a href="#" class="hover:text-on-primary transition-colors">Shipping &amp; Delivery</a></li>
-            <li><a href="#" class="hover:text-on-primary transition-colors">15-Day Exchange Policy</a></li>
+            <li><a href="site-info.html?topic=shipping" class="hover:text-on-primary transition-colors">Shipping &amp; Delivery</a></li>
+            <li><a href="site-info.html?topic=returns" class="hover:text-on-primary transition-colors">Delivery and return information</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="font-label-lg font-bold mb-4 uppercase tracking-wider text-on-primary">Stay Connected</h4>
-          <p class="font-body-sm text-on-primary-container mb-3">Subscribe for exclusive drops and special offers.</p>
-          <div class="flex items-center gap-2">
-            <input type="email" placeholder="Enter your email" class="bg-surface-container-low/20 text-on-primary placeholder:text-on-primary-container px-4 py-2 rounded-full font-body-sm outline-none w-full border border-border-hairline/20"/>
-            <button class="px-5 py-2 rounded-full bg-surface-canvas text-primary font-label-md font-bold hover:bg-surface-subtle transition-colors shrink-0">Join</button>
-          </div>
+          <p class="font-body-sm text-on-primary-container mb-3">Email updates are unavailable until Well Icon configures a mailing list.</p>
+          <a href="site-info.html?topic=newsletter" class="underline">Email updates information</a>
         </div>
       </div>
 
       <div class="border-t border-border-hairline/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 font-label-xs text-on-primary-container">
         <p>© 2026 Well Icon Industries. All Rights Reserved.</p>
         <div class="flex items-center gap-6">
-          <a href="#" class="hover:text-on-primary transition-colors">Privacy Policy</a>
-          <a href="#" class="hover:text-on-primary transition-colors">Terms of Service</a>
-          <a href="#" class="hover:text-on-primary transition-colors">Accessibility</a>
+          <a href="site-info.html?topic=privacy" class="hover:text-on-primary transition-colors">Privacy Policy</a>
+          <a href="site-info.html?topic=terms" class="hover:text-on-primary transition-colors">Terms of Service</a>
+          <a href="site-info.html?topic=accessibility" class="hover:text-on-primary transition-colors">Accessibility</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="js/config.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

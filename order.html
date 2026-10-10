@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review your Well Icon order details before submitting them through the configured order form.">
+  <title>Review Order | WELL ICON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,400,0,0" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="order-page">
+  <header class="order-header">
+    <a href="index.html" class="brand-wordmark" aria-label="Well Icon home">WELL <span>ICON</span></a>
+    <nav aria-label="Order navigation"><a href="cart.html">Back to cart</a><a href="index.html">Continue shopping</a></nav>
+  </header>
+  <main class="order-shell">
+    <nav class="product-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><a href="cart.html">Cart</a><span>/</span><span aria-current="page">Review order</span></nav>
+    <div class="order-heading"><p class="detail-eyebrow">NO ACCOUNT REQUIRED</p><h1>Review your order</h1><p>Check these details, then copy them into the Well Icon order form.</p></div>
+    <div id="order-state" class="order-state" role="status" aria-live="polite"></div>
+    <section id="order-review" class="order-review hidden" aria-labelledby="order-items-heading">
+      <div class="order-items-panel">
+        <h2 id="order-items-heading">Items in this order</h2>
+        <div id="order-items" class="order-items"></div>
+        <div class="order-subtotal"><span>Subtotal</span><strong id="order-subtotal">₹0.00</strong></div>
+        <p class="order-caveat">Shipping and taxes are not included because the store has no confirmed delivery or tax rules yet.</p>
+      </div>
+      <aside class="order-next-panel">
+        <h2>Submit your details</h2>
+        <ol>
+          <li>Copy the order summary below.</li>
+          <li>Open the order form and paste the summary into its order details field.</li>
+          <li>Submit the form. Your order is pending until Well Icon receives it.</li>
+        </ol>
+        <label class="sr-only" for="order-summary-copy">Copyable order summary</label>
+        <textarea id="order-summary-copy" readonly rows="8"></textarea>
+        <button id="copy-order-summary" class="order-primary-button" type="button"><span class="material-symbols-outlined" aria-hidden="true">content_copy</span>Copy order summary</button>
+        <button id="open-order-form" class="order-secondary-button" type="button" disabled>Order form not configured</button>
+        <p id="form-setup-message" class="order-form-note">The Well Icon order form URL has not been configured yet. Your cart is saved, and you can return here once the form is available.</p>
+        <p class="order-pending-note"><strong>This is not an order confirmation.</strong> Opening a form does not submit your order or confirm payment.</p>
+      </aside>
+    </section>
+    <div id="order-error-actions" class="order-error-actions hidden"><a class="order-primary-button" href="cart.html">Return to cart</a><a class="order-secondary-button" href="index.html">Continue shopping</a></div>
+  </main>
+  <footer class="product-footer"><a href="index.html" class="brand-wordmark">WELL <span>ICON</span></a><p>Comfort for every day.</p><nav><a href="men.html">Men</a><a href="women.html">Women</a><a href="accessories.html">Accessories</a><a href="cart.html">Shopping bag</a></nav></footer>
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/order.js"></script>
+</body>
+</html>
